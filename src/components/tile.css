@@ -1,0 +1,33 @@
+div.tile {
+	display: inline-block;
+	width: 50%;
+	background-color: white;
+	border: 0px solid white;
+	border-radius: 25px;
+	margin: 15px;
+	padding: 10px;
+}
+
+dd {
+	margin: 15px auto;
+}
+
+dd:first-of-type {
+	font-weight: bold;
+}
+
+dl {
+	display: inline-block;
+	width: 60%;
+	vertical-align: top;
+}
+
+img.cover-photo {
+	display: inline-block;
+	width: 150px;
+	height: 150px;
+}
+
+.hidden {
+	display: none;
+}

@@ -1,0 +1,8 @@
+section.results-wrapper {
+	background-color: grey;
+}
+
+div.results-display {
+	width: 75%;
+	padding: 1rem;
+}

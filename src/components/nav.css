@@ -1,0 +1,29 @@
+header.nav {
+	background-color: grey;
+	padding: 1.5rem;
+}
+
+nav {
+	font-weight: 600;
+	text-align: center;
+	padding: 1% 0;
+	background-color: grey;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: 10;
+}
+
+a.link {
+	text-decoration: none;
+	color: white;
+	margin: 1rem;
+	transition: color .5s;
+	position: relative;
+	left: 38%;
+}
+
+a:hover {
+	color: blue;
+}
