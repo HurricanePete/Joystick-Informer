@@ -10,8 +10,8 @@ export default class NavigationBar extends React.Component {
 		return (
 			<header className="nav">
 				<nav className="">
-					<a className="link" href="#" title="Home">Home</a>
-					<a className="link" href="#" title="Sign in">Sign in</a>
+					<span className="link" href="#" title="Home">Home</span>
+					<span className="link" href="#" title="Sign in">Sign in</span>
 				</nav>
 			</header>
 			);

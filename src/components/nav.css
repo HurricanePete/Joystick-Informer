@@ -15,7 +15,7 @@ nav {
 	z-index: 10;
 }
 
-a.link {
+span.link {
 	text-decoration: none;
 	color: white;
 	margin: 1rem;
@@ -24,6 +24,6 @@ a.link {
 	left: 38%;
 }
 
-a:hover {
+span.link:hover {
 	color: blue;
 }
