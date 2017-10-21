@@ -1,11 +1,12 @@
 import React from 'react';
 
-import './tile.css';
+import './gameView.css';
+
 import demo from './static-photos/demo.png';
 
-export default function Tile(props) {
+export default function GameView(props) {
 	return (
-		<div className="tile">
+		<section className="GameView-wrapper">
 			<div className="" title={props.title}>
 				<img className="cover-photo" alt={props.title} src={demo} />
 				<dl>
@@ -13,10 +14,10 @@ export default function Tile(props) {
 					<dd>{props.title}</dd>
 					<dt className="hidden">Rating</dt>
 					<dd>{props.rating}</dd>
-					<dt className="hidden">Price</dt>
-					<dd>{props.price}</dd>
+					<dt className="hidden">Summary</dt>
+					<dd>{props.summary}</dd>
 				</dl>
 			</div>
-		</div>
-		)
+		</section>
+	);
 }
