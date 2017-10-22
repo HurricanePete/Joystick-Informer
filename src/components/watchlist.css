@@ -1,0 +1,15 @@
+section.watchlist-wrapper {
+	padding: 1rem;
+	margin: 0 auto;
+}
+
+div.tile {
+	display: inline-block;
+}
+
+button.list-remover {
+	display: inline-block;
+	width: 5%;
+	height: 145px;
+	vertical-align: text-bottom;
+}

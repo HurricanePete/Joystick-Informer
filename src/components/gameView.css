@@ -8,13 +8,18 @@ div.game-view {
 
 p.summary {
 	text-align: justify;
+	padding: 0;
 }
 
 dl.game-details {
-	width: 75%;
+	display: inline-block;
+	width: 65%;
+	padding: 1%;
 }
 
 img.game-photo {
 	display: inline-block;
-	width: 25%;
+	height: 205px;
+	width: 205px;
+	margin: 2rem;
 }

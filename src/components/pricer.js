@@ -1,5 +1,5 @@
 import React from 'react';
-import PriceCell from './priceCell'
+import PriceCell from './priceCell';
 
 import './pricer.css';
 
@@ -19,7 +19,7 @@ export default function Pricer(props) {
 	);
 	return(
 		<div className="price-wrapper">
-			<h2>Prices</h2>
+			<h3>Prices</h3>
 			<hr/>
 			<table>
 				<thead>

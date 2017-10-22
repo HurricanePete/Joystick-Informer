@@ -1,10 +1,15 @@
 import React from 'react';
 import {BrowserRouter as Router} from 'react-router-dom';
+
+import Banner from './banner';
 import NavigationBar from './nav';
 import Footer from './footer';
 import SearchBar from './searchBar';
 import ResultsDisplay from './resultsDisplay';
 import GameView from './gameView';
+import Dashboard from './dashboard';
+
+import './main.css';
 
 export default function App(props) {
 
@@ -19,9 +24,11 @@ export default function App(props) {
 		<Router>
 			<div className="app">
 				<NavigationBar />
+				<Banner />
 				<SearchBar />
 				<ResultsDisplay />
 				<GameView {...example} />
+				<Dashboard />
 				<Footer />
 			</div>
 		</Router>

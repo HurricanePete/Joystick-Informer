@@ -1,0 +1,9 @@
+section.relatedGames-wrapper {
+	padding: 1rem;
+}
+
+button.list-adder {
+	width: 5%;
+	height: 150px;
+	vertical-align: text-bottom;
+}
