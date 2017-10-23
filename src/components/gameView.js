@@ -1,4 +1,5 @@
 import React from 'react';
+import {connect} from 'react-redux';
 
 import Pricer from './pricer';
 
@@ -27,3 +28,4 @@ export default function GameView(props) {
 		</section>
 	);
 }
+

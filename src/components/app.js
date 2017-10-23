@@ -1,5 +1,5 @@
 import React from 'react';
-import {BrowserRouter as Router} from 'react-router-dom';
+import {BrowserRouter as Router, Route} from 'react-router-dom';
 
 import Banner from './banner';
 import NavigationBar from './nav';
@@ -24,11 +24,11 @@ export default function App(props) {
 		<Router>
 			<div className="app">
 				<NavigationBar />
-				<Banner />
+				<Route exact path="/" component={Banner} />
 				<SearchBar />
 				<ResultsDisplay />
-				<GameView {...example} />
-				<Dashboard />
+				<Route exact path="/gameId" component={GameView} />
+				<Route exact path="/dashboard" component={Dashboard} />
 				<Footer />
 			</div>
 		</Router>

@@ -1,26 +1,15 @@
 import React from 'react';
+import {connect} from 'react-redux';
 
 import Tile from './tile';
 import './relatedGames.css';
 
-export default function RelatedGames(props) {
-	const examples = [{
-		title: 'Potato 3: Sweet\'s Revenge',
-		rating: '5/10',
-		price: '$25.00'
-	}, {
-		title: 'Call of Potato',
-		rating: '5/10',
-		price: '$25.00'
-	}, {
-		title: 'Potato Invaders',
-		rating: '5/10',
-		price: '$25.00'
-	}]
-	const tiles = examples.map((tile, index) =>
+export function RelatedGames(props) {
+	
+	const tiles = this.props.relatedGames.map((tile, index) =>
 		<li> 
 			<Tile key={index} {...tile} />
-			<button className="list-remover" title="Add to Watchlist"> + </button>
+			<button className="list-adder" title="Add to Watchlist"> + </button>
 		</li>
 		);
 
@@ -32,3 +21,9 @@ export default function RelatedGames(props) {
 		</section>
 	)
 }
+
+const mapStateToProps = state => ({
+	relatedGames: state.user.relatedGames
+});
+
+export default connect(mapStateToProps)(RelatedGames);

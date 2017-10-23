@@ -1,23 +1,12 @@
 import React from 'react';
+import {connect} from 'react-redux';
 
 import Tile from './tile';
 import './watchlist.css';
 
-export default function Watchlist(props) {
-	const examples = [{
-		title: 'Potato: Rise of the Fries',
-		rating: '5/10',
-		price: '$25.00'
-	}, {
-		title: 'Potato Putt',
-		rating: '5/10',
-		price: '$25.00'
-	}, {
-		title: 'Captain Potato',
-		rating: '5/10',
-		price: '$25.00'
-	}]
-	const tiles = examples.map((tile, index) => 
+export function Watchlist(props) {
+	
+	const tiles = this.props.watchlist.map((tile, index) => 
 		<li>
 			<Tile key={index} {...tile} />
 			<button className="list-remover" title="Remove from Watchlist"> - </button>
@@ -32,3 +21,9 @@ export default function Watchlist(props) {
 		</section>
 	)
 }
+
+const mapStateToProps = state => ({
+	watchlist: state.user.watchlist
+});
+
+export default connect(mapStateToProps)(Watchlist);
