@@ -1,11 +1,17 @@
+import * as actions from '../actions';
+
 const initialState = {
+	banner: true,
+	gameView: false,
 	user: {
 		signedIn: false,
 		name: 'PotatoBandit',
+		password: 'PotatoPassword',
 		watchlist: [{
 			title: 'Potato: Rise of the Fries',
 			rating: '5/10',
-			price: '$25.00'
+			price: '$25.00',
+			summary: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate'
 		}, {
 			title: 'Potato Putt',
 			rating: '5/10',
@@ -69,7 +75,21 @@ const initialState = {
 };
 
 export const joystickReducer = (state=initialState, action) => {
-
+	if (action.type === actions.BANNER_TOGGLE) {
+		return Object.assign({}, state, {
+			banner: false
+		});
+	}
+	else if (action.type === actions.DASHBOARD_TOGGLE) {
+		return Object.assign({}, state, {
+			gameView: !state.gameView
+		});
+	}
+	else if (action.type === actions.SIGN_IN_TOGGLE) {
+		return Object.assign({}, state, {
+			signedIn: !state.signedIn
+		})
+	}
 
 	return state;
 };

@@ -3,6 +3,32 @@ div {
 	text-align: center;
 }
 
+input.search {
+	width: 33%;
+	min-width: 12rem;
+	height: 50px;
+	padding-left: 1%;
+	font-size: 18px;
+	box-shadow: 1px 1px 1px 1px grey;
+	border: none;
+}
+
+input.submit {
+	margin-left: 5px;
+	height: 50px;
+	width: 5%;
+	min-width: 4rem;
+	vertical-align: bottom;
+	box-shadow: 1px 1px 1px 1px grey;
+	font-weight: bold;
+	color: grey;
+	transition-property: color .5s;
+}
+
+input.submit:hover {
+	color: black;
+}
+
 form.search-bar {
 	background-color: lightgrey;
 	margin: 0 auto;

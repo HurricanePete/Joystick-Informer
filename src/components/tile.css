@@ -6,6 +6,15 @@ div.tile {
 	border-radius: 25px;
 	margin: 15px;
 	padding: 10px;
+	color: black;
+	border: 1px solid white;
+	transition-property: color background-color;
+	transition-duration: .5s;
+}
+
+div.tile:hover {
+	background-color: slategrey;
+	color: white;
 }
 
 dd {
@@ -13,12 +22,18 @@ dd {
 }
 
 dd:first-of-type {
+	font-size: 18px;
 	font-weight: bold;
 }
 
 dl {
 	display: inline-block;
 	width: 60%;
+	vertical-align: top;
+}
+
+span.props {
+	font-size: 20px;
 	vertical-align: top;
 }
 

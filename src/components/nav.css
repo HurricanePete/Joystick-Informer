@@ -1,12 +1,6 @@
-header.nav {
-	background-color: grey;
-	padding: 1.5rem;
-}
-
 nav {
 	font-weight: 600;
-	text-align: center;
-	padding: 1% 0;
+	padding: 1rem 1%;
 	background-color: grey;
 	position: fixed;
 	top: 0;
@@ -15,15 +9,52 @@ nav {
 	z-index: 10;
 }
 
-span.link {
+img.avatar {
+	height: 2rem;
+	width: 2rem;
+	display: inline-block;
+	margin-right: 1rem;
+}
+
+div.link {
 	text-decoration: none;
 	color: white;
 	margin: 1rem;
-	transition: color .5s;
-	position: relative;
-	left: 38%;
+	transition-property: color; 
+	transition-duration: .5s;
 }
 
-span.link:hover {
+div.avatar {
+	height: 1rem;
+	width: 10%;
+}
+
+div.home, div.login {
+	display: inline-block;
+	width: 20%;
+	margin: 0 2rem;
+}
+
+div.home {
+	position: relative;
+	right: 25%;
+}
+
+div.login, div.avatar {
+	position: relative;
+	left: 25%;
+}
+
+div.link:hover {
 	color: blue;
+}
+
+div.avatar > h3 {
+	display: inline-block;	
+	padding: 0;
+	vertical-align: super;
+}
+
+nav > a {
+	text-decoration: none;
 }

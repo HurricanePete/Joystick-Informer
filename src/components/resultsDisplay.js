@@ -7,22 +7,22 @@ import './resultsDisplay.css';
 
 class ResultsDisplay extends Component {
 
-render() {
-	const tiles = this.props.examples.map((tile, index) => <Tile {...tile} />)
+	render() {
+		const tiles = this.props.examples.map((tile, index) => <Tile key={index} {...tile} />)
 
-	return(
-		<section className="results-wrapper">
-			<div className="results-display">
-				{tiles}
-			</div>
-		</section>
-	)
-}
+		return(
+			<section className="results-wrapper">
+				<div className="results-display">
+					{tiles}
+				</div>
+			</section>
+		)
+	}
 }
 
 const mapStateToProps = state => {
 	return {
-		examples: state.examples
+		examples: state.joystick.examples
 	}
 };
 

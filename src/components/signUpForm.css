@@ -1,0 +1,35 @@
+label {
+	display: block;
+	margin: 6px;
+}
+
+label > input {
+	margin: 6px;
+	display: block;
+}
+
+div.form-wrapper {
+	text-align: center;
+}
+
+form.signup-form, form.login-form {
+	border: 1px solid grey;
+	border-radius: 10px;
+	margin: 0 auto;
+	padding: 1rem;
+	text-align: center;
+	width: 50%;
+	max-width: 15rem;
+}
+
+button.submit-button {
+	margin: 1rem;
+}
+
+.form-error {
+	display: inline-block;
+	margin: 0 6px;
+	padding: 6px;
+	background-color: red;
+	color: white;
+}

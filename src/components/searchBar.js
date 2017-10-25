@@ -9,7 +9,7 @@ export default function SearchBar(props) {
 			</header>
 			<form className="search-bar">
 				<input className="search" type="search" placeholder="Search for games"/>
-				<input type="submit" value="Search"/>
+				<input className="submit" type="submit" value="Search"/>
 			</form>
 		</div>
 	);

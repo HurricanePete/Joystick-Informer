@@ -3,13 +3,25 @@ section.watchlist-wrapper {
 	margin: 0 auto;
 }
 
-div.tile {
+div.watchlist-tile {
 	display: inline-block;
+	border-top-right-radius: 0;
+	border-bottom-right-radius: 0;
 }
 
 button.list-remover {
 	display: inline-block;
+	position: relative;
+	top: 15px;
 	width: 5%;
-	height: 145px;
-	vertical-align: text-bottom;
+	height: 180px;
+	vertical-align: top;
+	border-radius: 25px;
+	border-top-left-radius: 0;
+	border-bottom-left-radius: 0;
 }
+
+/*li.game-row {
+	margin: 0 auto;
+	width: 66.666%;
+}*/

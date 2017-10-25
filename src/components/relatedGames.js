@@ -4,26 +4,30 @@ import {connect} from 'react-redux';
 import Tile from './tile';
 import './relatedGames.css';
 
-export function RelatedGames(props) {
-	
-	const tiles = this.props.relatedGames.map((tile, index) =>
-		<li> 
-			<Tile key={index} {...tile} />
-			<button className="list-adder" title="Add to Watchlist"> + </button>
-		</li>
-		);
+export class RelatedGames extends React.Component {
 
-	return(
-		<section className="relatedGames-wrapper">
-			<ul>
-				{tiles}
-			</ul>
-		</section>
-	)
+	render() {
+		const tiles = this.props.relatedGames.map((tile, index) =>
+			<li key={index}> 
+				<Tile {...tile} />
+				<button className="list-adder" title="Add to Watchlist"> + </button>
+			</li>
+			);
+
+		return(
+			<section className="relatedGames-wrapper">
+				<ul>
+					{tiles}
+				</ul>
+			</section>
+		)
+	}
 }
 
-const mapStateToProps = state => ({
-	relatedGames: state.user.relatedGames
-});
+const mapStateToProps = state => {
+	return {
+		relatedGames: state.joystick.user.relatedGames
+	}
+};
 
 export default connect(mapStateToProps)(RelatedGames);

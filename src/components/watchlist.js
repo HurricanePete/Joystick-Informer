@@ -4,26 +4,31 @@ import {connect} from 'react-redux';
 import Tile from './tile';
 import './watchlist.css';
 
-export function Watchlist(props) {
-	
-	const tiles = this.props.watchlist.map((tile, index) => 
-		<li>
-			<Tile key={index} {...tile} />
-			<button className="list-remover" title="Remove from Watchlist"> - </button>
-		</li>
-		);
+export class Watchlist extends React.Component {
 
-	return(
-		<section className="watchlist-wrapper">
-			<ul>
-				{tiles}
-			</ul>
-		</section>
-	)
+	render() {
+		const tiles = this.props.watchlist.map((tile, index) => 
+			<li className="game-row" key={index}>
+				<Tile gameView={this.props.gameView} {...tile} />
+				<button className="list-remover" title="Remove from Watchlist"> - </button>
+			</li>
+			);
+
+		return(
+			<section className="watchlist-wrapper">
+				<ul>
+					{tiles}
+				</ul>
+			</section>
+		)
+	}
 }
 
-const mapStateToProps = state => ({
-	watchlist: state.user.watchlist
-});
+const mapStateToProps = state => {
+	return {
+		watchlist: state.joystick.user.watchlist,
+		gameView: state.joystick.gameView
+	}
+};
 
 export default connect(mapStateToProps)(Watchlist);
