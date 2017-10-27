@@ -9,7 +9,7 @@ import {setGameId} from '../actions';
 
 export class Tile extends React.Component {
 		render() {
-		const {index, title, rating, price, dashboard} = this.props;
+		const {index, title, rating, price} = this.props;
 		return (
 			<Link to={`/gameview/${index}`}>
 				<div className="tile">

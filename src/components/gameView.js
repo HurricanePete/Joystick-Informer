@@ -60,7 +60,6 @@ export class GameView extends React.Component {
 }
 
 const mapStateToProps = state => {
-	const gameSelect = state.joystick.gameId;
 	return {
 		joystick: state.joystick,
 		signedIn: state.joystick.user.signedIn
