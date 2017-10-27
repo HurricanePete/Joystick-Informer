@@ -24,13 +24,16 @@ export class GameView extends React.Component {
 	}
 
 	render() {
+		if(!this.props.joystick) {
+			return null
+		}
 		const {joystick} = this.props;
 		const id = this.props.match.params.id;
 		console.log(id);
-		let gameIndex = joystick.examples.findIndex(game => game.gameId === id);
-		console.log(joystick.examples[0].gameId);
-		console.log(gameIndex);
-		const {title, rating, summary} = joystick.examples[0];
+		let gameIndex = joystick.examples.filter(game => game.gameId === parseInt(id));
+		console.log(joystick.examples);
+		console.log(gameIndex[0])
+		const {title, rating, summary} = gameIndex[0];
 
 		if(!joystick.user.signedIn) {
 			return(
