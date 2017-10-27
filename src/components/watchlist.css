@@ -14,7 +14,7 @@ button.list-remover {
 	position: relative;
 	top: 15px;
 	width: 5%;
-	height: 180px;
+	height: auto;
 	vertical-align: top;
 	border-radius: 25px;
 	border-top-left-radius: 0;

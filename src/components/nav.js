@@ -11,21 +11,20 @@ export class NavigationBar extends React.Component {
 		if(this.props.signedIn) {
 			return(
 				<nav className="">
-					<Link to="/"><div className="link home" title="Home">Home</div></Link>
-					<Link to="/dashboard">
-						<div className="link avatar" title={this.props.user}>
+					<div className="link home" title="Home"><Link to="/">Home</Link></div>
+					<div className="link avatar" title={this.props.user}>
+						<Link to="/dashboard">
 							<img className="avatar" src={avatar} alt="avatar" />
-							<h3>{this.props.user}</h3>
-						</div>
-					</Link>
+						</Link>
+					</div>
 				</nav>
 			)
 		}
 
 		return (
 				<nav className="">
-					<Link to="/"><div className="link home" title="Home">Home</div></Link>
-					<Link to="/login"><div className="link login" title="Sign in">Sign in</div></Link>
+					<div className="link home" title="Home"><Link to="/">Home</Link></div>
+					<div className="link login" title="Sign in"><Link to="/login">Sign in</Link></div>
 				</nav>
 		);
 	}
@@ -33,7 +32,7 @@ export class NavigationBar extends React.Component {
 
 const mapStateToProps = state => {
 	return {
-		signedIn: state.joystick.signedIn,
+		signedIn: state.joystick.user.signedIn,
 		user: state.joystick.user.name
 	}
 }

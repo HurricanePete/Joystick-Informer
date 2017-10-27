@@ -8,7 +8,7 @@ import GameView from './gameView';
 import Dashboard from './dashboard';
 import LoginPage from './loginPage';
 
-import './main.css';
+import './app.css';
 
 export default function App(props) {
 
@@ -17,7 +17,7 @@ export default function App(props) {
 			<div className="app">
 				<NavigationBar />
 				<Route exact path="/" component={SearchPage} />
-				<Route exact path="/gameId" component={GameView} />
+				<Route exact path="/gameview/:id" component={GameView} />
 				<Route exact path="/dashboard" component={Dashboard} />
 				<Route exact path="/login" component={LoginPage} />
 				<Footer />

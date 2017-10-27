@@ -2,7 +2,7 @@ import React from 'react';
 import {Field, reduxForm} from 'redux-form';
 import {Link} from 'react-router-dom';
 
-import './signUpForm.css';
+import './loginForm.css';
 
 export class LoginForm extends React.Component {
 	onSubmit(values) {
@@ -15,7 +15,6 @@ export class LoginForm extends React.Component {
 		if (this.props.signIn) {
 			this.props.signIn();
 		}
-		console.log('form');
 	}
 
 	render() {
@@ -25,7 +24,7 @@ export class LoginForm extends React.Component {
 					<label htmlFor="username">Username</label>
 					<Field name="username" id="username" type="text" component="input" />
 					<label htmlFor="password">Password</label>
-					<Field name="password" id="password" type="password" component="input" />
+					<Field name="password" id="password" type="text" component="input" />
 					<button className="submit-button" type="submit" onClick={e => this.signIn(e)} disabled={this.props.submitting}><Link to="/dashboard">Log in</Link></button>
 				</form>
 			</div>

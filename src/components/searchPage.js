@@ -13,23 +13,25 @@ export class SearchPage extends React.Component {
 	}
 
 	render() {
-		if (this.props.banner === true) {
+		if (!this.props.banner || this.props.signedIn) {
 			return(
-				<Banner toggleBanner={() => this.hideBanner()} />
+				<main>
+					<SearchBar />
+					<ResultsDisplay />
+				</main>
 			)
 		}
+		
 		return(
-			<main>
-				<SearchBar />
-				<ResultsDisplay />
-			</main>
-		)
+			<Banner toggleBanner={() => this.hideBanner()} />
+			)
 	}
 }
 
 const mapStateToProps = state => {
 	return {
-		banner: state.joystick.banner
+		banner: state.joystick.banner,
+		signedIn: state.joystick.user.signedIn
 	}
 }
 

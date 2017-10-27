@@ -1,6 +1,6 @@
 nav {
 	font-weight: 600;
-	padding: 1rem 1%;
+	padding: 1rem;
 	background-color: grey;
 	position: fixed;
 	top: 0;
@@ -10,29 +10,29 @@ nav {
 }
 
 img.avatar {
-	height: 2rem;
-	width: 2rem;
+	height: 1.5rem;
+	width: 1.5rem;
 	display: inline-block;
 	margin-right: 1rem;
+	border-radius: 5px;
 }
 
-div.link {
+div.link > a {
 	text-decoration: none;
 	color: white;
-	margin: 1rem;
 	transition-property: color; 
 	transition-duration: .5s;
 }
 
-div.avatar {
-	height: 1rem;
-	width: 10%;
-}
-
-div.home, div.login {
+div.home, div.login, div.avatar {
 	display: inline-block;
+	height: 1.5rem;
 	width: 20%;
 	margin: 0 2rem;
+}
+
+div.avatar {
+	vertical-align: text-top;
 }
 
 div.home {
@@ -45,7 +45,7 @@ div.login, div.avatar {
 	left: 25%;
 }
 
-div.link:hover {
+div.link > a:hover {
 	color: blue;
 }
 
@@ -55,6 +55,6 @@ div.avatar > h3 {
 	vertical-align: super;
 }
 
-nav > a {
+nav > div > a {
 	text-decoration: none;
 }

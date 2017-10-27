@@ -9,7 +9,7 @@ export class Watchlist extends React.Component {
 	render() {
 		const tiles = this.props.watchlist.map((tile, index) => 
 			<li className="game-row" key={index}>
-				<Tile gameView={this.props.gameView} {...tile} />
+				<Tile index={index} {...tile} />
 				<button className="list-remover" title="Remove from Watchlist"> - </button>
 			</li>
 			);

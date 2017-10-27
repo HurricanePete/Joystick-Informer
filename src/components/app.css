@@ -1,0 +1,28 @@
+* {
+	box-sizing: border-box;
+}
+
+ul {
+	list-style: none;
+}
+
+a {
+	text-decoration: none;
+}
+
+header {
+	margin: 0 auto;
+	padding: 4rem 1rem 1rem 1rem;
+}
+
+.hidden {
+	display: none;
+}
+
+.float-left {
+	margin-right: 15%;
+}
+
+.float-right {
+	margin-left: 15%;
+}

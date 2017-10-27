@@ -12,7 +12,7 @@ div.form-wrapper {
 	text-align: center;
 }
 
-form.signup-form, form.login-form {
+form.signup-form {
 	border: 1px solid grey;
 	border-radius: 10px;
 	margin: 0 auto;

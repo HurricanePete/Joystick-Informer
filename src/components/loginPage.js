@@ -4,12 +4,11 @@ import {Link} from 'react-router-dom';
 
 import LoginForm from './loginForm';
 
-import {signInToggle} from '../actions';
+import {signIn} from '../actions';
 
 export class LoginPage extends React.Component {
 	toggleSignIn() {
-		this.props.dispatch(signInToggle());
-		console.log('page')
+		this.props.dispatch(signIn());
 	}
 
 	render() {

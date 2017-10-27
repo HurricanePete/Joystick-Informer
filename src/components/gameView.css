@@ -3,6 +3,7 @@ section.gameView-wrapper {
 }
 
 div.game-view {
+	padding-top: 4rem;
 	width: 75%;
 }
 

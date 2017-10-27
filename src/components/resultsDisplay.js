@@ -8,7 +8,7 @@ import './resultsDisplay.css';
 class ResultsDisplay extends Component {
 
 	render() {
-		const tiles = this.props.examples.map((tile, index) => <Tile key={index} {...tile} />)
+		const tiles = this.props.examples.map((tile, index) => <Tile key={index} index={index} dashboard={false} {...tile} />)
 
 		return(
 			<section className="results-wrapper">

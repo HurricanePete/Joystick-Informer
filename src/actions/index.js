@@ -8,7 +8,18 @@ export const dashboardToggle = () => ({
 	type: DASHBOARD_TOGGLE
 })
 
-export const SIGN_IN_TOGGLE = 'SIGN_IN_TOGGLE';
-export const signInToggle = () => ({
-	type: SIGN_IN_TOGGLE
+export const SIGN_IN = 'SIGN_IN';
+export const signIn = () => ({
+	type: SIGN_IN
+})
+
+export const SIGN_OUT = 'SIGN_OUT';
+export const signOut = () => ({
+	type: SIGN_OUT
+})
+
+export const SET_GAME_ID = 'SET_GAME_ID';
+export const setGameId = (gameId) => ({
+	type: SET_GAME_ID,
+	gameId
 })

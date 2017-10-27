@@ -1,26 +1,33 @@
 import React from 'react';
+import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
 
 import './tile.css';
 import demo from './static-photos/demo.png';
 
-export default function Tile(props) {
+import {setGameId} from '../actions';
 
-	return (
-		<Link to="/">
-		<div className={props.gameView ? "gameView-tile" : "tile"}>
-			<div className="" title={props.title}>
-				<img className="cover-photo" alt={props.title} src={demo} />
-				<dl>
-					<dt className="hidden">Title</dt>
-					<dd>{props.title}</dd>
-					<dt className="hidden">Rating</dt>
-					<dd>Avg. Rating: <span className="props">{props.rating}</span></dd>
-					<dt className="hidden">Price</dt>
-					<dd>Low Price: <span className="props">{props.price}</span></dd>
-				</dl>
-			</div>
-		</div>
-		</Link>
-	);
+export class Tile extends React.Component {
+		render() {
+		const {index, title, rating, price, dashboard} = this.props;
+		return (
+			<Link to={`/gameview/${index}`}>
+				<div className="tile">
+					<div className="" title={title}>
+						<img className="cover-photo" alt={title} src={demo} />
+						<dl>
+							<dt className="hidden">Title</dt>
+							<dd>{title}</dd>
+							<dt className="hidden">Rating</dt>
+							<dd>Avg. Rating: <span className="props">{rating}</span></dd>
+							<dt className="hidden">Price</dt>
+							<dd>Low Price: <span className="props">{price}</span></dd>
+						</dl>
+					</div>
+				</div>
+			</Link>
+		);
+	}
 }
+
+export default connect()(Tile)

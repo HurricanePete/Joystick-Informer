@@ -2,3 +2,13 @@ section.dashboard-wrapper {
 	padding: 2rem;
 	background-color: lightgrey;
 }
+
+button.sign-out {
+	vertical-align: top;
+}
+
+img.profile-pic {
+	height: 5rem;
+	width: 7rem;
+	border-radius: 10px;
+}

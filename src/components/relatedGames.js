@@ -9,7 +9,7 @@ export class RelatedGames extends React.Component {
 	render() {
 		const tiles = this.props.relatedGames.map((tile, index) =>
 			<li key={index}> 
-				<Tile {...tile} />
+				<Tile index={index} {...tile} />
 				<button className="list-adder" title="Add to Watchlist"> + </button>
 			</li>
 			);
