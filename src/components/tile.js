@@ -5,8 +5,6 @@ import {Link} from 'react-router-dom';
 import './tile.css';
 import demo from './static-photos/demo.png';
 
-import {setGameId} from '../actions';
-
 export class Tile extends React.Component {
 		render() {
 		const {index, title, rating, price} = this.props;
