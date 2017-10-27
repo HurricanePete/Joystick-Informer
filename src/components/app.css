@@ -15,6 +15,20 @@ header {
 	padding: 4rem 1rem 1rem 1rem;
 }
 
+label {
+	display: block;
+	margin: 6px;
+}
+
+button:hover {
+	cursor: pointer;
+}
+
+label > input {
+	margin: 6px;
+	display: block;
+}
+
 .hidden {
 	display: none;
 }

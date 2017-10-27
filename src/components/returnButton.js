@@ -1,14 +1,20 @@
 import React from 'react';
+import {connect} from 'react-redux';
 
-export default class ReturnButton extends React.Component {
-	onClick(event) {
+
+export class ReturnButton extends React.Component {
+	goBack(event) {
 		event.preventDefault();
-		this.props.history.push(`/${this.props.path}`);
+		if(this.props.goBack) {
+			this.props.goBack();
+		}
 	}
 
 	render() {
 		return(
-			<button onClick={e => this.onClick(e)} >Return</button>
+			<button className="return" onClick={e => this.goBack(e)}>Return</button>
 		)
+	}
 }
-}
+
+export default connect()(ReturnButton)

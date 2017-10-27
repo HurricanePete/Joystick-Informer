@@ -7,6 +7,7 @@ import SearchPage from './searchPage';
 import GameView from './gameView';
 import Dashboard from './dashboard';
 import LoginPage from './loginPage';
+import SignUpPage from './signUpPage';
 
 import './app.css';
 
@@ -20,6 +21,7 @@ export default function App(props) {
 				<Route exact path="/gameview/:id" component={GameView} />
 				<Route exact path="/dashboard" component={Dashboard} />
 				<Route exact path="/login" component={LoginPage} />
+				<Route exact path="/signup" component={SignUpPage} />
 				<Footer />
 			</div>
 		</Router>

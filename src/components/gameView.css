@@ -24,3 +24,9 @@ img.game-photo {
 	width: 205px;
 	margin: 2rem;
 }
+
+button.watchlist-add {
+	border-radius: 5px;
+	padding: 5px;
+	font-weight: bold;
+}

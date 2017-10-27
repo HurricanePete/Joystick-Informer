@@ -9,20 +9,22 @@ import {signIn} from '../actions';
 export class LoginPage extends React.Component {
 	toggleSignIn() {
 		this.props.dispatch(signIn());
+		this.props.history.push("/dashboard");
 	}
 
 	render() {
+		const {user} = this.props;
 		return(
 			<section className="login-wrapper">
 				<header>
 					<h2>Log in to Joystick Informer</h2>
 				</header>
 				<LoginForm signIn={() => this.toggleSignIn()} initialValues={
-					{username: this.props.username,
-					password: this.props.password}
+					{username: user.name,
+					password: user.password}
 				} />
 				<div>
-					<p>Want an account? <Link to="/">Create one here.</Link></p>
+					<p>Want an account? <Link to="/signup">Create one here.</Link></p>
 				</div>
 			</section>
 		)
@@ -31,8 +33,7 @@ export class LoginPage extends React.Component {
 
 const mapStateToProps = state => {
 	return{
-		username: state.joystick.user.name,
-		password: state.joystick.user.password
+		user: state.joystick.user
 	}
 }
 

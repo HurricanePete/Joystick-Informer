@@ -23,3 +23,15 @@ export const setGameId = (gameId) => ({
 	type: SET_GAME_ID,
 	gameId
 })
+
+export const ADD_TO_WATCHLIST = 'ADD_TO_WATCHLIST';
+export const addToWatchlist = (game) => ({
+	type: ADD_TO_WATCHLIST,
+	game
+})
+
+export const REMOVE_FROM_WATCHLIST = 'REMOVE_FROM_WATCHLIST';
+export const removeFromWatchlist = (index) => ({
+	type: REMOVE_FROM_WATCHLIST,
+	index
+})

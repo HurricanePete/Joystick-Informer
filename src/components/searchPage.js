@@ -13,6 +13,7 @@ export class SearchPage extends React.Component {
 	}
 
 	render() {
+//declare variables
 		if (!this.props.banner || this.props.signedIn) {
 			return(
 				<main>

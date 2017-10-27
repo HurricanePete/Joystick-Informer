@@ -1,6 +1,5 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {Link} from 'react-router-dom';
 
 import Watchlist from './watchlist';
 import RelatedGames from './relatedGames';
@@ -13,17 +12,19 @@ import './dashboard.css';
 export class Dashboard extends React.Component {
 	signOut(event) {
 		this.props.dispatch(signOut());
+		this.props.history.push("/");
 	}
 
 	render() {
+		const {user} = this.props;
 		return(
 			<section className="dashboard-wrapper">
 				<header className="dashboard-header">
 					<div className="profile">
-						<img className="profile-pic" src={avatar} alt={this.props.user} />
-						<h2 className="">Hello, {this.props.user}</h2>
+						<img className="profile-pic" src={avatar} alt={user.name} />
+						<h2 className="">Hello, {user.name}</h2>
 					</div>
-					<button className="sign-out" onClick={e => this.signOut(e)}><Link to="/">Sign out</Link></button>
+					<button className="sign-out" onClick={e => this.signOut(e)}>Sign out</button>
 				</header>
 				<h3>Your Watchlist</h3>
 				<hr/>
@@ -38,7 +39,7 @@ export class Dashboard extends React.Component {
 
 const mapStateToProps = state => {
 	return{
-		user: state.joystick.user.name
+		user: state.joystick.user
 	}
 }
 

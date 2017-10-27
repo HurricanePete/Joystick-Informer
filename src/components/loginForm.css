@@ -7,3 +7,8 @@ form.login-form {
 	width: 50%;
 	max-width: 15rem;
 }
+
+form.login-form > input {
+	padding: 5px;
+	border-radius: 5px;
+}

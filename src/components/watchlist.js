@@ -7,7 +7,8 @@ import './watchlist.css';
 export class Watchlist extends React.Component {
 
 	render() {
-		const tiles = this.props.watchlist.map((tile, index) => 
+		const {watchlist} = this.props;
+		const tiles = watchlist.map((tile, index) => 
 			<li className="game-row" key={index}>
 				<Tile index={index} {...tile} />
 				<button className="list-remover" title="Remove from Watchlist"> - </button>
@@ -26,8 +27,7 @@ export class Watchlist extends React.Component {
 
 const mapStateToProps = state => {
 	return {
-		watchlist: state.joystick.user.watchlist,
-		gameView: state.joystick.gameView
+		watchlist: state.joystick.user.watchlist
 	}
 };
 

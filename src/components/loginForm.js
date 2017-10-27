@@ -1,6 +1,5 @@
 import React from 'react';
 import {Field, reduxForm} from 'redux-form';
-import {Link} from 'react-router-dom';
 
 import './loginForm.css';
 
@@ -25,7 +24,7 @@ export class LoginForm extends React.Component {
 					<Field name="username" id="username" type="text" component="input" />
 					<label htmlFor="password">Password</label>
 					<Field name="password" id="password" type="text" component="input" />
-					<button className="submit-button" type="submit" onClick={e => this.signIn(e)} disabled={this.props.submitting}><Link to="/dashboard">Log in</Link></button>
+					<button className="submit-button" type="submit" onClick={e => this.signIn(e)} disabled={this.props.submitting}>Log in</button>
 				</form>
 			</div>
 		)

@@ -8,11 +8,12 @@ import avatar from './static-photos/avatar.jpeg';
 
 export class NavigationBar extends React.Component {
 	render() {
-		if(this.props.signedIn) {
+		const {user} = this.props;
+		if(user.signedIn) {
 			return(
 				<nav className="">
 					<div className="link home" title="Home"><Link to="/">Home</Link></div>
-					<div className="link avatar" title={this.props.user}>
+					<div className="link avatar" title={user.name}>
 						<Link to="/dashboard">
 							<img className="avatar" src={avatar} alt="avatar" />
 						</Link>
@@ -32,8 +33,7 @@ export class NavigationBar extends React.Component {
 
 const mapStateToProps = state => {
 	return {
-		signedIn: state.joystick.user.signedIn,
-		user: state.joystick.user.name
+		user: state.joystick.user
 	}
 }
 

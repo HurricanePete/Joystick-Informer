@@ -7,7 +7,8 @@ import './relatedGames.css';
 export class RelatedGames extends React.Component {
 
 	render() {
-		const tiles = this.props.relatedGames.map((tile, index) =>
+		const {relatedGames} = this.props;
+		const tiles = relatedGames.map((tile, index) =>
 			<li key={index}> 
 				<Tile index={index} {...tile} />
 				<button className="list-adder" title="Add to Watchlist"> + </button>

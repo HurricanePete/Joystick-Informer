@@ -3,7 +3,7 @@ import * as actions from '../actions';
 const initialState = {
 	banner: true,
 	gameId: null,
-	gameView: false,
+	dashboard: false,
 	searching: false,
 	user: {
 		signedIn: false,
@@ -113,7 +113,6 @@ export const joystickReducer = (state=initialState, action) => {
 	}
 	else if (action.type === actions.SIGN_IN) {
 		return Object.assign({}, state, {
-			banner: false,
 			user: {...state.user,
 				signedIn: true
 			}
@@ -131,6 +130,21 @@ export const joystickReducer = (state=initialState, action) => {
 			gameId: action.gameId
 		})
 	}
+	else if (action.type === actions.ADD_TO_WATCHLIST) {
+		let watchlist = state.user.watchlist;
+		watchlist.map((tile, index) => {
+			if (tile.gameId === action.game.gameId) {
+				console.log('eror');
+			}
+		})
+		return Object.assign({}, state, {
+			user: {...state.user,
+				watchlist: [...watchlist, 
+					action.game
+			]}
+		})
+	}
+	
 
 	return state;
 };
