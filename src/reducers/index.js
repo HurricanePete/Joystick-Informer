@@ -5,6 +5,8 @@ const initialState = {
 	gameId: null,
 	dashboard: false,
 	searching: false,
+	watchlistError: false,
+	errorMessage: null,
 	user: {
 		signedIn: false,
 		name: 'PotatoBandit',
@@ -131,20 +133,22 @@ export const joystickReducer = (state=initialState, action) => {
 		})
 	}
 	else if (action.type === actions.ADD_TO_WATCHLIST) {
-		let watchlist = state.user.watchlist;
-		watchlist.map((tile, index) => {
-			if (tile.gameId === action.game.gameId) {
-				console.log('eror');
-			}
-		})
 		return Object.assign({}, state, {
 			user: {...state.user,
-				watchlist: [...watchlist, 
+				watchlist: [...state.user.watchlist, 
 					action.game
 			]}
 		})
 	}
-	
+	else if (action.type === actions.REMOVE_ERROR) {
+		return Object.assign({}, state, {
+			watchlistError: false
+		})
+	}
+	else if (action.type === actions.REMOVE_FROM_WATCHLIST) {
+
+	}
+
 
 	return state;
 };

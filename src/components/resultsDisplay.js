@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 
 import Tile from './tile';
+import ErrorDisplay from './errorDisplay';
 
 import './resultsDisplay.css';
 
@@ -14,6 +15,7 @@ class ResultsDisplay extends Component {
 
 		return(
 			<section className="results-wrapper">
+				<ErrorDisplay />
 				<div className="results-display">
 					{tiles}
 				</div>

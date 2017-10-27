@@ -1,8 +1,6 @@
 import React from 'react';
 import {Field, reduxForm} from 'redux-form';
 
-import {AddUser} from '../actions';
-
 import formInput from './formInput';
 import {required, nonEmpty, email} from '../validators';
 

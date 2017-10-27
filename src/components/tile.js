@@ -7,9 +7,11 @@ import demo from './static-photos/demo.png';
 
 export class Tile extends React.Component {
 		render() {
-		const {index, title, rating, price} = this.props;
+		const {gameId, title, rating, price} = this.props;
+
+
 		return (
-			<Link to={`/gameview/${index}`}>
+			<Link to={`/gameview/${gameId}`}>
 				<div className="tile">
 					<div className="" title={title}>
 						<img className="cover-photo" alt={title} src={demo} />

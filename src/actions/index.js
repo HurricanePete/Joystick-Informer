@@ -35,3 +35,8 @@ export const removeFromWatchlist = (index) => ({
 	type: REMOVE_FROM_WATCHLIST,
 	index
 })
+
+export const REMOVE_ERROR = 'REMOVE_ERROR';
+export const removeError = () => ({
+	type: REMOVE_ERROR
+})

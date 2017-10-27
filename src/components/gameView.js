@@ -4,6 +4,7 @@ import {Link} from 'react-router-dom';
 
 import ReturnButton from './returnButton';
 import Pricer from './pricer';
+import ErrorDisplay from './errorDisplay';
 
 import {addToWatchlist} from '../actions';
 
@@ -24,8 +25,12 @@ export class GameView extends React.Component {
 
 	render() {
 		const {joystick} = this.props;
-		const index = this.props.match.params.id;
-		const {title, rating, summary} = joystick.examples[index];
+		const id = this.props.match.params.id;
+		console.log(id);
+		let gameIndex = joystick.examples.findIndex(game => game.gameId === id);
+		console.log(joystick.examples[0].gameId);
+		console.log(gameIndex);
+		const {title, rating, summary} = joystick.examples[0];
 
 		if(!joystick.user.signedIn) {
 			return(
@@ -48,8 +53,12 @@ export class GameView extends React.Component {
 				</section>
 			);
 		}
+		else if (joystick.user.watchlist) {
+
+		}
 		return (
 			<section className="gameView-wrapper">
+				<ErrorDisplay />
 				<div className="game-view" title={title}>
 					<ReturnButton goBack={() => this.returnButtonPress()}  />
 					<img className="game-photo" alt={title} src={demo} />
