@@ -4,7 +4,7 @@ import {connect} from 'react-redux';
 import Tile from './tile';
 import ErrorDisplay from './errorDisplay';
 
-import './resultsDisplay.css';
+import './styles/resultsDisplay.css';
 
 class ResultsDisplay extends Component {
 

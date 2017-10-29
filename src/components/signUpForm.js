@@ -4,7 +4,7 @@ import {Field, reduxForm} from 'redux-form';
 import formInput from './formInput';
 import {required, nonEmpty, email} from '../validators';
 
-import "./signUpForm.css";
+import './styles/signUpForm.css';
 
 export class SignupForm extends React.Component {
 	onSubmit(values) {

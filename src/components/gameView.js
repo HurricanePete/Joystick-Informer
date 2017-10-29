@@ -5,10 +5,11 @@ import {Link} from 'react-router-dom';
 import ReturnButton from './returnButton';
 import Pricer from './pricer';
 import ErrorDisplay from './errorDisplay';
+import AddToWatchListButton from './addWatchlistButton';
 
 import {addToWatchlist} from '../actions';
 
-import './gameView.css';
+import './styles/gameView.css';
 
 
 import demo from './static-photos/demo.png';
@@ -34,31 +35,6 @@ export class GameView extends React.Component {
 		console.log(joystick.examples);
 		console.log(gameIndex[0])
 		const {title, rating, summary} = gameIndex[0];
-
-		if(!joystick.user.signedIn) {
-			return(
-				<section className="gameView-wrapper">
-					<div className="game-view" title={title}>
-						<ReturnButton goBack={() => this.returnButtonPress()}  />
-						<img className="game-photo" alt={title} src={demo} />
-						<dl className="game-details">
-							<dt className="hidden">Title</dt>
-							<dd>{title}</dd>
-							<dt className="hidden">Rating</dt>
-							<dd>{rating}</dd>
-							<dt className="hidden">Watchlist</dt>
-							<dd><Link to="/login">Sign in to Add to Watchlist</Link></dd>
-							<dt className="hidden">Summary</dt>
-							<dd><p className="summary">{summary}</p></dd>
-						</dl>
-					</div>
-					<Pricer />
-				</section>
-			);
-		}
-		else if (joystick.user.watchlist) {
-
-		}
 		return (
 			<section className="gameView-wrapper">
 				<ErrorDisplay />
@@ -71,7 +47,7 @@ export class GameView extends React.Component {
 						<dt className="hidden">Rating</dt>
 						<dd>{rating}</dd>
 						<dt className="hidden">Watchlist</dt>
-						<dd><button className="watchlist-add" onClick={() => this.addToWatchlist()}>Add to Watchlist</button></dd>
+						<dd><AddToWatchListButton item={gameIndex[0]} /></dd>
 						<dt className="hidden">Summary</dt>
 						<dd><p className="summary">{summary}</p></dd>
 					</dl>

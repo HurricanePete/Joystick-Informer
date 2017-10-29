@@ -2,7 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 
 import Tile from './tile';
-import './relatedGames.css';
+import './styles/relatedGames.css';
 
 export class RelatedGames extends React.Component {
 

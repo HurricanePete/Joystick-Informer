@@ -1,7 +1,7 @@
 import React from 'react';
 import PriceCell from './priceCell';
 
-import './pricer.css';
+import './styles/pricer.css';
 
 export default function Pricer(props) {
 	const examples = [{

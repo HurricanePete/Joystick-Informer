@@ -2,7 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
 
-import './tile.css';
+import './styles/tile.css';
 import demo from './static-photos/demo.png';
 
 export class Tile extends React.Component {

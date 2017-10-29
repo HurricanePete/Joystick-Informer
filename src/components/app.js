@@ -9,7 +9,7 @@ import Dashboard from './dashboard';
 import LoginPage from './loginPage';
 import SignUpPage from './signUpPage';
 
-import './app.css';
+import './styles/app.css';
 
 export default function App(props) {
 

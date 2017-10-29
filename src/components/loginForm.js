@@ -1,7 +1,7 @@
 import React from 'react';
 import {Field, reduxForm} from 'redux-form';
 
-import './loginForm.css';
+import './styles/loginForm.css';
 
 export class LoginForm extends React.Component {
 	onSubmit(values) {

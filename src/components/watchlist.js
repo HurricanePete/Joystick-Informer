@@ -2,7 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 
 import Tile from './tile';
-import './watchlist.css';
+import './styles/watchlist.css';
 
 export class Watchlist extends React.Component {
 

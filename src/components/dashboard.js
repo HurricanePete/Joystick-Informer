@@ -7,7 +7,7 @@ import RelatedGames from './relatedGames';
 import {signOut} from '../actions';
 
 import avatar from './static-photos/avatar.jpeg';
-import './dashboard.css';
+import './styles/dashboard.css';
 
 export class Dashboard extends React.Component {
 	signOut(event) {

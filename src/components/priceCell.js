@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './priceCell.css';
+import './styles/priceCell.css';
 
 export default function PriceCell(props) {
 	return(

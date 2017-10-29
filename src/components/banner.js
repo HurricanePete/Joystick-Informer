@@ -2,7 +2,7 @@ import React from 'react';
 
 import SignUpForm from './signUpForm';
 
-import './banner.css';
+import './styles/banner.css';
 
 export default class Banner extends React.Component {
 	toggleBanner(event) {

@@ -2,7 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
 
-import './nav.css';
+import './styles/nav.css';
 
 import avatar from './static-photos/avatar.jpeg';
 
