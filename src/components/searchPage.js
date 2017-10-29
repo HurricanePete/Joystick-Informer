@@ -4,21 +4,30 @@ import {connect} from 'react-redux';
 import Banner from './banner';
 import SearchBar from './searchBar';
 import ResultsDisplay from './resultsDisplay';
+import FeaturedGames from './featuredGames';
 
-import {bannerToggle} from '../actions';
+import {bannerToggle, setSearchResults} from '../actions';
 
 export class SearchPage extends React.Component {
 	hideBanner() {
 		this.props.dispatch(bannerToggle());
 	}
 
+	handleSearch(values) {
+		console.log(values);
+		const slugify = string => string.toLowerCase();
+		const display = this.props.joystick.examples.filter(game => (slugify(game.title)).includes(values));
+		this.props.dispatch(setSearchResults(display));
+	}
+
 	render() {
-//declare variables
-		if (!this.props.banner || this.props.signedIn) {
+		const {joystick} = this.props;
+		if (!joystick.banner || joystick.signedIn) {
 			return(
 				<main>
-					<SearchBar />
-					<ResultsDisplay />
+					<SearchBar searchSubmit={(values) => this.handleSearch(values)}  />
+					<ResultsDisplay displayValues={joystick.searchResults} />
+					<FeaturedGames featured={joystick.user.relatedGames} />
 				</main>
 			)
 		}
@@ -31,8 +40,7 @@ export class SearchPage extends React.Component {
 
 const mapStateToProps = state => {
 	return {
-		banner: state.joystick.banner,
-		signedIn: state.joystick.user.signedIn
+		joystick: state.joystick
 	}
 }
 

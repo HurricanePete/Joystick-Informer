@@ -9,14 +9,17 @@ import './styles/resultsDisplay.css';
 class ResultsDisplay extends Component {
 
 	render() {
-		const {examples} = this.props;
-		const tiles = examples.map((tile, index) => 
+		if(!this.props.displayValues) {
+			return null
+		}
+		const tiles = this.props.displayValues.map((tile, index) => 
 			<Tile key={index} index={index} dashboard={false} {...tile} />)
-
+		const resultCount = tiles.length;
 		return(
 			<section className="results-wrapper">
 				<ErrorDisplay />
 				<div className="results-display">
+					<h4 className="tl pl6">{resultCount} results found</h4>
 					{tiles}
 				</div>
 			</section>

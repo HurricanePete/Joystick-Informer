@@ -36,7 +36,8 @@ export const removeFromWatchlist = (gameId) => ({
 	gameId
 })
 
-export const REMOVE_ERROR = 'REMOVE_ERROR';
-export const removeError = () => ({
-	type: REMOVE_ERROR
+export const SET_SEARCH_RESULTS = 'SET_SEARCH_RESULTS';
+export const setSearchResults = (searchResults) => ({
+	type: SET_SEARCH_RESULTS,
+	searchResults
 })

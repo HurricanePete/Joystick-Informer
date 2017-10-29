@@ -15,6 +15,8 @@ export class Dashboard extends React.Component {
 		this.props.history.push("/");
 	}
 
+	
+
 	render() {
 		const {user} = this.props;
 		return(

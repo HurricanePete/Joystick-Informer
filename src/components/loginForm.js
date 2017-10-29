@@ -6,7 +6,7 @@ import './styles/loginForm.css';
 export class LoginForm extends React.Component {
 	onSubmit(values) {
 		console.log(values);
-
+		
 	}
 
 	signIn(event) {

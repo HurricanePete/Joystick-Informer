@@ -2,13 +2,13 @@ import * as actions from '../actions';
 
 const initialState = {
 	banner: true,
-	gameId: null,
 	dashboard: false,
 	searching: false,
+	searchResults: null,
 	watchlistError: false,
 	errorMessage: null,
+	signedIn: false,
 	user: {
-		signedIn: false,
 		name: 'PotatoBandit',
 		password: 'PotatoPassword',
 		watchlist: [{
@@ -50,6 +50,7 @@ const initialState = {
 			summary: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate'
 		}]
 	},
+	registeredUsers: null,
 	examples: [{
 		gameId: 1,
 		title: 'Potato: Rise of the Fries',
@@ -149,13 +150,10 @@ export const joystickReducer = (state=initialState, action) => {
 			}
 		})
 	}
-	else if (action.type === actions.REMOVE_ERROR) {
+	else if (action.type === actions.SET_SEARCH_RESULTS) {
 		return Object.assign({}, state, {
-			watchlistError: false
+			searchResults: action.searchResults
 		})
-	}
-	else if (action.type === actions.REMOVE_FROM_WATCHLIST) {
-
 	}
 
 
