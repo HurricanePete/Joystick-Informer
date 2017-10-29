@@ -2,29 +2,39 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
 
+import {addToWatchlist, removeFromWatchlist} from '../actions';
+
 export class AddWatchlistButton extends React.Component {
+	watchlistAdd(event) {
+		event.preventDefault();
+		this.props.dispatch(addToWatchlist(this.props.item));
+	}
+	watchlistRemove(event) {
+		event.preventDefault();
+		this.props.dispatch(removeFromWatchlist(this.props.removeId));
+	}
 	render() {
+
 		const {user} = this.props;
-		let containsGame = user.watchlist.filter((item) => item === this.props.item);
-		if (containsGame) {
-			console.log('true');
-		}
-		else if (!containsGame) {
-			console.log('false');
-		}
+		const watchlistGame = user.watchlist.filter((item) => item.gameId === this.props.item.gameId);
+		const containsGame = watchlistGame.length > 0;
 		if(!user.signedIn) {
 			return(
-				<Link to="/login">Sign in to add to watchlist</Link>
+				<Link to="/login" className="blue underline">Sign in to add to watchlist</Link>
 			)
 		}
+
 		else if((user.signedIn) && (containsGame)) {
 			return(
-				<p className="green">Already in watchlist</p>
+				<span>
+					<p className="dib green ba br3 measure">Already in watchlist</p>
+					<button className="dib red br3 bg-light-red pa3" onClick={e =>this.watchlistRemove(e)}>X</button>
+				</span>
 			)
 		}
 		else {
 			return(
-				<button>Add to watchlist</button>
+				<button className="ba br3 bg-green" onClick={e => this.watchlistAdd(e)}>Add to watchlist</button>
 			)
 		}
 	}

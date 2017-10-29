@@ -31,9 +31,9 @@ export const addToWatchlist = (game) => ({
 })
 
 export const REMOVE_FROM_WATCHLIST = 'REMOVE_FROM_WATCHLIST';
-export const removeFromWatchlist = (index) => ({
+export const removeFromWatchlist = (gameId) => ({
 	type: REMOVE_FROM_WATCHLIST,
-	index
+	gameId
 })
 
 export const REMOVE_ERROR = 'REMOVE_ERROR';

@@ -29,11 +29,8 @@ export class GameView extends React.Component {
 			return null
 		}
 		const {joystick} = this.props;
-		const id = this.props.match.params.id;
-		console.log(id);
-		let gameIndex = joystick.examples.filter(game => game.gameId === parseInt(id));
-		console.log(joystick.examples);
-		console.log(gameIndex[0])
+		const id = parseInt(this.props.match.params.id);
+		let gameIndex = joystick.examples.filter(game => game.gameId === id);
 		const {title, rating, summary} = gameIndex[0];
 		return (
 			<section className="gameView-wrapper">
@@ -47,7 +44,7 @@ export class GameView extends React.Component {
 						<dt className="hidden">Rating</dt>
 						<dd>{rating}</dd>
 						<dt className="hidden">Watchlist</dt>
-						<dd><AddToWatchListButton item={gameIndex[0]} /></dd>
+						<dd><AddToWatchListButton item={gameIndex[0]} removeId={id} /></dd>
 						<dt className="hidden">Summary</dt>
 						<dd><p className="summary">{summary}</p></dd>
 					</dl>

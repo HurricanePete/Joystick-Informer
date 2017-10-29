@@ -140,6 +140,15 @@ export const joystickReducer = (state=initialState, action) => {
 			]}
 		})
 	}
+	else if (action.type === actions.REMOVE_FROM_WATCHLIST) {
+		console.log(action.gameId);
+		console.log([...state.user.watchlist].filter(item => item.gameId !== action.gameId));
+		return Object.assign({}, state, {
+			user: {...state.user,
+				watchlist: [...state.user.watchlist].filter(item => item.gameId !== action.gameId)
+			}
+		})
+	}
 	else if (action.type === actions.REMOVE_ERROR) {
 		return Object.assign({}, state, {
 			watchlistError: false
