@@ -8,10 +8,11 @@ export default class FeaturedGames extends React.Component{
 			<Tile key={index} index={index} dashboard={false} {...tile} />)
 
 		return(
-			<section>
+			<section className="bg-light-gray">
 				<header>
 					<h3>Featured Games</h3>
 				</header>
+				<hr/>
 				<ul>
 					{tiles}
 				</ul>

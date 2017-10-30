@@ -17,7 +17,7 @@ export class Watchlist extends React.Component {
 				<Tile index={index} {...tile} />
 				<button className="list-remover" title="Remove from Watchlist" onClick={e => this.watchlistRemove(e)}> - </button>
 			</li>
-			);
+		);
 
 		return(
 			<section className="watchlist-wrapper">
