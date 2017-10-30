@@ -52,3 +52,9 @@ export const RESET_WATCHLIST_WARNING = 'RESET_WATCHLIST_WARNING';
 export const resetWatchlistWarning = () => ({
 	type: RESET_WATCHLIST_WARNING
 })
+
+export const CREATE_NEW_USER = 'CREATE_NEW_USER';
+export const createNewUser = (userInfo) => ({
+	type: CREATE_NEW_USER,
+	userInfo
+})

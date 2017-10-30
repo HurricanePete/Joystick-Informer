@@ -20,7 +20,13 @@ export class Watchlist extends React.Component {
 				<button className="list-remover" title="Remove from Watchlist" onClick={e => this.watchlistRemove(e, {index})}> - </button>
 			</li>
 		);
-
+		if(tiles.length === 0) {
+			return(
+				<section className="watchlist-wrapper">
+					<p>Your watchlist is empty. Start adding games to view them here.</p>
+				</section>
+			)
+		}
 		return(
 			<section className="watchlist-wrapper">
 				<ul>

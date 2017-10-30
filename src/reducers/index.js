@@ -52,7 +52,7 @@ const initialState = {
 			summary: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate'
 		}]
 	},
-	registeredUsers: null,
+	registeredUsers: [],
 	examples: [{
 		gameId: 1,
 		title: 'Potato: Rise of the Fries',
@@ -171,6 +171,17 @@ export const joystickReducer = (state=initialState, action) => {
 				warning: false,
 				gameId: null
 			}
+		})
+	}
+	else if (action.type === actions.CREATE_NEW_USER) {
+		return Object.assign({}, state, {
+			registeredUsers: [...state.registeredUsers, {
+					name: action.username,
+					password: action.password,
+					watchlist: [],
+					relatedGames: []
+				}
+			]
 		})
 	}
 
