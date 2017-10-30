@@ -10,15 +10,12 @@ div.watchlist-tile {
 }
 
 button.list-remover {
+	vertical-align: text-bottom;
 	display: inline-block;
-	position: relative;
-	top: 15px;
-	width: 5%;
-	height: auto;
-	vertical-align: top;
-	border-radius: 25px;
-	border-top-left-radius: 0;
-	border-bottom-left-radius: 0;
+	width: 8%;
+	height: 140px;
+	border-top-right-radius: 25px;
+	border-bottom-right-radius: 25px;
 }
 
 /*li.game-row {

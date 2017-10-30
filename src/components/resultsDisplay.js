@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 
 import Tile from './tile';
-import ErrorDisplay from './errorDisplay';
 
 import './styles/resultsDisplay.css';
 
@@ -18,7 +17,6 @@ class ResultsDisplay extends Component {
 		if(resultCount === 0) {
 			return(
 				<section className="results-wrapper">
-					<ErrorDisplay />
 					<div className="results-display">
 						<h4 className="tl pl6">Sorry, no results matched your search</h4>
 					</div>
@@ -28,7 +26,6 @@ class ResultsDisplay extends Component {
 		else if(resultCount === 1) {
 			return(
 				<section className="results-wrapper">
-					<ErrorDisplay />
 					<div className="results-display">
 						<h4 className="tl pl6">Only {resultCount} result found</h4>
 						{tiles}
@@ -39,7 +36,6 @@ class ResultsDisplay extends Component {
 		else {
 			return(
 				<section className="results-wrapper">
-					<ErrorDisplay />
 					<div className="results-display">
 						<h4 className="tl pl6">{resultCount} results found</h4>
 						{tiles}

@@ -41,3 +41,14 @@ export const setSearchResults = (searchResults) => ({
 	type: SET_SEARCH_RESULTS,
 	searchResults
 })
+
+export const SET_WATCHLIST_WARNING = 'SET_WATCHLIST_WARNING';
+export const setWatchlistWarning = (gameId) => ({
+	type: SET_WATCHLIST_WARNING,
+	gameId
+})
+
+export const RESET_WATCHLIST_WARNING = 'RESET_WATCHLIST_WARNING';
+export const resetWatchlistWarning = () => ({
+	type: RESET_WATCHLIST_WARNING
+})

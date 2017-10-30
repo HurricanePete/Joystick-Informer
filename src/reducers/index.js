@@ -5,8 +5,10 @@ const initialState = {
 	dashboard: false,
 	searching: false,
 	searchResults: null,
-	watchlistError: false,
-	errorMessage: null,
+	watchlistWarning: {
+		warning: false,
+		gameId: null
+	},
 	signedIn: false,
 	user: {
 		name: 'PotatoBandit',
@@ -153,6 +155,22 @@ export const joystickReducer = (state=initialState, action) => {
 	else if (action.type === actions.SET_SEARCH_RESULTS) {
 		return Object.assign({}, state, {
 			searchResults: action.searchResults
+		})
+	}
+	else if (action.type === actions.SET_WATCHLIST_WARNING) {
+		return Object.assign({}, state, {
+			watchlistWarning: {
+				warning: true,
+				gameId: action.gameId
+			}
+		})
+	}
+	else if (action.type === actions.RESET_WATCHLIST_WARNING) {
+		return Object.assign({}, state, {
+			watchlistWarning: {
+				warning: false,
+				gameId: null
+			}
 		})
 	}
 

@@ -3,7 +3,6 @@ import {connect} from 'react-redux';
 
 import ReturnButton from './returnButton';
 import Pricer from './pricer';
-import ErrorDisplay from './errorDisplay';
 import AddToWatchListButton from './addWatchlistButton';
 
 import {addToWatchlist} from '../actions';
@@ -33,7 +32,6 @@ export class GameView extends React.Component {
 		const {title, rating, summary} = gameIndex[0];
 		return (
 			<section className="gameView-wrapper">
-				<ErrorDisplay />
 				<div className="game-view" title={title}>
 					<ReturnButton goBack={() => this.returnButtonPress()}  />
 					<img className="game-photo" alt={title} src={demo} />
