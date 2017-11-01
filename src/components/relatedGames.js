@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 
 import Tile from './tile';
 
-import {addToWatchlist, setWatchlistWarning} from '../actions';
+import {addToWatchlist, setWatchlistWarning, updateUserInfo} from '../actions';
 
 import './styles/relatedGames.css';
 
@@ -18,6 +18,7 @@ export class RelatedGames extends React.Component {
 			return null
 		} 
 		this.props.dispatch(addToWatchlist(listGame));
+		this.props.dispatch(updateUserInfo());
 	}
 
 	render() {

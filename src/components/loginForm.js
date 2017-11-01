@@ -6,14 +6,7 @@ import './styles/loginForm.css';
 export class LoginForm extends React.Component {
 	onSubmit(values) {
 		console.log(values);
-		
-	}
-
-	signIn(event) {
-		event.preventDefault();
-		if (this.props.signIn) {
-			this.props.signIn();
-		}
+		this.props.signIn(values);
 	}
 
 	render() {
@@ -23,8 +16,8 @@ export class LoginForm extends React.Component {
 					<label htmlFor="username">Username</label>
 					<Field name="username" id="username" type="text" component="input" />
 					<label htmlFor="password">Password</label>
-					<Field name="password" id="password" type="text" component="input" />
-					<button className="submit-button" type="submit" onClick={e => this.signIn(e)} disabled={this.props.submitting}>Log in</button>
+					<Field name="password" id="password" type="password" component="input" />
+					<button className="submit-button" type="submit" disabled={this.props.submitting}>Log in</button>
 				</form>
 			</div>
 		)

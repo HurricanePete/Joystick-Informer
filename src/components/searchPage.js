@@ -6,7 +6,7 @@ import SearchBar from './searchBar';
 import ResultsDisplay from './resultsDisplay';
 import FeaturedGames from './featuredGames';
 
-import {bannerToggle, setSearchResults} from '../actions';
+import {bannerToggle, setSearchResults, sendToDashboard} from '../actions';
 
 export class SearchPage extends React.Component {
 	hideBanner() {
@@ -18,6 +18,11 @@ export class SearchPage extends React.Component {
 		const slugify = string => string.toLowerCase();
 		const display = this.props.joystick.examples.filter(game => (slugify(game.title)).includes(values));
 		this.props.dispatch(setSearchResults(display));
+	}
+
+	sendToDashboard() {
+		this.props.history.push("/login");
+		this.props.dispatch(sendToDashboard(true));
 	}
 
 	render() {
@@ -33,7 +38,7 @@ export class SearchPage extends React.Component {
 		}
 		
 		return(
-			<Banner toggleBanner={() => this.hideBanner()} />
+			<Banner toggleBanner={() => this.hideBanner()} sendToDashboard={() => this.sendToDashboard()} />
 			)
 	}
 }

@@ -2,16 +2,18 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
 
-import {addToWatchlist, removeFromWatchlist} from '../actions';
+import {addToWatchlist, removeFromWatchlist, updateUserInfo} from '../actions';
 
 export class AddWatchlistButton extends React.Component {
 	watchlistAdd(event) {
 		event.preventDefault();
-		this.props.dispatch(addToWatchlist(this.props.item));
+			this.props.dispatch(addToWatchlist(this.props.item));
+			this.props.dispatch(updateUserInfo())		
 	}
 	watchlistRemove(event) {
 		event.preventDefault();
 		this.props.dispatch(removeFromWatchlist(this.props.removeId));
+		this.props.dispatch(updateUserInfo());
 	}
 	render() {
 

@@ -58,3 +58,20 @@ export const createNewUser = (userInfo) => ({
 	type: CREATE_NEW_USER,
 	userInfo
 })
+
+export const SET_CURRENT_USER = 'SET_CURRENT_USER';
+export const setCurrentUser = (user) => ({
+	type: SET_CURRENT_USER,
+	user
+})
+
+export const UPDATE_USER_INFO = 'UPDATE_USER_INFO';
+export const updateUserInfo = () => ({
+	type: UPDATE_USER_INFO
+})
+
+export const SEND_TO_DASHBOARD = 'SEND_TO_DASHBOARD';
+export const sendToDashboard = (boolean) => ({
+	type: SEND_TO_DASHBOARD,
+	boolean
+})

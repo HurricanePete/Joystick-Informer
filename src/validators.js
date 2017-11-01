@@ -3,3 +3,5 @@ export const nonEmpty = value =>
     value.trim() !== '' ? undefined : 'Cannot be empty';
 export const email = value =>
     /^\S+@\S+$/.test(value) ? undefined : 'Must be a valid email address';
+export const noSpaces = value => 
+	!value.includes(' ') ? undefined : 'Username cannot contain spaces';

@@ -4,25 +4,52 @@ import {Link} from 'react-router-dom';
 
 import LoginForm from './loginForm';
 
-import {signIn} from '../actions';
+import {signIn, setCurrentUser, sendToDashboard} from '../actions';
 
 export class LoginPage extends React.Component {
-	toggleSignIn() {
-		this.props.dispatch(signIn());
-		this.props.history.push("/dashboard");
+	toggleSignIn(values) {
+		const slugify = (input) => input.toLowerCase();
+		const userCheck = this.props.registeredUsers.filter(item => slugify(item.name) === slugify(values.username));
+		if(userCheck.length > 0 && values.password === userCheck[0].password) {
+			this.props.dispatch(setCurrentUser(userCheck[0]));
+			this.props.dispatch(signIn());
+			this.props.history.push("/dashboard");
+		}
+		else if(userCheck.length > 0 && values.password !== userCheck[0].password) {
+			alert("Username or password was incorrect");
+		}
+		else if(userCheck.length === 0) {
+			alert("Could not find an account with that username");
+		}
+		else{
+			alert("Something went wrong, please try again.")
+		}
+		this.props.dispatch(sendToDashboard(false));
+		this.props.history.push(`dashboard/${slugify(userCheck[0].name)}`)
 	}
 
 	render() {
-		const {user} = this.props;
+		const {sendToDashboard} = this.props;
+		if(sendToDashboard) {
+			return(
+				<section className="login-wrapper">
+					<header>
+						<h2>Log in to Joystick Informer</h2>
+					</header>
+					<div className="bg-light-green"><p className="green">Account created! Please log in to continue.</p></div>
+					<LoginForm signIn={(values) => this.toggleSignIn(values)} />
+					<div>
+						<p>Want an account? <Link to="/signup">Create one here.</Link></p>
+					</div>
+				</section>
+			)
+		}
 		return(
 			<section className="login-wrapper">
 				<header>
 					<h2>Log in to Joystick Informer</h2>
 				</header>
-				<LoginForm signIn={() => this.toggleSignIn()} initialValues={
-					{username: user.name,
-					password: user.password}
-				} />
+				<LoginForm signIn={(values) => this.toggleSignIn(values)} />
 				<div>
 					<p>Want an account? <Link to="/signup">Create one here.</Link></p>
 				</div>
@@ -33,7 +60,9 @@ export class LoginPage extends React.Component {
 
 const mapStateToProps = state => {
 	return{
-		user: state.joystick.user
+		user: state.joystick.user,
+		registeredUsers: state.joystick.registeredUsers,
+		sendToDashboard: state.joystick.sendToDashboard
 	}
 }
 

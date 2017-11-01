@@ -5,8 +5,6 @@ import ReturnButton from './returnButton';
 import Pricer from './pricer';
 import AddToWatchListButton from './addWatchlistButton';
 
-import {addToWatchlist} from '../actions';
-
 import './styles/gameView.css';
 
 
@@ -17,17 +15,12 @@ export class GameView extends React.Component {
 		this.props.history.goBack();
 	}
 
-	addToWatchlist() {
-		const game = this.props.joystick.examples[this.props.match.params.id];
-		this.props.dispatch(addToWatchlist(game));
-	}
-
 	render() {
 		if(!this.props.joystick) {
 			return null
 		}
 		const {joystick} = this.props;
-		const id = parseInt(this.props.match.params.id);
+		const id = parseInt(this.props.match.params.id, 10);
 		let gameIndex = joystick.examples.filter(game => game.gameId === id);
 		const {title, rating, summary} = gameIndex[0];
 		return (

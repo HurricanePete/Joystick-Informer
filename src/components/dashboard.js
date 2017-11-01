@@ -5,7 +5,7 @@ import Watchlist from './watchlist';
 import RelatedGames from './relatedGames';
 import WarningDisplay from './warningDisplay';
 
-import {signOut, removeFromWatchlist, setWatchlistWarning, resetWatchlistWarning} from '../actions';
+import {signOut, removeFromWatchlist, setWatchlistWarning, resetWatchlistWarning, updateUserInfo} from '../actions';
 
 import avatar from './static-photos/avatar.jpeg';
 import './styles/dashboard.css';
@@ -22,6 +22,7 @@ export class Dashboard extends React.Component {
 
 	confirmWatchlistRemove() {
 		this.props.dispatch(removeFromWatchlist(this.props.warning.gameId));
+		this.props.dispatch(updateUserInfo());
 		this.props.dispatch(resetWatchlistWarning());
 	}
 
@@ -30,7 +31,7 @@ export class Dashboard extends React.Component {
 	}
 
 	render() {
-		const {joystick, warning} = this.props;
+		const {joystick} = this.props;
 		return(
 			<section className="dashboard-wrapper">
 				<header className="dashboard-header">
