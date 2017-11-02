@@ -9,9 +9,9 @@ import {signIn, setCurrentUser, sendToDashboard} from '../actions';
 export class LoginPage extends React.Component {
 	toggleSignIn(values) {
 		const slugify = (input) => input.toLowerCase();
-		const userCheck = this.props.registeredUsers.filter(item => slugify(item.name) === slugify(values.username));
+		const userCheck = this.props.users.filter(item => slugify(item.username) === slugify(values.username));
 		if(userCheck.length > 0 && values.password === userCheck[0].password) {
-			this.props.dispatch(setCurrentUser(userCheck[0]));
+			this.props.dispatch(setCurrentUser(userCheck[0].userId));
 			this.props.dispatch(signIn());
 			this.props.history.push("/dashboard");
 		}
@@ -25,7 +25,7 @@ export class LoginPage extends React.Component {
 			alert("Something went wrong, please try again.")
 		}
 		this.props.dispatch(sendToDashboard(false));
-		this.props.history.push(`dashboard/${slugify(userCheck[0].name)}`)
+		this.props.history.push(`dashboard/${slugify(userCheck[0].username)}`)
 	}
 
 	render() {
@@ -49,7 +49,10 @@ export class LoginPage extends React.Component {
 				<header>
 					<h2>Log in to Joystick Informer</h2>
 				</header>
-				<LoginForm signIn={(values) => this.toggleSignIn(values)} />
+				<LoginForm signIn={(values) => this.toggleSignIn(values)} initialValues={{
+					username: "PotatoBandit",
+					password: "PotatoPassword"
+				}} />
 				<div>
 					<p>Want an account? <Link to="/signup">Create one here.</Link></p>
 				</div>
@@ -60,8 +63,7 @@ export class LoginPage extends React.Component {
 
 const mapStateToProps = state => {
 	return{
-		user: state.joystick.user,
-		registeredUsers: state.joystick.registeredUsers,
+		users: state.joystick.users,
 		sendToDashboard: state.joystick.sendToDashboard
 	}
 }

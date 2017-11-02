@@ -34,7 +34,7 @@ export class GameView extends React.Component {
 						<dt className="hidden">Rating</dt>
 						<dd>{rating}</dd>
 						<dt className="hidden">Watchlist</dt>
-						<dd><AddToWatchListButton item={gameIndex[0]} removeId={id} /></dd>
+						<dd><AddToWatchListButton item={id} removeId={id} /></dd>
 						<dt className="hidden">Summary</dt>
 						<dd><p className="summary">{summary}</p></dd>
 					</dl>

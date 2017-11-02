@@ -25,9 +25,9 @@ export const setGameId = (gameId) => ({
 })
 
 export const ADD_TO_WATCHLIST = 'ADD_TO_WATCHLIST';
-export const addToWatchlist = (game) => ({
+export const addToWatchlist = (gameId) => ({
 	type: ADD_TO_WATCHLIST,
-	game
+	gameId
 })
 
 export const REMOVE_FROM_WATCHLIST = 'REMOVE_FROM_WATCHLIST';
@@ -60,14 +60,9 @@ export const createNewUser = (userInfo) => ({
 })
 
 export const SET_CURRENT_USER = 'SET_CURRENT_USER';
-export const setCurrentUser = (user) => ({
+export const setCurrentUser = (userId) => ({
 	type: SET_CURRENT_USER,
-	user
-})
-
-export const UPDATE_USER_INFO = 'UPDATE_USER_INFO';
-export const updateUserInfo = () => ({
-	type: UPDATE_USER_INFO
+	userId
 })
 
 export const SEND_TO_DASHBOARD = 'SEND_TO_DASHBOARD';

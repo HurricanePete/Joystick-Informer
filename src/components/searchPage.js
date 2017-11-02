@@ -27,12 +27,14 @@ export class SearchPage extends React.Component {
 
 	render() {
 		const {joystick} = this.props;
+		const exampleIds = [2, 4, 6];
+		const randomGames = exampleIds.map(id => joystick.examples.find(example => example.gameId === id));
 		if (!joystick.banner || joystick.signedIn) {
 			return(
 				<main>
 					<SearchBar searchSubmit={(values) => this.handleSearch(values)}  />
 					<ResultsDisplay displayValues={joystick.searchResults} />
-					<FeaturedGames featured={joystick.user.relatedGames} />
+					<FeaturedGames featured={randomGames} />
 				</main>
 			)
 		}

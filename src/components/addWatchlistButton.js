@@ -2,31 +2,33 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
 
-import {addToWatchlist, removeFromWatchlist, updateUserInfo} from '../actions';
+import {addToWatchlist, removeFromWatchlist} from '../actions';
 
 export class AddWatchlistButton extends React.Component {
 	watchlistAdd(event) {
 		event.preventDefault();
-			this.props.dispatch(addToWatchlist(this.props.item));
-			this.props.dispatch(updateUserInfo())		
+			this.props.dispatch(addToWatchlist(this.props.item));	
 	}
 	watchlistRemove(event) {
 		event.preventDefault();
 		this.props.dispatch(removeFromWatchlist(this.props.removeId));
-		this.props.dispatch(updateUserInfo());
 	}
 	render() {
-
-		const {user} = this.props;
-		const watchlistGame = user.watchlist.filter((item) => item.gameId === this.props.item.gameId);
-		const containsGame = watchlistGame.length > 0;
-		if(!user.signedIn) {
+		const {signedIn, currentUser, watchlists} = this.props;
+		if(currentUser === null) {
+			return null
+		}
+		const userWatchlist = watchlists.filter(watchlist => watchlist.userId === currentUser);
+		console.log(userWatchlist);
+		const containsGame = userWatchlist[0].games.includes(this.props.item);
+		console.log(this.props.item);
+		if(!signedIn) {
 			return(
 				<Link to="/login" className="blue underline">Sign in to add to watchlist</Link>
 			)
 		}
 
-		else if((user.signedIn) && (containsGame)) {
+		else if((signedIn) && (containsGame)) {
 			return(
 				<span>
 					<p className="dib green ba br3 measure">Already in watchlist</p>
@@ -44,7 +46,9 @@ export class AddWatchlistButton extends React.Component {
 
 const mapStateToProps = state => {
 	return{
-		user: state.joystick.user
+		signedIn: state.joystick.signedIn,
+		currentUser: state.joystick.currentUser,
+		watchlists: state.joystick.watchlists
 	}
 }
 

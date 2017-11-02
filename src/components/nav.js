@@ -14,12 +14,13 @@ export class NavigationBar extends React.Component {
 	}
 
 	render() {
-		const {signedIn, user} = this.props;
+		const {signedIn, currentUserId, users} = this.props;
+		const currentUser = users.filter(user => user.userId === currentUserId);
 		if(signedIn) {
 			return(
 				<nav className="">
 					<div className="link home" title="Home"><Link to="/">Home</Link></div>
-					<div className="link avatar" title={user.name}>
+					<div className="link avatar" title={currentUser[0].username}>
 						<Link to="/dashboard">
 							<img className="avatar" src={avatar} alt="avatar" />
 						</Link>
@@ -40,7 +41,8 @@ export class NavigationBar extends React.Component {
 const mapStateToProps = state => {
 	return {
 		signedIn: state.joystick.signedIn,
-		user: state.joystick.user
+		currentUserId: state.joystick.currentUser,
+		users: state.joystick.users
 	}
 }
 

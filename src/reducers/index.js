@@ -11,144 +11,79 @@ const initialState = {
 		gameId: null
 	},
 	signedIn: false,
-	user: {
-		name: 'PotatoBandit',
-		password: 'PotatoPassword',
-		watchlist: [{
-			gameId: 1,
-			title: 'Potato: Rise of the Fries',
-			rating: '5/10',
-			price: '$25.00',
-			summary: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate'
-		}, {
-			gameId: 2,
-			title: 'Potato Putt',
-			rating: '5/10',
-			price: '$25.00',
-			summary: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate'
-		}, {
-			gameId: 3,
-			title: 'Captain Potato',
-			rating: '5/10',
-			price: '$25.00',
-			summary: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate'
-		}],
-		relatedGames: [{
-			gameId: 7,
-			title: 'Potato 3: Sweet\'s Revenge',
-			rating: '5/10',
-			price: '$25.00',
-			summary: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate'
-		}, {
-			gameId: 8,
-			title: 'Call of Potato',
-			rating: '5/10',
-			price: '$25.00',
-			summary: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate'
-		}, {
-			gameId: 9,
-			title: 'Potato Invaders',
-			rating: '5/10',
-			price: '$25.00',
-			summary: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate'
-		}]
-	},
-	registeredUsers: [{
-		name: 'PotatoBandit',
-		password: 'PotatoPassword',
-		watchlist: [{
-			gameId: 1,
-			title: 'Potato: Rise of the Fries',
-			rating: '5/10',
-			price: '$25.00',
-			summary: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate'
-		}, {
-			gameId: 2,
-			title: 'Potato Putt',
-			rating: '5/10',
-			price: '$25.00',
-			summary: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate'
-		}, {
-			gameId: 3,
-			title: 'Captain Potato',
-			rating: '5/10',
-			price: '$25.00',
-			summary: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate'
-		}],
-		relatedGames: [{
-			gameId: 7,
-			title: 'Potato 3: Sweet\'s Revenge',
-			rating: '5/10',
-			price: '$25.00',
-			summary: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate'
-		}, {
-			gameId: 8,
-			title: 'Call of Potato',
-			rating: '5/10',
-			price: '$25.00',
-			summary: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate'
-		}, {
-			gameId: 9,
-			title: 'Potato Invaders',
-			rating: '5/10',
-			price: '$25.00',
-			summary: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate'
-		}]
+	users: [{
+		userId: 1,
+		username: "PotatoBandit",
+		password: "PotatoPassword"
 	}],
+	watchlists: [{
+		userId: 1,
+		games: [1, 2, 3]
+	}],
+	currentUser: null,
 	examples: [{
 		gameId: 1,
 		title: 'Potato: Rise of the Fries',
 		rating: '5/10',
 		price: '$25.00',
-		summary: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate'
+		summary: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate',
+		related: [9]
 	}, {
 		gameId: 2,
 		title: 'Potato Putt',
 		rating: '5/10',
 		price: '$25.00',
-		summary: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate'
+		summary: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate',
+		related: [8]
 	}, {
 		gameId: 3,
 		title: 'Captain Potato',
 		rating: '5/10',
 		price: '$25.00',
-		summary: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate'
+		summary: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate',
+		related: [7]
 	}, {
 		gameId: 4,
 		title: 'Tomato and Potato Go Fishing',
 		rating: '5/10',
 		price: '$25.00',
-		summary: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate'
+		summary: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate',
+		related: [6]
 	}, {
 		gameId: 5,
 		title: 'Potato 2: Return of the Potato',
 		rating: '5/10',
 		price: '$25.00',
-		summary: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate'
+		summary: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate',
+		related: [5]
 	}, {
 		gameId: 6,
 		title: 'Potatostein',
 		rating: '5/10',
 		price: '$25.00',
-		summary: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate'
+		summary: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate',
+		related: [4]
 	}, {
 		gameId: 7,
 		title: 'Potato 3: Sweet\'s Revenge',
 		rating: '5/10',
 		price: '$25.00',
-		summary: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate'
+		summary: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate',
+		related: [3]
 	}, {
 		gameId: 8,
 		title: 'Call of Potato',
 		rating: '5/10',
 		price: '$25.00',
-		summary: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate'
+		summary: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate',
+		related: [2]
 	}, {
 		gameId: 9,
 		title: 'Potato Invaders',
 		rating: '5/10',
 		price: '$25.00',
-		summary: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate'
+		summary: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate',
+		related: [1]
 	}]	
 };
 
@@ -160,9 +95,7 @@ export const joystickReducer = (state=initialState, action) => {
 	}
 	else if (action.type === actions.SIGN_IN) {
 		return Object.assign({}, state, {
-			user: {...state.user,
-				signedIn: true
-			}
+			signedIn: true
 		})
 	}
 	else if (action.type === actions.SIGN_OUT) {
@@ -170,24 +103,35 @@ export const joystickReducer = (state=initialState, action) => {
 				signedIn: false
 			})
 	}
-	else if (action.type === actions.SET_GAME_ID) {
-		return Object.assign({}, state, {
-			gameId: action.gameId
-		})
-	}
 	else if (action.type === actions.ADD_TO_WATCHLIST) {
+		const watchlistUpdate = state.watchlists.map(watchlist => {
+			if(watchlist.userId === state.currentUser) {
+				watchlist.games.push(action.gameId);
+				return watchlist;
+			}
+			else{
+				return watchlist;
+			}
+		})
 		return Object.assign({}, state, {
-			user: {...state.user,
-				watchlist: [...state.user.watchlist, 
-					action.game
-			]}
+			watchlists: [...watchlistUpdate]
 		})
 	}
 	else if (action.type === actions.REMOVE_FROM_WATCHLIST) {
-		return Object.assign({}, state, {
-			user: {...state.user,
-				watchlist: [...state.user.watchlist].filter(item => item.gameId !== action.gameId)
+		const watchlistUpdate = state.watchlists.map(watchlist => {
+			if(watchlist.userId === state.currentUser) {
+				const filteredList = watchlist.games.filter(game => game !== action.gameId);
+				return {
+					userId: watchlist.userId,
+					games: filteredList
+				}
 			}
+			else{
+				return watchlist;
+			}
+		})
+		return Object.assign({}, state, {
+			watchlists: [...watchlistUpdate]
 		})
 	}
 	else if (action.type === actions.SET_SEARCH_RESULTS) {
@@ -213,31 +157,11 @@ export const joystickReducer = (state=initialState, action) => {
 	}
 	else if (action.type === actions.CREATE_NEW_USER) {
 		return Object.assign({}, state, {
-			registeredUsers: [...state.registeredUsers, {
-					name: action.userInfo.username,
-					password: action.userInfo.password,
-					watchlist: [],
-					relatedGames: [{
-						gameId: 7,
-						title: 'Potato 3: Sweet\'s Revenge',
-						rating: '5/10',
-						price: '$25.00',
-						summary: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate'
-					}, {
-						gameId: 8,
-						title: 'Call of Potato',
-						rating: '5/10',
-						price: '$25.00',
-						summary: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate'
-					}, {
-						gameId: 9,
-						title: 'Potato Invaders',
-						rating: '5/10',
-						price: '$25.00',
-						summary: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate'
-					}]
-				}
-			]
+			users: [...state.users, {
+				userId: state.users.length + 1,
+				username: action.userInfo.name,
+				password: action.userInfo.password
+			}]
 		})
 	}
 	else if (action.type === actions.SEND_TO_DASHBOARD) {
@@ -247,24 +171,9 @@ export const joystickReducer = (state=initialState, action) => {
 	}
 	else if (action.type === actions.SET_CURRENT_USER) {
 		return Object.assign({}, state, {
-			user: action.user
+			currentUser: action.userId
 		})
 	}
-	else if (action.type ===actions.UPDATE_USER_INFO) {
-		let updatedInfo = []; 
-		state.registeredUsers.forEach((item, index) => {
-			if(item.name === state.user.name) {
-				updatedInfo.push(state.user)
-			}
-			else {
-				updatedInfo.push(item)
-			}	
-		})
-		return Object.assign({}, state, {
-			registeredUsers: updatedInfo
-		})
-	}
-
 
 	return state;
 };

@@ -5,7 +5,7 @@ import Watchlist from './watchlist';
 import RelatedGames from './relatedGames';
 import WarningDisplay from './warningDisplay';
 
-import {signOut, removeFromWatchlist, setWatchlistWarning, resetWatchlistWarning, updateUserInfo} from '../actions';
+import {signOut, removeFromWatchlist, setWatchlistWarning, resetWatchlistWarning} from '../actions';
 
 import avatar from './static-photos/avatar.jpeg';
 import './styles/dashboard.css';
@@ -22,7 +22,6 @@ export class Dashboard extends React.Component {
 
 	confirmWatchlistRemove() {
 		this.props.dispatch(removeFromWatchlist(this.props.warning.gameId));
-		this.props.dispatch(updateUserInfo());
 		this.props.dispatch(resetWatchlistWarning());
 	}
 
@@ -32,12 +31,21 @@ export class Dashboard extends React.Component {
 
 	render() {
 		const {joystick} = this.props;
+		const userCheck = () => {
+			if(joystick.currentUser === null) {
+				return null;
+			}
+			else{
+				const currentUser = joystick.users.filter(user => user.userId === joystick.currentUser);
+				return currentUser[0].username;
+			}
+		}
 		return(
 			<section className="dashboard-wrapper">
 				<header className="dashboard-header">
 					<div className="profile">
-						<img className="profile-pic" src={avatar} alt={joystick.user.name} />
-						<h2 className="">Hello, {joystick.user.name}</h2>
+						<img className="profile-pic" src={avatar} alt={userCheck()} />
+						<h2 className="">Hello, {userCheck()}</h2>
 					</div>
 					<button className="sign-out" onClick={e => this.signOut(e)}>Sign out</button>
 				</header>
