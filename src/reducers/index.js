@@ -156,11 +156,16 @@ export const joystickReducer = (state=initialState, action) => {
 		})
 	}
 	else if (action.type === actions.CREATE_NEW_USER) {
+		const newUserId = state.users.length + 1;
 		return Object.assign({}, state, {
 			users: [...state.users, {
-				userId: state.users.length + 1,
-				username: action.userInfo.name,
+				userId: newUserId,
+				username: action.userInfo.username,
 				password: action.userInfo.password
+			}],
+			watchlists: [...state.watchlists, {
+				userId: newUserId,
+				games: []
 			}]
 		})
 	}

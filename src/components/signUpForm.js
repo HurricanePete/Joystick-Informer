@@ -12,7 +12,7 @@ import './styles/signUpForm.css';
 export class SignupForm extends React.Component {
 	onSubmit(values) {
 		const slugify = (input) => input.toLowerCase();
-		const existingName = this.props.registeredUsers.filter(item => slugify(item.name) === slugify(values.username));
+		const existingName = this.props.users.filter(item => slugify(item.username) === slugify(values.username));
 		if(existingName.length > 0) {
 			alert('Username already exists, please try another.');
 			return null;
@@ -43,7 +43,7 @@ SignupForm = reduxForm({
 
 const mapStateToProps = state => {
 	return{
-		registeredUsers: state.joystick.registeredUsers
+		users: state.joystick.users
 	}
 }
 

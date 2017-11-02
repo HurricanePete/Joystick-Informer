@@ -21,7 +21,7 @@ export class NavigationBar extends React.Component {
 				<nav className="">
 					<div className="link home" title="Home"><Link to="/">Home</Link></div>
 					<div className="link avatar" title={currentUser[0].username}>
-						<Link to="/dashboard">
+						<Link to={`/dashboard/${currentUser[0].username}`}>
 							<img className="avatar" src={avatar} alt="avatar" />
 						</Link>
 					</div>

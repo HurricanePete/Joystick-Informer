@@ -36,7 +36,7 @@ export class LoginPage extends React.Component {
 					<header>
 						<h2>Log in to Joystick Informer</h2>
 					</header>
-					<div className="bg-light-green"><p className="green">Account created! Please log in to continue.</p></div>
+					<div className="bg-light-green ma2"><p className="green">Account created! Please log in to continue.</p></div>
 					<LoginForm signIn={(values) => this.toggleSignIn(values)} />
 					<div>
 						<p>Want an account? <Link to="/signup">Create one here.</Link></p>

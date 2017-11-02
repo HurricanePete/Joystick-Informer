@@ -36,7 +36,14 @@ export class RelatedGames extends React.Component {
 				<Tile index={index} {...tile} />
 				<button className="list-adder" title="Add to Watchlist" onClick={e => this.watchlistAdd(e, tile.gameId)}> + </button>
 			</li>
-			);
+		);
+		if(tiles.length === 0) {
+			return(
+				<section className="relatedGames-wrapper">
+					<p>Add games to your watchlist to start viewing recommended games.</p>
+				</section>
+			)
+		}
 
 		return(
 			<section className="relatedGames-wrapper">
