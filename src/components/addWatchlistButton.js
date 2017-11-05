@@ -19,9 +19,7 @@ export class AddWatchlistButton extends React.Component {
 			return null
 		}
 		const userWatchlist = watchlists.filter(watchlist => watchlist.userId === currentUser);
-		console.log(userWatchlist);
 		const containsGame = userWatchlist[0].games.includes(this.props.item);
-		console.log(this.props.item);
 		if(!signedIn) {
 			return(
 				<Link to="/login" className="blue underline">Sign in to add to watchlist</Link>
