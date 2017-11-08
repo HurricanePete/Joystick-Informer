@@ -14,7 +14,6 @@ export class SearchPage extends React.Component {
 	}
 
 	handleSearch(values) {
-		console.log(values);
 		const slugify = string => string.toLowerCase();
 		const display = this.props.joystick.examples.filter(game => (slugify(game.title)).includes(values));
 		this.props.dispatch(setSearchResults(display));

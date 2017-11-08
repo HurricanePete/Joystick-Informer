@@ -30,7 +30,6 @@ export class RelatedGames extends React.Component {
 		let relatedGameIds = [];
 		watchlistGames.map(game => game.related.forEach(id => relatedGameIds.push(id)));
 		const relatedGames = relatedGameIds.map(gameId => examples.find(example => example.gameId === gameId));
-		console.log(relatedGames);
 		const tiles = relatedGames.map((tile, index) =>
 			<li key={index}> 
 				<Tile index={index} {...tile} />
