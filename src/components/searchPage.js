@@ -14,9 +14,6 @@ export class SearchPage extends React.Component {
 	}
 
 	handleSearch(values) {
-		//const slugify = string => string.toLowerCase();
-		//const display = this.props.joystick.examples.filter(game => (slugify(game.title)).includes(values));
-		//this.props.dispatch(setSearchResults(display));
 		fetch(`http://localhost:8080/games/${values}`)
 			.then(res => {
 				if(!res.ok) {

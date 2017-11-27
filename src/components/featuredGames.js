@@ -4,8 +4,14 @@ import Tile from './tile';
 
 export default class FeaturedGames extends React.Component{
 	render() {
-		const tiles = this.props.featured.map((tile, index) => 
-			<Tile key={index} index={index} dashboard={false} {...tile} />)
+		let tiles;
+		if(this.props.featured) {
+			tiles = this.props.featured.map((tile, index) => 
+				<Tile key={index} index={index} dashboard={false} {...tile} />)
+		}
+		else {
+			tiles = 'Coming Soon'
+		}
 
 		return(
 			<section className="bg-light-gray">
