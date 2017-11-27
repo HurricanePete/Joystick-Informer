@@ -7,19 +7,18 @@ import demo from './static-photos/demo.png';
 
 export class Tile extends React.Component {
 		render() {
-		const {gameId, title, rating, price} = this.props;
-
+		const {id, name, rating, cover, price} = this.props;
 
 		return (
-			<Link to={`/gameview/${gameId}`}>
+			<Link to={`/gameview/${id}`}>
 				<div className="tile">
-					<div className="" title={title}>
-						<img className="cover-photo" alt={title} src={demo} />
+					<div className="" title={name}>
+						<img className="cover-photo" alt={name} src={cover === undefined ? demo : cover.url} />
 						<dl>
 							<dt className="hidden">Title</dt>
-							<dd>{title}</dd>
+							<dd>{name}</dd>
 							<dt className="hidden">Rating</dt>
-							<dd>Avg. Rating: <span className="props">{rating}</span></dd>
+							<dd>Avg. Rating: <span className="props">{rating === undefined ? 'Rating Unavailable' : rating}</span></dd>
 							<dt className="hidden">Price</dt>
 							<dd>Low Price: <span className="props">{price}</span></dd>
 						</dl>

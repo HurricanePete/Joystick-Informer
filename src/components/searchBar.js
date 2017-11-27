@@ -5,8 +5,13 @@ import './styles/searchBar.css';
 
 export class SearchBar extends React.Component {
 	onSubmit(values) {
-		const lower = values.search.toLowerCase();
-		this.props.searchSubmit(lower);
+		try{
+			const lower = values.search.toLowerCase();
+			this.props.searchSubmit(lower);
+		}
+		catch(err) {
+			alert('Please enter a valid search')
+		}
 	}
 
 	render(){

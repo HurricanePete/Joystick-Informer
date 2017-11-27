@@ -7,8 +7,10 @@ import LoginForm from './loginForm';
 import {signIn, setCurrentUser, sendToDashboard, bannerToggle} from '../actions';
 
 export class LoginPage extends React.Component {
-
-	state = {error: null}
+	constructor(props) {
+		super(props)
+		this.state = {error: null}
+	}
 
 	toggleSignIn(values) {
 		const slugify = (input) => input.toLowerCase();

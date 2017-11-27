@@ -14,9 +14,23 @@ export class SearchPage extends React.Component {
 	}
 
 	handleSearch(values) {
-		const slugify = string => string.toLowerCase();
-		const display = this.props.joystick.examples.filter(game => (slugify(game.title)).includes(values));
-		this.props.dispatch(setSearchResults(display));
+		//const slugify = string => string.toLowerCase();
+		//const display = this.props.joystick.examples.filter(game => (slugify(game.title)).includes(values));
+		//this.props.dispatch(setSearchResults(display));
+		fetch(`http://localhost:8080/games/${values}`)
+			.then(res => {
+				if(!res.ok) {
+					return Promise.reject(res.statusText);
+				}
+				return res.json();
+			})
+			.then(games => {
+				this.props.dispatch(setSearchResults(games));
+			})
+			.catch(err => {
+				alert(err);
+			})
+
 	}
 
 	sendToDashboard() {
@@ -27,13 +41,12 @@ export class SearchPage extends React.Component {
 	render() {
 		const {joystick} = this.props;
 		const exampleIds = [2, 4, 6];
-		const randomGames = exampleIds.map(id => joystick.examples.find(example => example.gameId === id));
 		if (!joystick.banner || joystick.signedIn) {
 			return(
 				<main>
 					<SearchBar searchSubmit={(values) => this.handleSearch(values)}  />
 					<ResultsDisplay displayValues={joystick.searchResults} />
-					<FeaturedGames featured={randomGames} />
+					<FeaturedGames />
 				</main>
 			)
 		}

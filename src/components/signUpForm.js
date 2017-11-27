@@ -20,10 +20,7 @@ export class SignupForm extends React.Component {
 			this.setState({error: 'Username already exists, please try another.'})
 			return false
 		}
-		this.props.dispatch(createNewUser(values));
-		if(this.props.sendToDashboard) {
-			this.props.sendToDashboard(values)
-		}
+		//this.props.dispatch(createNewUser(values));
 	}
 
 	render() {

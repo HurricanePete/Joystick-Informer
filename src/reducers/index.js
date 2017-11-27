@@ -1,4 +1,5 @@
 import * as actions from '../actions';
+import * as auth from '../actions/auth.js';
 
 const initialState = {
 	banner: true,
@@ -20,71 +21,8 @@ const initialState = {
 		userId: 1,
 		games: [1, 2, 3]
 	}],
-	currentUser: null,
-	examples: [{
-		gameId: 1,
-		title: 'Potato: Rise of the Fries',
-		rating: '5/10',
-		price: '$25.00',
-		summary: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate',
-		related: [9]
-	}, {
-		gameId: 2,
-		title: 'Potato Putt',
-		rating: '5/10',
-		price: '$25.00',
-		summary: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate',
-		related: [8]
-	}, {
-		gameId: 3,
-		title: 'Captain Potato',
-		rating: '5/10',
-		price: '$25.00',
-		summary: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate',
-		related: [7]
-	}, {
-		gameId: 4,
-		title: 'Tomato and Potato Go Fishing',
-		rating: '5/10',
-		price: '$25.00',
-		summary: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate',
-		related: [6]
-	}, {
-		gameId: 5,
-		title: 'Potato 2: Return of the Potato',
-		rating: '5/10',
-		price: '$25.00',
-		summary: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate',
-		related: [5]
-	}, {
-		gameId: 6,
-		title: 'Potatostein',
-		rating: '5/10',
-		price: '$25.00',
-		summary: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate',
-		related: [4]
-	}, {
-		gameId: 7,
-		title: 'Potato 3: Sweet\'s Revenge',
-		rating: '5/10',
-		price: '$25.00',
-		summary: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate',
-		related: [3]
-	}, {
-		gameId: 8,
-		title: 'Call of Potato',
-		rating: '5/10',
-		price: '$25.00',
-		summary: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate',
-		related: [2]
-	}, {
-		gameId: 9,
-		title: 'Potato Invaders',
-		rating: '5/10',
-		price: '$25.00',
-		summary: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate',
-		related: [1]
-	}]	
+	authToken: null,
+	currentUser: null
 };
 
 export const joystickReducer = (state=initialState, action) => {
@@ -174,9 +112,14 @@ export const joystickReducer = (state=initialState, action) => {
 			sendToDashboard: action.boolean
 		})
 	}
+	else if (action.type  === auth.SET_AUTH_TOKEN) {
+		return Object.assign({}, state, {
+			authToken: action.authToken
+		})
+	}
 	else if (action.type === actions.SET_CURRENT_USER) {
 		return Object.assign({}, state, {
-			currentUser: action.userId
+			currentUser: action.currentUser
 		})
 	}
 

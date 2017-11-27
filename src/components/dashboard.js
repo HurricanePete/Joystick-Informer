@@ -1,5 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import {Redirect} from 'react-router-dom';
 
 import Watchlist from './watchlist';
 import RelatedGames from './relatedGames';
@@ -39,6 +40,9 @@ export class Dashboard extends React.Component {
 				const currentUser = joystick.users.filter(user => user.userId === joystick.currentUser);
 				return currentUser[0].username;
 			}
+		}
+		if(!joystick.signedIn) {
+			return <Redirect to="/signup" />;
 		}
 		return(
 			<section className="dashboard-wrapper">
