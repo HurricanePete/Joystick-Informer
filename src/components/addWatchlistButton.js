@@ -14,15 +14,14 @@ export class AddWatchlistButton extends React.Component {
 		this.props.dispatch(removeFromWatchlist(this.props.removeId));
 	}
 	render() {
-		const {signedIn, currentUser, watchlists} = this.props;
-		if(currentUser === null || !signedIn) {
+		const {loggedIn, currentUser, currentWatchlist} = this.props;
+		if(loggedIn) {
 			return(
 				<Link to="/login" className="blue underline">Sign in to add to watchlist</Link>
 			)
 		}
-		const userWatchlist = watchlists.filter(watchlist => watchlist.userId === currentUser);
-		const containsGame = userWatchlist[0].games.includes(this.props.item);
-		if((signedIn) && (containsGame)) {
+		const containsGame = currentWatchlist.gameIds.includes(this.props.item);
+		if(loggedIn && containsGame) {
 			return(
 				<span>
 					<p className="dib green ba br3 measure">Already in watchlist</p>
@@ -40,9 +39,9 @@ export class AddWatchlistButton extends React.Component {
 
 const mapStateToProps = state => {
 	return{
-		signedIn: state.joystick.signedIn,
+		loggedIn: state.joystick.currentUser !== null,
 		currentUser: state.joystick.currentUser,
-		watchlists: state.joystick.watchlists
+		currentWatchlist: state.joystick.currentWatchlist,
 	}
 }
 

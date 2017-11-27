@@ -1,11 +1,15 @@
 import React from 'react';
 import {Field, reduxForm} from 'redux-form';
 
+import {login} from '../actions/auth';
+
 import './styles/loginForm.css';
 
 export class LoginForm extends React.Component {
 	onSubmit(values) {
-		this.props.signIn(values);
+		return this.props.dispatch(login(values.username, values.password))
+			.then(this.props.signIn())
+			.catch(err => alert(err))
 	}
 
 	render() {

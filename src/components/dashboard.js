@@ -12,6 +12,13 @@ import avatar from './static-photos/avatar.jpeg';
 import './styles/dashboard.css';
 
 export class Dashboard extends React.Component {
+	componentWillMount() {
+		if(!this.props.loggedIn) {
+			return;	
+		}
+		
+	}
+
 	signOut(event) {
 		this.props.dispatch(signOut());
 		this.props.history.push("/");
@@ -31,25 +38,16 @@ export class Dashboard extends React.Component {
 	}
 
 	render() {
-		const {joystick} = this.props;
-		const userCheck = () => {
-			if(joystick.currentUser === null) {
-				return null;
-			}
-			else{
-				const currentUser = joystick.users.filter(user => user.userId === joystick.currentUser);
-				return currentUser[0].username;
-			}
-		}
-		if(!joystick.signedIn) {
-			return <Redirect to="/signup" />;
+		const {joystick, loggedIn} = this.props;
+		if(!loggedIn) {
+			return <Redirect to="/" />;
 		}
 		return(
 			<section className="dashboard-wrapper">
 				<header className="dashboard-header">
 					<div className="profile">
-						<img className="profile-pic" src={avatar} alt={userCheck()} />
-						<h2 className="">Hello, {userCheck()}</h2>
+						<img className="profile-pic" src={avatar} alt={joystick.currentUser} />
+						<h2 className="">Hello, {joystick.currentUser}</h2>
 					</div>
 					<button className="sign-out" onClick={e => this.signOut(e)}>Sign out</button>
 				</header>
@@ -68,6 +66,7 @@ export class Dashboard extends React.Component {
 const mapStateToProps = state => {
 	return{
 		joystick: state.joystick,
+		loggedIn: state.joystick.currentUser !== null,
 		warning: state.joystick.watchlistWarning
 	}
 }

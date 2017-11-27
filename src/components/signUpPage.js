@@ -1,18 +1,19 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {Link} from 'react-router-dom';
+import {Link, Redirect} from 'react-router-dom';
 
-import {sendToDashboard} from '../actions';
 
 import SignUpForm from './signUpForm';
 
 export class SignUpPage extends React.Component {
 	sendToDashboard(values) {
-		this.props.history.push("/login");
-		this.props.dispatch(sendToDashboard(true));
+		this.props.history.push("/dashboard");
 	}
 
 	render() {
+		if(this.props.loggedIn) {
+			<Redirect to="/dashboard" />;
+		}
 		return(
 			<section className="login-wrapper">
 				<header>
@@ -29,7 +30,7 @@ export class SignUpPage extends React.Component {
 
 const mapStateToProps = state => {
 	return{
-		registeredUsers: state.joystick.registeredUsers
+		loggedIn: state.joystick.currentUser !== null
 	}
 }
 

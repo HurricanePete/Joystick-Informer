@@ -8,11 +8,6 @@ export const dashboardToggle = () => ({
 	type: DASHBOARD_TOGGLE
 })
 
-export const SIGN_IN = 'SIGN_IN';
-export const signIn = () => ({
-	type: SIGN_IN
-})
-
 export const SIGN_OUT = 'SIGN_OUT';
 export const signOut = () => ({
 	type: SIGN_OUT
@@ -51,22 +46,4 @@ export const setWatchlistWarning = (gameId) => ({
 export const RESET_WATCHLIST_WARNING = 'RESET_WATCHLIST_WARNING';
 export const resetWatchlistWarning = () => ({
 	type: RESET_WATCHLIST_WARNING
-})
-
-export const CREATE_NEW_USER = 'CREATE_NEW_USER';
-export const createNewUser = (userInfo) => ({
-	type: CREATE_NEW_USER,
-	userInfo
-})
-
-export const SET_CURRENT_USER = 'SET_CURRENT_USER';
-export const setCurrentUser = (userId) => ({
-	type: SET_CURRENT_USER,
-	userId
-})
-
-export const SEND_TO_DASHBOARD = 'SEND_TO_DASHBOARD';
-export const sendToDashboard = (boolean) => ({
-	type: SEND_TO_DASHBOARD,
-	boolean
 })

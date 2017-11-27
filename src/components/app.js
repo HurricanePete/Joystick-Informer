@@ -19,7 +19,7 @@ export default function App(props) {
 				<NavigationBar />
 				<Route exact path="/" component={SearchPage} />
 				<Route exact path="/gameview/:id" component={GameView} />
-				<Route exact path="/dashboard/:userid" component={Dashboard} />
+				<Route exact path="/dashboard" component={Dashboard} />
 				<Route exact path="/login" component={LoginPage} />
 				<Route exact path="/signup" component={SignUpPage} />
 				<Footer />

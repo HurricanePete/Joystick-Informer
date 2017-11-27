@@ -46,10 +46,4 @@ class ResultsDisplay extends Component {
 	}
 }
 
-const mapStateToProps = state => {
-	return {
-		examples: state.joystick.examples
-	}
-};
-
-export default connect(mapStateToProps)(ResultsDisplay);
+export default connect()(ResultsDisplay);

@@ -6,6 +6,7 @@ import formInput from './formInput';
 import {required, nonEmpty, email, noSpaces, lengthy} from '../validators';
 
 import {registerUser} from '../actions/users';
+import {login} from '../actions/auth';
 
 import './styles/signUpForm.css';
 
@@ -17,13 +18,13 @@ export class SignupForm extends React.Component {
 
 
 	onSubmit(values) {
-		//const slugify = (input) => input.toLowerCase();
-		//const existingName = this.props.users.filter(item => slugify(item.username) === slugify(values.username));
-		//if(existingName.length > 0) {
-		//	this.setState({error: 'Username already exists, please try another.'})
-		//	return false
-		//}
-		this.props.dispatch(registerUser(values));
+		const {username, password, email} = values;
+		return this.props
+			.dispatch(registerUser(values))
+			.then(() => this.props.dispatch(login(username, password)))
+			.then(this.props.sendToDashboard())
+			.catch(err => alert(err))
+
 	}
 
 	render() {
@@ -58,10 +59,4 @@ SignupForm = reduxForm({
 	form: 'signup'
 })(SignupForm)
 
-const mapStateToProps = state => {
-	return{
-		users: state.joystick.users
-	}
-}
-
-export default connect(mapStateToProps)(SignupForm)
+export default connect()(SignupForm)

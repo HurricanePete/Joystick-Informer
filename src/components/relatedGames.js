@@ -21,16 +21,15 @@ export class RelatedGames extends React.Component {
 	}
 
 	render() {
-		const {currentUser, watchlists, examples} = this.props;
-		if(currentUser === null) {
+		const {loggedIn, currentUser, currentWatchlist} = this.props;
+		if(!loggedIn) {
 			return null
 		}
-		const userWatchlist = watchlists.filter(watchlist => watchlist.userId === currentUser);
-		const watchlistGames = userWatchlist[0].games.map(gameId => examples.find(example => example.gameId === gameId));
+
 		let relatedGameIds = [];
-		watchlistGames.map(game => game.related.forEach(id => relatedGameIds.push(id)));
-		const relatedGames = relatedGameIds.map(gameId => examples.find(example => example.gameId === gameId));
-		const tiles = relatedGames.map((tile, index) =>
+		
+
+		const tiles = relatedGameIds.map((tile, index) =>
 			<li key={index}> 
 				<Tile index={index} {...tile} />
 				<button className="list-adder" title="Add to Watchlist" onClick={e => this.watchlistAdd(e, tile.gameId)}> + </button>
@@ -56,9 +55,9 @@ export class RelatedGames extends React.Component {
 
 const mapStateToProps = state => {
 	return {
+		loggedIn: state.joystick.currentUser !== null,
 		currentUser: state.joystick.currentUser,
-		watchlists: state.joystick.watchlists,
-		examples: state.joystick.examples
+		currentWatchlist: state.joystick.currentWatchlist
 	}
 };
 

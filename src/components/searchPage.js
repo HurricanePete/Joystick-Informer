@@ -6,7 +6,7 @@ import SearchBar from './searchBar';
 import ResultsDisplay from './resultsDisplay';
 import FeaturedGames from './featuredGames';
 
-import {bannerToggle, setSearchResults, sendToDashboard} from '../actions';
+import {bannerToggle, setSearchResults} from '../actions';
 
 export class SearchPage extends React.Component {
 	hideBanner() {
@@ -32,13 +32,12 @@ export class SearchPage extends React.Component {
 
 	sendToDashboard() {
 		this.props.history.push("/login");
-		this.props.dispatch(sendToDashboard(true));
 	}
 
 	render() {
-		const {joystick} = this.props;
+		const {loggedIn, joystick} = this.props;
 		const exampleIds = [2, 4, 6];
-		if (!joystick.banner || joystick.signedIn) {
+		if (!joystick.banner || loggedIn) {
 			return(
 				<main>
 					<SearchBar searchSubmit={(values) => this.handleSearch(values)}  />
@@ -56,6 +55,7 @@ export class SearchPage extends React.Component {
 
 const mapStateToProps = state => {
 	return {
+		loggedIn: state.joystick.currentUser !== null,
 		joystick: state.joystick
 	}
 }

@@ -16,7 +16,7 @@ export class WarningDisplay extends React.Component {
 
 	render() {
 		const {watchlistWarning} = this.props;
-		if((watchlistWarning.warning) && (watchlistWarning.gameId === undefined)) {
+		if(watchlistWarning.warning && (watchlistWarning.gameId === undefined)) {
 			return(
 				<section className="z-10 center-overlay bg-light-gray">
 					<div className="bg-gray center pa1">
@@ -26,7 +26,7 @@ export class WarningDisplay extends React.Component {
 				</section>
 			)
 		}
-		else if((watchlistWarning.warning)) {
+		else if(watchlistWarning.warning) {
 			return(
 				<section className="z-10 center-overlay bg-light-gray">
 					<div className="bg-gray center pa1">
