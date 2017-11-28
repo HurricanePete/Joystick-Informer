@@ -2,7 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
 
-import {addToWatchlist, removeFromWatchlist} from '../actions';
+import {addToWatchlist, removeFromWatchlist} from '../actions/joystick';
 
 export class AddWatchlistButton extends React.Component {
 	watchlistAdd(event) {
@@ -39,9 +39,9 @@ export class AddWatchlistButton extends React.Component {
 
 const mapStateToProps = state => {
 	return{
-		loggedIn: state.joystick.currentUser !== null,
-		currentUser: state.joystick.currentUser,
-		currentWatchlist: state.joystick.currentWatchlist,
+		loggedIn: state.auth.currentUser !== null,
+		currentUser: state.auth.currentUser,
+		currentWatchlist: state.auth.currentWatchlist,
 	}
 }
 

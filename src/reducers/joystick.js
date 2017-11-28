@@ -4,14 +4,10 @@ const initialState = {
 	banner: true,
 	searching: false,
 	searchResults: null,
-	sendToDashboard: false,
 	watchlistWarning: {
 		warning: false,
 		gameId: null
-	},
-	authToken: null,
-	currentUser: null,
-	currentWatchlist: null
+	}
 };
 
 export const joystickReducer = (state=initialState, action) => {

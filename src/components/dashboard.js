@@ -6,7 +6,7 @@ import Watchlist from './watchlist';
 import RelatedGames from './relatedGames';
 import WarningDisplay from './warningDisplay';
 
-import {signOut, removeFromWatchlist, setWatchlistWarning, resetWatchlistWarning} from '../actions';
+import {signOut, removeFromWatchlist, setWatchlistWarning, resetWatchlistWarning} from '../actions/joystick';
 
 import avatar from './static-photos/avatar.jpeg';
 import './styles/dashboard.css';

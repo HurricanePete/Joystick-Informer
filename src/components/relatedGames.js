@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 
 import Tile from './tile';
 
-import {addToWatchlist, setWatchlistWarning} from '../actions';
+import {addToWatchlist, setWatchlistWarning} from '../actions/joystick';
 
 import './styles/relatedGames.css';
 

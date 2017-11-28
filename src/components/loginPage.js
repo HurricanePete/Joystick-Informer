@@ -4,9 +4,6 @@ import {Link} from 'react-router-dom';
 
 import LoginForm from './loginForm';
 
-import {signIn, setCurrentUser, sendToDashboard, bannerToggle} from '../actions';
-
-
 export class LoginPage extends React.Component {
 	constructor(props) {
 		super(props)

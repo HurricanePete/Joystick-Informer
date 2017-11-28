@@ -2,8 +2,6 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
 
-import {sendToDashboard} from '../actions';
-
 import './styles/nav.css';
 
 import avatar from './static-photos/avatar.jpeg';

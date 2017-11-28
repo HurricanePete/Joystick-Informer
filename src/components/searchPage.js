@@ -6,7 +6,7 @@ import SearchBar from './searchBar';
 import ResultsDisplay from './resultsDisplay';
 import FeaturedGames from './featuredGames';
 
-import {bannerToggle, setSearchResults} from '../actions';
+import {bannerToggle, setSearchResults} from '../actions/joystick';
 
 export class SearchPage extends React.Component {
 	hideBanner() {
