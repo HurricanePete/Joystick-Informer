@@ -1,4 +1,4 @@
-import * as actions from '../actions';
+import * as actions from '../actions/joystick';
 
 const initialState = {
 	banner: true,
@@ -19,13 +19,6 @@ export const joystickReducer = (state=initialState, action) => {
 		return Object.assign({}, state, {
 			banner: false
 		});
-	}
-	else if (action.type === actions.SIGN_OUT) {
-		return Object.assign({}, state, {
-				currentUser: null,
-				currentWatchlist: null,
-				authToken: null
-			})
 	}
 	else if (action.type === actions.SET_SEARCH_RESULTS) {
 		return Object.assign({}, state, {

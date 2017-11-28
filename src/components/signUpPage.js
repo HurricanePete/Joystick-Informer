@@ -30,7 +30,7 @@ export class SignUpPage extends React.Component {
 
 const mapStateToProps = state => {
 	return{
-		loggedIn: state.joystick.currentUser !== null
+		loggedIn: state.auth.currentUser !== null
 	}
 }
 

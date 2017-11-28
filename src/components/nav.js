@@ -35,8 +35,8 @@ export class NavigationBar extends React.Component {
 
 const mapStateToProps = state => {
 	return {
-		loggedIn: state.joystick.currentUser !== null,
-		currentUser: state.joystick.currentUser
+		loggedIn: state.auth.currentUser !== null,
+		currentUser: state.auth.currentUser
 	}
 }
 

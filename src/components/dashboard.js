@@ -16,7 +16,7 @@ export class Dashboard extends React.Component {
 		if(!this.props.loggedIn) {
 			return;	
 		}
-		
+
 	}
 
 	signOut(event) {
@@ -38,7 +38,7 @@ export class Dashboard extends React.Component {
 	}
 
 	render() {
-		const {joystick, loggedIn} = this.props;
+		const {auth, loggedIn} = this.props;
 		if(!loggedIn) {
 			return <Redirect to="/" />;
 		}
@@ -46,8 +46,8 @@ export class Dashboard extends React.Component {
 			<section className="dashboard-wrapper">
 				<header className="dashboard-header">
 					<div className="profile">
-						<img className="profile-pic" src={avatar} alt={joystick.currentUser} />
-						<h2 className="">Hello, {joystick.currentUser}</h2>
+						<img className="profile-pic" src={avatar} alt={auth.currentUser} />
+						<h2 className="">Hello, {auth.currentUser}</h2>
 					</div>
 					<button className="sign-out" onClick={e => this.signOut(e)}>Sign out</button>
 				</header>
@@ -65,8 +65,8 @@ export class Dashboard extends React.Component {
 
 const mapStateToProps = state => {
 	return{
-		joystick: state.joystick,
-		loggedIn: state.joystick.currentUser !== null,
+		auth: state.auth,
+		loggedIn: state.auth.currentUser !== null,
 		warning: state.joystick.watchlistWarning
 	}
 }

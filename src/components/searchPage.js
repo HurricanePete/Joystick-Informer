@@ -55,7 +55,7 @@ export class SearchPage extends React.Component {
 
 const mapStateToProps = state => {
 	return {
-		loggedIn: state.joystick.currentUser !== null,
+		loggedIn: state.auth.currentUser !== null,
 		joystick: state.joystick
 	}
 }
