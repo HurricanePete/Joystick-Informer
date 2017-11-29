@@ -1,5 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import {Redirect} from 'react-router-dom';
 
 import ReturnButton from './returnButton';
 import Pricer from './pricer';
@@ -16,8 +17,8 @@ export class GameView extends React.Component {
 	}
 
 	render() {
-		if(!this.props.joystick) {
-			return null
+		if(this.props.joystick.searchResults === null) {
+			return <Redirect to="/" />
 		}
 		const {joystick} = this.props;
 		const id = parseInt(this.props.match.params.id, 10);
@@ -27,14 +28,14 @@ export class GameView extends React.Component {
 			<section className="gameView-wrapper">
 				<div className="game-view" title={name}>
 					<ReturnButton goBack={() => this.returnButtonPress()}  />
-					<img className="game-photo" alt={name} src={cover.url} />
+					<img className="game-photo" alt={name} src={cover.url ? `https://images.igdb.com/igdb/image/upload/t_cover_big/${cover.cloudinary_id}.jpg` : demo} />
 					<dl className="game-details">
 						<dt className="hidden">Title</dt>
 						<dd>{name}</dd>
 						<dt className="hidden">Rating</dt>
-						<dd>{rating}</dd>
+						<dd>{parseInt(rating, 10) + ' /100'}</dd>
 						<dt className="hidden">Watchlist</dt>
-						<dd><AddToWatchListButton item={id} removeId={id} /></dd>
+						<dd><AddToWatchListButton item={id} /></dd>
 						<dt className="hidden">Summary</dt>
 						<dd><p className="summary">{!summary ? 'Apologies, no summary available.' : summary}</p></dd>
 					</dl>

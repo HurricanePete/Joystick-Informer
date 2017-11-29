@@ -7,6 +7,7 @@ import {required, nonEmpty, email, noSpaces, lengthy} from '../validators';
 
 import {registerUser} from '../actions/users';
 import {login} from '../actions/auth';
+import {bannerToggle} from '../actions/joystick';
 
 import './styles/signUpForm.css';
 
@@ -16,15 +17,12 @@ export class SignupForm extends React.Component {
 		this.state = {error: null}
 	}
 
-
 	onSubmit(values) {
-		const {username, password, email} = values;
-		return this.props
-			.dispatch(registerUser(values))
+		const {username, password} = values;
+		return this.props.dispatch(registerUser(values))
 			.then(() => this.props.dispatch(login(username, password)))
-			.then(this.props.sendToDashboard())
-			.catch(err => alert(err))
-
+			.then(() => this.props.dispatch(bannerToggle()))
+			.catch(err => this.setState({error: err.errors._error}))
 	}
 
 	render() {
@@ -32,7 +30,7 @@ export class SignupForm extends React.Component {
 		if(error) {
 			return(
 				<div className="form-wrapper">
-				<div className="bg-washed-red ma2"><p className="dark-red">{error}</p></div>
+					<div className="bg-washed-red ma2"><p className="dark-red">{error}</p></div>
 					<form className="signup-form" onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
 						<Field name="email" label="Email" type="email" placeholder="you@example.com" component={formInput} validate={[required, nonEmpty, email]}/>
 						<Field name="username" label="Username" type="text" placeholder="Pick a username" component={formInput} validate={[required, nonEmpty, noSpaces]} />

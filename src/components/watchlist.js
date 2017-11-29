@@ -14,9 +14,19 @@ export class Watchlist extends React.Component {
 	}
 
 	render() {
-		const {loggedIn, currentUser, currentWatchlist} = this.props;
+		const {loggedIn, currentWatchlist, loading} = this.props;
 		if(!loggedIn) {
 			return null
+		}
+		if(loading) {
+			return <h2>Loading...</h2>
+		}
+		if(currentWatchlist.gameIds.length === 0) {
+			return(
+				<section className="watchlist-wrapper">
+					<p>Your watchlist is empty. Start adding games to view them here.</p>
+				</section>
+			)
 		}
 		const tiles = currentWatchlist.gameIds.map((tile, index) => 
 			<li className="game-row" key={index}>
@@ -24,13 +34,6 @@ export class Watchlist extends React.Component {
 				<button className="list-remover" title="Remove from Watchlist" onClick={e => this.watchlistRemove(e, {index})}> - </button>
 			</li>
 		);
-		if(tiles.length === 0) {
-			return(
-				<section className="watchlist-wrapper">
-					<p>Your watchlist is empty. Start adding games to view them here.</p>
-				</section>
-			)
-		}
 		return(
 			<section className="watchlist-wrapper">
 				<ul>
@@ -43,6 +46,7 @@ export class Watchlist extends React.Component {
 
 const mapStateToProps = state => {
 	return {
+		loading: state.auth.loading,
 		loggedIn: state.auth.currentUser !== null,
 		currentUser: state.auth.currentUser,
 		currentWatchlist: state.auth.currentWatchlist

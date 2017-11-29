@@ -13,7 +13,7 @@ export class NavigationBar extends React.Component {
 			return(
 				<nav className="">
 					<div className="link home" title="Home"><Link to="/">Home</Link></div>
-					<div className="link avatar" title={currentUser}>
+					<div className="link avatar" title={currentUser.username}>
 						<Link to={'/dashboard'}>
 							<img className="avatar" src={avatar} alt="avatar" />
 						</Link>

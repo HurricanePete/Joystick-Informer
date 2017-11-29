@@ -6,7 +6,8 @@ import Watchlist from './watchlist';
 import RelatedGames from './relatedGames';
 import WarningDisplay from './warningDisplay';
 
-import {signOut, removeFromWatchlist, setWatchlistWarning, resetWatchlistWarning} from '../actions/joystick';
+import {setWatchlistWarning, resetWatchlistWarning} from '../actions/joystick';
+import {retrieveWatchlist, loadingToggle, removeFromWatchlist, signOut} from '../actions/auth';
 
 import avatar from './static-photos/avatar.jpeg';
 import './styles/dashboard.css';
@@ -16,7 +17,9 @@ export class Dashboard extends React.Component {
 		if(!this.props.loggedIn) {
 			return;	
 		}
-
+		this.props.dispatch(loadingToggle())
+		return this.props.dispatch(retrieveWatchlist())
+			.then(() => this.props.dispatch(loadingToggle()))
 	}
 
 	signOut(event) {
@@ -46,8 +49,8 @@ export class Dashboard extends React.Component {
 			<section className="dashboard-wrapper">
 				<header className="dashboard-header">
 					<div className="profile">
-						<img className="profile-pic" src={avatar} alt={auth.currentUser} />
-						<h2 className="">Hello, {auth.currentUser}</h2>
+						<img className="profile-pic" src={avatar} alt={auth.currentUser.username} />
+						<h2 className="">Hello, {auth.currentUser.username}</h2>
 					</div>
 					<button className="sign-out" onClick={e => this.signOut(e)}>Sign out</button>
 				</header>
