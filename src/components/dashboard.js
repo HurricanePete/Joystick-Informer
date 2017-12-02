@@ -9,17 +9,57 @@ import WarningDisplay from './warningDisplay';
 import {setWatchlistWarning, resetWatchlistWarning} from '../actions/joystick';
 import {retrieveWatchlist, loadingToggle, removeFromWatchlist, signOut} from '../actions/auth';
 
+import {normalizeResponseErrors} from '../actions/utils';
+import {API_BASE_URL} from '../config';
+
 import avatar from './static-photos/avatar.jpeg';
 import './styles/dashboard.css';
 
 export class Dashboard extends React.Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			watchlistGames: null,
+			relatedGames: null,
+			error: null
+		}
+	}
+
 	componentWillMount() {
 		if(!this.props.loggedIn) {
 			return;	
 		}
-		this.props.dispatch(loadingToggle())
-		return this.props.dispatch(retrieveWatchlist())
-			.then(() => this.props.dispatch(loadingToggle()))
+
+		if(this.props.currentWatchlist !== null) {
+			
+		}
+	}
+
+	componentWillReceiveProps(nextProps) {
+		if(nextProps.currentWatchlist !== this.props.currentWatchlist) {
+			const {currentWatchlist} = nextProps;
+			const concatIds = currentWatchlist.gameIds.concat(currentWatchlist.relatedIds);
+			console.log(concatIds)
+			this.props.dispatch(loadingToggle());
+			return fetch(`${API_BASE_URL}/games/id/${concatIds}`, {
+				method: 'GET'
+			})
+			.then(watchlistObject => {
+				//function is not returning an array of game objects
+				console.log(watchlistObject)
+				const relatedArray = watchlistObject.splice((watchlistObject.lenth-5), 5);
+				console.log(relatedArray);
+				this.setState({
+					watchlistGames: watchlistObject,
+					relatedGames: relatedArray
+				})
+			})
+			.catch(err => {
+				this.setState({
+					error: err
+				})
+			})
+		}
 	}
 
 	signOut(event) {
@@ -42,6 +82,7 @@ export class Dashboard extends React.Component {
 
 	render() {
 		const {auth, loggedIn} = this.props;
+		const {watchlistGames, relatedGames, error} = this.state;
 		if(!loggedIn) {
 			return <Redirect to="/" />;
 		}
@@ -57,10 +98,10 @@ export class Dashboard extends React.Component {
 				<h3>Your Watchlist</h3>
 				<hr/>
 				<WarningDisplay confirm={() => this.confirmWatchlistRemove()} cancel={() => this.cancelWatchlistWarning()} />
-				<Watchlist watchlistWarning={(gameId) => this.watchlistWarning(gameId)} />
+				<Watchlist watchlistGames={watchlistGames} watchlistWarning={(gameId) => this.watchlistWarning(gameId)} />
 				<h3>Recommended for You</h3>
 				<hr/>
-				<RelatedGames />
+				<RelatedGames relatedGames={relatedGames} />
 			</section>
 		)
 	}
@@ -70,7 +111,8 @@ const mapStateToProps = state => {
 	return{
 		auth: state.auth,
 		loggedIn: state.auth.currentUser !== null,
-		warning: state.joystick.watchlistWarning
+		warning: state.joystick.watchlistWarning,
+		currentWatchlist: state.auth.currentWatchlist
 	}
 }
 

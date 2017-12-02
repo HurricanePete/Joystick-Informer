@@ -26,17 +26,7 @@ export class RelatedGames extends React.Component {
 		if(!loggedIn) {
 			return null
 		}
-
-		let relatedGameIds = [];
-		
-
-		const tiles = relatedGameIds.map((tile, index) =>
-			<li key={index}> 
-				<Tile index={index} {...tile} />
-				<button className="list-adder" title="Add to Watchlist" onClick={e => this.watchlistAdd(e, tile.gameId)}> + </button>
-			</li>
-		);
-		if(tiles.length === 0) {
+		if(this.props.relatedGames === null || this.props.relatedGames.length === 0) {
 			return(
 				<section className="relatedGames-wrapper">
 					<p>Add games to your watchlist to start viewing recommended games.</p>
@@ -44,6 +34,12 @@ export class RelatedGames extends React.Component {
 			)
 		}
 
+		const tiles = this.props.relatedGames.map((tile, index) =>
+			<li key={index}> 
+				<Tile index={index} {...tile} />
+				<button className="list-adder" title="Add to Watchlist" onClick={e => this.watchlistAdd(e, tile.gameId)}> + </button>
+			</li>
+		);
 		return(
 			<section className="relatedGames-wrapper">
 				<ul>

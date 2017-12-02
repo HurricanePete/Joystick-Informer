@@ -53,6 +53,15 @@ const storeAuthInfo = (authToken, dispatch) => {
 	dispatch(setAuthToken(authToken));
 	dispatch(setCurrentUser(decodedToken.user));
 	saveAuthToken(authToken);
+	return fetch(`${API_BASE_URL}/api/dashboard`, {
+		method: 'GET',
+		headers: {
+			Authorization: `Bearer ${authToken}`
+		}
+	})
+		.then(res => normalizeResponseErrors(res))
+		.then(res => res.json())
+		.then(watchlist => dispatch(setCurrentWatchlist(watchlist)))
 }
 
 export const login = (username, password) => dispatch => {
@@ -83,20 +92,6 @@ export const login = (username, password) => dispatch => {
 	);
 };
 
-export const retrieveWatchlist = () => (dispatch, getState) => {
-	const authToken = getState().auth.authToken;
-	return fetch(`${API_BASE_URL}/api/dashboard`, {
-		method: 'GET',
-		headers: {
-			Authorization: `Bearer ${authToken}`
-		}
-	})
-		.then(res => normalizeResponseErrors(res))
-		.then(res => res.json())
-		.then(watchlist => dispatch(setCurrentWatchlist(watchlist)))
-		.catch(err => alert(err))
-}
-
 export const sendUpdatedWatchlist = () => (dispatch, getState) => {
 	const authToken = getState().auth.authToken;
 	const updatedList = getState().auth.currentWatchlist.gameIds;
@@ -112,7 +107,7 @@ export const sendUpdatedWatchlist = () => (dispatch, getState) => {
 	})
 		.then(res => normalizeResponseErrors(res))
 		.then(res => res.json())
-		.catch(err => alert(err))
+		.catch(err => console.log(err))
 }
 
 export const refreshAuthToken = () => (dispatch, getState) => {
