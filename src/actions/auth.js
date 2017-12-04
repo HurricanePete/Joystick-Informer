@@ -107,6 +107,10 @@ export const sendUpdatedWatchlist = () => (dispatch, getState) => {
 	})
 		.then(res => normalizeResponseErrors(res))
 		.then(res => res.json())
+		.then(res => {
+			console.log(res)
+			dispatch(setCurrentWatchlist(res))
+		})
 		.catch(err => console.log(err))
 }
 

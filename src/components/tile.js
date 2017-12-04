@@ -18,7 +18,7 @@ export class Tile extends React.Component {
 							<dt className="hidden">Title</dt>
 							<dd>{name}</dd>
 							<dt className="hidden">Rating</dt>
-							<dd>Avg. Rating: <span className="props">{rating === undefined ? 'Rating Unavailable' : parseInt(rating, 10) + ' /100'}</span></dd>
+							<dd>Avg. Rating: <span className="props">{rating === undefined ? 'Unavailable' : parseInt(rating, 10) + ' /100'}</span></dd>
 							<dt className="hidden">Price</dt>
 							<dd>Low Price: <span className="props">{price}</span></dd>
 						</dl>

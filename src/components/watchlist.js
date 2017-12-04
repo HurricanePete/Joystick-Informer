@@ -8,8 +8,8 @@ import './styles/watchlist.css';
 export class Watchlist extends React.Component {
 	watchlistRemove(event, index) {
 		event.preventDefault();
-		const userWatchlist = this.props.watchlists.filter(watchlist => watchlist.userId === this.props.currentUser);
-		const listGameId = userWatchlist[0].games[index.index];
+		const listGameId = this.props.currentWatchlist.gameIds[index.index];
+		console.log(listGameId);
 		this.props.watchlistWarning(listGameId);
 	}
 
@@ -18,10 +18,10 @@ export class Watchlist extends React.Component {
 		if(!loggedIn) {
 			return null
 		}
-		if(loading) {
+		else if(loading) {
 			return <h2>Loading...</h2>
 		}
-		if(this.props.watchlistGames === null || this.props.watchlistGames.length === 0) {
+		else if(this.props.watchlistGames === null || this.props.watchlistGames.length === 0) {
 			return(
 				<section className="watchlist-wrapper">
 					<p>Your watchlist is empty. Start adding games to view them here.</p>
@@ -46,9 +46,10 @@ export class Watchlist extends React.Component {
 
 const mapStateToProps = state => {
 	return {
-		loading: state.auth.loading,
 		loggedIn: state.auth.currentUser !== null,
-		currentUser: state.auth.currentUser
+		loading: state.auth.loading,
+		currentUser: state.auth.currentUser,
+		currentWatchlist: state.auth.currentWatchlist
 	}
 };
 

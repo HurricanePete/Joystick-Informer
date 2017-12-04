@@ -33,7 +33,7 @@ export class GameView extends React.Component {
 						<dt className="hidden">Title</dt>
 						<dd>{name}</dd>
 						<dt className="hidden">Rating</dt>
-						<dd>{parseInt(rating, 10) + ' /100'}</dd>
+						<dd>{rating === undefined ? 'Unavailable' : parseInt(rating, 10) + ' /100'}</dd>
 						<dt className="hidden">Watchlist</dt>
 						<dd><AddToWatchListButton item={id} /></dd>
 						<dt className="hidden">Summary</dt>
