@@ -12,12 +12,6 @@ export default class Banner extends React.Component {
 		}
 	}
 
-	sendToDashboard(values) {
-		if(this.props.sendToDashboard) {
-			this.props.sendToDashboard()
-		}
-	}
-
 	render() {
 		return(
 			<article className="">
@@ -26,7 +20,7 @@ export default class Banner extends React.Component {
 					<h2 className="">This is a place to find, compare, favorite, and buy console games. Search by name or key words, and filter your search by console, game rating, or year.</h2>
 				</header>
 				<p className="">Complete the form below to sign up for a free account, or just jump right in by pressing the <span className="started">Let's Get Started</span> button</p>
-				<SignUpForm sendToDashboard={(values) => this.sendToDashboard(values)} />
+				<SignUpForm />
 				<div className="skip">
 					<button className="" onClick={e => this.toggleBanner(e)}>Let's Get Started</button>
 				</div>

@@ -6,7 +6,7 @@ import SearchBar from './searchBar';
 import ResultsDisplay from './resultsDisplay';
 import FeaturedGames from './featuredGames';
 
-import {bannerToggle, setSearchResults, sendToDashboard} from '../actions';
+import {bannerToggle, searchAllGames} from '../actions/joystick';
 
 export class SearchPage extends React.Component {
 	hideBanner() {
@@ -14,26 +14,21 @@ export class SearchPage extends React.Component {
 	}
 
 	handleSearch(values) {
-		const slugify = string => string.toLowerCase();
-		const display = this.props.joystick.examples.filter(game => (slugify(game.title)).includes(values));
-		this.props.dispatch(setSearchResults(display));
+		this.props.dispatch(searchAllGames(values))
 	}
 
 	sendToDashboard() {
 		this.props.history.push("/login");
-		this.props.dispatch(sendToDashboard(true));
 	}
 
 	render() {
-		const {joystick} = this.props;
-		const exampleIds = [2, 4, 6];
-		const randomGames = exampleIds.map(id => joystick.examples.find(example => example.gameId === id));
-		if (!joystick.banner || joystick.signedIn) {
+		const {loggedIn, joystick} = this.props;
+		if (!joystick.banner || loggedIn) {
 			return(
 				<main>
 					<SearchBar searchSubmit={(values) => this.handleSearch(values)}  />
 					<ResultsDisplay displayValues={joystick.searchResults} />
-					<FeaturedGames featured={randomGames} />
+					<FeaturedGames />
 				</main>
 			)
 		}
@@ -46,6 +41,7 @@ export class SearchPage extends React.Component {
 
 const mapStateToProps = state => {
 	return {
+		loggedIn: state.auth.currentUser !== null,
 		joystick: state.joystick
 	}
 }
