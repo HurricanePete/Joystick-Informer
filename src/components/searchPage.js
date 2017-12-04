@@ -6,15 +6,31 @@ import SearchBar from './searchBar';
 import ResultsDisplay from './resultsDisplay';
 import FeaturedGames from './featuredGames';
 
-import {bannerToggle, searchAllGames} from '../actions/joystick';
+import {API_BASE_URL} from '../config';
+import {normalizeResponseErrors} from '../actions/utils';
+
+import {bannerToggle} from '../actions/joystick';
 
 export class SearchPage extends React.Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			searchResults: null,
+			error: null
+		}
+	}
 	hideBanner() {
 		this.props.dispatch(bannerToggle());
 	}
 
 	handleSearch(values) {
-		this.props.dispatch(searchAllGames(values))
+		return fetch(`${API_BASE_URL}/games/search/${values}`, {
+			method: 'GET'
+		})
+		.then(res => normalizeResponseErrors(res))
+		.then(res => res.json())
+		.then(results => {this.setState({searchResults: results})})
+		.catch(err => {this.setState({error: err.errors._error})})
 	}
 
 	sendToDashboard() {
@@ -27,7 +43,7 @@ export class SearchPage extends React.Component {
 			return(
 				<main>
 					<SearchBar searchSubmit={(values) => this.handleSearch(values)}  />
-					<ResultsDisplay displayValues={joystick.searchResults} />
+					<ResultsDisplay displayValues={this.state.searchResults} />
 					<FeaturedGames />
 				</main>
 			)

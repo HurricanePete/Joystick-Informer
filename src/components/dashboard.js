@@ -7,7 +7,7 @@ import RelatedGames from './relatedGames';
 import WarningDisplay from './warningDisplay';
 
 import {setWatchlistWarning, resetWatchlistWarning} from '../actions/joystick';
-import {retrieveWatchlist, loadingToggle, removeFromWatchlist, sendUpdatedWatchlist, signOut} from '../actions/auth';
+import {loadingToggle, removeFromWatchlist, sendUpdatedWatchlist, signOut} from '../actions/auth';
 
 import {normalizeResponseErrors} from '../actions/utils';
 import {API_BASE_URL} from '../config';
@@ -25,7 +25,7 @@ export class Dashboard extends React.Component {
 		}
 	}
 
-	componentWillMount() {
+	componentDidMount() {
 		if(!this.props.loggedIn) {
 			return;	
 		}
@@ -38,7 +38,7 @@ export class Dashboard extends React.Component {
 			const concatIds = this.props.currentWatchlist.gameIds.concat(this.props.currentWatchlist.relatedIds);
 			console.log(concatIds)
 			this.props.dispatch(loadingToggle());
-			return fetch(`${API_BASE_URL}/games/id/${concatIds}`, {
+			return fetch(`${API_BASE_URL}/games/ids/${concatIds}`, {
 				method: 'GET'
 			})
 			.then(res => res.json())
@@ -76,7 +76,7 @@ export class Dashboard extends React.Component {
 			const concatIds = currentWatchlist.gameIds.concat(currentWatchlist.relatedIds);
 			console.log(concatIds)
 			this.props.dispatch(loadingToggle());
-			return fetch(`${API_BASE_URL}/games/id/${concatIds}`, {
+			return fetch(`${API_BASE_URL}/games/ids/${concatIds}`, {
 				method: 'GET'
 			})
 			.then(res => res.json())
