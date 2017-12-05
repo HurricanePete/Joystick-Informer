@@ -2,8 +2,6 @@ import * as actions from '../actions/joystick';
 
 const initialState = {
 	banner: true,
-	searching: false,
-	searchResults: null,
 	watchlistWarning: {
 		warning: false,
 		gameId: null

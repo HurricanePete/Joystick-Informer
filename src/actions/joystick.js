@@ -17,12 +17,6 @@ export const setGameview = (game) => ({
 	game
 })
 
-export const SET_SEARCH_RESULTS = 'SET_SEARCH_RESULTS';
-export const setSearchResults = (searchResults) => ({
-	type: SET_SEARCH_RESULTS,
-	searchResults
-})
-
 export const SET_WATCHLIST_WARNING = 'SET_WATCHLIST_WARNING';
 export const setWatchlistWarning = (gameId) => ({
 	type: SET_WATCHLIST_WARNING,
