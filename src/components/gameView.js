@@ -55,6 +55,7 @@ export class GameView extends React.Component {
 			return <h2>Loading...</h2>
 		}
 		const {id, name, rating, summary, cover} = this.state.game;
+		console.log(name);
 		return (
 			<section className="gameView-wrapper">
 				<div className="game-view" title={name}>
@@ -71,7 +72,7 @@ export class GameView extends React.Component {
 						<dd><p className="summary">{!summary ? 'Apologies, no summary available.' : summary}</p></dd>
 					</dl>
 				</div>
-				<Pricer />
+				<Pricer name={name} />
 			</section>
 		);
 	}

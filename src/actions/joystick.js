@@ -28,16 +28,6 @@ export const resetWatchlistWarning = () => ({
 	type: RESET_WATCHLIST_WARNING
 })
 
-export const searchAllGames = searchTerm => (dispatch) => {
-	return fetch(`${API_BASE_URL}/games/search/${searchTerm}`, {
-		method: 'GET'
-	})
-		.then(res => normalizeResponseErrors(res))
-		.then(res => res.json())
-		.then(results => dispatch(setSearchResults(results)))
-		.catch(err => console.log(err))
-}
-
 export const searchSingleGame = gameId => (dispatch) => {
 	return fetch(`${API_BASE_URL}/games/id/${gameId}`, {
 		method: 'GET'

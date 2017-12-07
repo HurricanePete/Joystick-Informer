@@ -14,11 +14,6 @@ export const joystickReducer = (state=initialState, action) => {
 			banner: false
 		});
 	}
-	else if (action.type === actions.SET_SEARCH_RESULTS) {
-		return Object.assign({}, state, {
-			searchResults: action.searchResults
-		})
-	}
 	else if (action.type === actions.SET_WATCHLIST_WARNING) {
 		return Object.assign({}, state, {
 			watchlistWarning: {
