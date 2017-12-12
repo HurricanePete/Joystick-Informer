@@ -17,6 +17,7 @@ export class GameView extends React.Component {
 		this.state = {
 			loading: false,
 			game: null,
+			platforms: null,
 			error: null
 		}
 	}
@@ -33,7 +34,8 @@ export class GameView extends React.Component {
 			console.log(gameData)
 			this.setState({
 				loading: false,
-				game: gameData
+				game: gameData.game,
+				platforms: gameData.platforms
 			})
 		})
 		.catch(err => {
@@ -54,8 +56,9 @@ export class GameView extends React.Component {
 		if(this.state.loading === true) {
 			return <h2>Loading...</h2>
 		}
-		const {id, name, rating, summary, cover} = this.state.game;
-		console.log(name);
+		const {id, name, rating, summary, cover, first_release_date} = this.state.game;
+		const platforms = this.state.platforms;
+		console.log(platforms);
 		return (
 			<section className="gameView-wrapper">
 				<div className="game-view" title={name}>
@@ -72,7 +75,7 @@ export class GameView extends React.Component {
 						<dd><p className="summary">{!summary ? 'Apologies, no summary available.' : summary}</p></dd>
 					</dl>
 				</div>
-				<Pricer name={name} />
+				<Pricer name={name} releaseDate={first_release_date} platforms={platforms} />
 			</section>
 		);
 	}

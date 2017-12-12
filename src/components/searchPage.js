@@ -9,13 +9,12 @@ import FeaturedGames from './featuredGames';
 import {API_BASE_URL} from '../config';
 import {normalizeResponseErrors} from '../actions/utils';
 
-import {bannerToggle} from '../actions/joystick';
+import {bannerToggle, searchAllGames} from '../actions/joystick';
 
 export class SearchPage extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			searchResults: null,
 			error: null
 		}
 	}
@@ -24,13 +23,7 @@ export class SearchPage extends React.Component {
 	}
 
 	handleSearch(values) {
-		return fetch(`${API_BASE_URL}/games/search/${values}`, {
-			method: 'GET'
-		})
-		.then(res => normalizeResponseErrors(res))
-		.then(res => res.json())
-		.then(results => {this.setState({searchResults: results})})
-		.catch(err => {this.setState({error: err.errors._error})})
+		this.props.dispatch(searchAllGames(values))
 	}
 
 	sendToDashboard() {
@@ -43,7 +36,7 @@ export class SearchPage extends React.Component {
 			return(
 				<main>
 					<SearchBar searchSubmit={(values) => this.handleSearch(values)}  />
-					<ResultsDisplay displayValues={this.state.searchResults} />
+					<ResultsDisplay displayValues={joystick.searchResults} />
 					<FeaturedGames />
 				</main>
 			)

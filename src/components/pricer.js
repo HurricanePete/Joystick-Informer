@@ -21,16 +21,26 @@ export default class Pricer extends React.Component {
 		this.setState({
 			loading: true
 		});
-		return fetch(`${API_BASE_URL}/pricing/${this.props.name}`, {
-			method: 'GET'
+		return fetch(`${API_BASE_URL}/pricing`, {
+			headers: {
+				'Accept': 'application/json',
+				'Content-Type': 'application/json'
+			},
+			method: 'POST',
+			body: JSON.stringify({
+				search: this.props.name,
+				console: this.props.platforms[0],
+				releaseDate: this.props.releaseDate
+			})
 		})
 		.then(res => res.json())
 		.then(res => {
+			console.log(res);
 			this.setState({
 				loading: false,
 				price: res
-			})
-			console.log(this.state)
+			});
+			console.log(this.state);
 		})
 		.catch(err => {
 			this.setState({
@@ -54,7 +64,7 @@ export default class Pricer extends React.Component {
 			<div className="price-wrapper">
 				<h3>Prices</h3>
 				<hr/>
-				<ul>
+				<ul className="">
 					<AmazonPriceCell {...this.state.price.amazon} />
 					<EbayPriceCell {...this.state.price.ebay} />	
 				</ul>

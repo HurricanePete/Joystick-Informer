@@ -5,7 +5,9 @@ const initialState = {
 	watchlistWarning: {
 		warning: false,
 		gameId: null
-	}
+	},
+	searchResults: null
+
 };
 
 export const joystickReducer = (state=initialState, action) => {
@@ -28,6 +30,11 @@ export const joystickReducer = (state=initialState, action) => {
 				warning: false,
 				gameId: null
 			}
+		})
+	}
+	else if (action.type === actions.SET_SEARCH_RESULTS) {
+		return Object.assign({}, state, {
+			searchResults: action.searchResults
 		})
 	}
 
