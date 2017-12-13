@@ -34,22 +34,38 @@ export const setSearchResults = (searchResults) => ({
 	searchResults
 })
 
+export const SET_NEWS_RESULTS = 'SET_NEWS_RESULTS';
+export const setNewsResults = (newsResults) => ({
+	type: SET_NEWS_RESULTS,
+	newsResults
+})
+
 export const searchAllGames = searchTerm => (dispatch) => {
 	return fetch(`${API_BASE_URL}/games/search/${searchTerm}`, {
 		method: 'GET'
 	})
-		.then(res => normalizeResponseErrors(res))
-		.then(res => res.json())
-		.then(results => dispatch(setSearchResults(results)))
-		.catch(err => console.log(err))
+	.then(res => normalizeResponseErrors(res))
+	.then(res => res.json())
+	.then(results => dispatch(setSearchResults(results)))
+	.catch(err => console.log(err))
+}
+
+export const searchNews = () => (dispatch) => {
+	return fetch(`${API_BASE_URL}/games/news`, {
+		method: 'GET'
+	})
+	.then(res => normalizeResponseErrors(res))
+	.then(res => res.json())
+	.then(news  => dispatch(setNewsResults(news)))
+	.catch(err => console.log(err))
 }
 
 export const searchSingleGame = gameId => (dispatch) => {
 	return fetch(`${API_BASE_URL}/games/id/${gameId}`, {
 		method: 'GET'
 	})
-		.then(res => normalizeResponseErrors(res))
-		.then(res => res.json())
-		.then(game => dispatch(setGameview(game)))
-		.catch(err => console.log(err))
+	.then(res => normalizeResponseErrors(res))
+	.then(res => res.json())
+	.then(game => dispatch(setGameview(game)))
+	.catch(err => console.log(err))
 }

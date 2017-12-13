@@ -25,7 +25,7 @@ export default class amazonPriceCell extends React.Component {
 			return(
 				<li>
 					<div>
-						<a href="{this.props.url}"><img src={AmazonLogo} alt="Amazon logo" /></a>
+						<a href={this.props.url} target="_blank"><img src={AmazonLogo} alt="Amazon logo" /></a>
 						<span>{this.props.pricing.LowestNewPrice.FormattedPrice}</span>
 					</div>
 				</li>
@@ -34,7 +34,7 @@ export default class amazonPriceCell extends React.Component {
 		return(
 			<li>
 				<div>
-					<a href="{this.props.url}"><img src={AmazonLogo} alt="Amazon logo"  /></a>
+					<a href={this.props.url} target="_blank"><img src={AmazonLogo} alt="Amazon logo" /></a>
 					<span>{this.props.pricing.LowestNewPrice.FormattedPrice} - {this.props.pricing.LowestUsedPrice.FormattedPrice}</span>
 				</div>
 			</li>

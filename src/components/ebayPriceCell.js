@@ -24,7 +24,7 @@ export default class ebayPriceCell extends React.Component {
 		return(
 			<li>
 				<div>
-					<a href="{this.props.url}"><img src={EbayLogo} alt="Ebay logo" /></a>
+					<a href={this.props.url} target="_blank"><img src={EbayLogo} alt="Ebay logo" /></a>
 					<span>${this.props.pricing.currentPrice[0].__value__}</span>
 					<span>{this.props.condition}</span>
 					<span>{this.props.pricing.timeLeft[0]}</span>

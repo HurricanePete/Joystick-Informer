@@ -6,7 +6,8 @@ const initialState = {
 		warning: false,
 		gameId: null
 	},
-	searchResults: null
+	searchResults: null,
+	newsResults: null
 
 };
 
@@ -35,6 +36,11 @@ export const joystickReducer = (state=initialState, action) => {
 	else if (action.type === actions.SET_SEARCH_RESULTS) {
 		return Object.assign({}, state, {
 			searchResults: action.searchResults
+		})
+	}
+	else if (action.type === actions.SET_NEWS_RESULTS) {
+		return Object.assign({}, state, {
+			newsResults: action.newsResults
 		})
 	}
 
