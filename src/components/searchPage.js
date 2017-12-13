@@ -34,7 +34,7 @@ export class SearchPage extends React.Component {
 		const {loggedIn, joystick} = this.props;
 		if (!joystick.banner || loggedIn) {
 			return(
-				<main>
+				<main className="o-90">
 					<SearchBar searchSubmit={(values) => this.handleSearch(values)}  />
 					<ResultsDisplay displayValues={joystick.searchResults} />
 					<FeaturedGames />

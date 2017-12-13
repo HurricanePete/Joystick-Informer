@@ -16,7 +16,7 @@ export class SearchBar extends React.Component {
 
 	render(){
 		return(
-			<div>
+			<div className="o-90">
 				<header>
 					<h1>Joystick Informer</h1>
 				</header>

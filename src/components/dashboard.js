@@ -127,22 +127,24 @@ export class Dashboard extends React.Component {
 			return <Redirect to="/" />;
 		}
 		return(
-			<section className="dashboard-wrapper">
-				<header className="dashboard-header">
-					<div className="profile">
-						<img className="profile-pic" src={avatar} alt={auth.currentUser.username} />
-						<h2 className="">Hello, {auth.currentUser.username}</h2>
-					</div>
-					<button className="sign-out" onClick={e => this.signOut(e)}>Sign out</button>
-				</header>
-				<h3>Your Watchlist</h3>
-				<hr/>
-				<WarningDisplay confirm={() => this.confirmWatchlistRemove()} cancel={() => this.cancelWatchlistWarning()} />
-				<Watchlist watchlistGames={watchlistGames} watchlistWarning={(gameId) => this.watchlistWarning(gameId)} />
-				<h3>Recommended for You</h3>
-				<hr/>
-				<RelatedGames relatedGames={relatedGames} />
-			</section>
+			<main>
+				<section className="dashboard-wrapper 0-90">
+					<header className="dashboard-header">
+						<div className="profile">
+							<img className="profile-pic" src={avatar} alt={auth.currentUser.username} />
+							<h2 className="">Hello, {auth.currentUser.username}</h2>
+						</div>
+						<button className="sign-out" onClick={e => this.signOut(e)}>Sign out</button>
+					</header>
+					<h3>Your Watchlist</h3>
+					<hr/>
+					<WarningDisplay confirm={() => this.confirmWatchlistRemove()} cancel={() => this.cancelWatchlistWarning()} />
+					<Watchlist watchlistGames={watchlistGames} watchlistWarning={(gameId) => this.watchlistWarning(gameId)} />
+					<h3>Recommended for You</h3>
+					<hr/>
+					<RelatedGames relatedGames={relatedGames} />
+				</section>
+			</main>
 		)
 	}
 }

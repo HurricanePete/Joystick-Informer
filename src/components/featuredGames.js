@@ -48,12 +48,12 @@ export class FeaturedGames extends React.Component{
 			console.log(tiles.length)
 
 			return(
-				<section className="bg-light-gray">
+				<section className="featured-games">
 					<header>
 						<h3>Recent News</h3>
 					</header>
 					<hr/>
-					<Carousel controlWidth={50} firstVisibleIndex={this.state.visibleIndex} itemMargin={5} itemWidth={300} onItemScroll={this.handleScrollToIndex} scrollStepDistance={this.state.scrollStepDistance} >
+					<Carousel controlWidth={80} firstVisibleIndex={this.state.visibleIndex} itemMargin={5} itemWidth={300} onItemScroll={this.handleScrollToIndex} scrollStepDistance={this.state.scrollStepDistance} >
 						{tiles}
 					</Carousel>
 				</section>

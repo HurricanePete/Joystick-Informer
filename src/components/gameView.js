@@ -18,6 +18,7 @@ export class GameView extends React.Component {
 			loading: false,
 			game: null,
 			platforms: null,
+			current: null,
 			error: null
 		}
 	}
@@ -35,13 +36,20 @@ export class GameView extends React.Component {
 			this.setState({
 				loading: false,
 				game: gameData.game,
-				platforms: gameData.platforms
+				platforms: gameData.platforms,
+				current: gameData.platforms[0]
 			})
 		})
 		.catch(err => {
 			this.setState({
 				error:err
 			})
+		})
+	}
+
+	setCurrentConsole(event, console) {
+		this.setState({
+			current: console
 		})
 	}
 
@@ -58,25 +66,36 @@ export class GameView extends React.Component {
 		}
 		const {id, name, rating, summary, cover, first_release_date} = this.state.game;
 		const platforms = this.state.platforms;
+		const current = this.state.current;
+		const platformTabs = platforms.map((platform, index) => 
+			<li className="dib" key={index}>
+				<button index={index} className="list-remover" title="Remove from Watchlist" onClick={e => this.setCurrentConsole(e, platform)}>{platform}</button>
+			</li>
+		);
 		console.log(platforms);
 		return (
-			<section className="gameView-wrapper">
-				<div className="game-view" title={name}>
-					<ReturnButton goBack={() => this.returnButtonPress()}  />
-					<img className="game-photo" alt={name} src={cover !== undefined ? `https://images.igdb.com/igdb/image/upload/t_cover_big/${cover.cloudinary_id}.jpg` : demo} />
-					<dl className="game-details">
-						<dt className="hidden">Title</dt>
-						<dd>{name}</dd>
-						<dt className="hidden">Rating</dt>
-						<dd>{rating === undefined ? 'Unavailable' : parseInt(rating, 10) + ' /100'}</dd>
-						<dt className="hidden">Watchlist</dt>
-						<dd><AddToWatchListButton item={id} /></dd>
-						<dt className="hidden">Summary</dt>
-						<dd><p className="summary">{!summary ? 'Apologies, no summary available.' : summary}</p></dd>
-					</dl>
-				</div>
-				<Pricer name={name} releaseDate={first_release_date} platforms={platforms} />
-			</section>
+			<main>
+				<section className="gameView-wrapper">
+					<div className="game-view" title={name}>
+						<ReturnButton goBack={() => this.returnButtonPress()}  />
+						<img className="game-photo" alt={name} src={cover !== undefined ? `https://images.igdb.com/igdb/image/upload/t_cover_big/${cover.cloudinary_id}.jpg` : demo} />
+						<dl className="game-details">
+							<dt className="hidden">Title</dt>
+							<dd>{name}</dd>
+							<dt className="hidden">Rating</dt>
+							<dd>{rating === undefined ? 'Unavailable' : parseInt(rating, 10) + ' /100'}</dd>
+							<dt className="hidden">Watchlist</dt>
+							<dd><AddToWatchListButton item={id} /></dd>
+							<dt className="hidden">Summary</dt>
+							<dd><p className="summary">{!summary ? 'Apologies, no summary available.' : summary}</p></dd>
+						</dl>
+					</div>
+					<ul>
+						{platformTabs}
+					</ul>
+					<Pricer name={name} releaseDate={first_release_date} platforms={current} />
+				</section>
+			</main>
 		);
 	}
 }
