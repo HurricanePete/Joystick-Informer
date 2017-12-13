@@ -1,0 +1,25 @@
+div.react-carousel {	
+    height: 350px;
+    max-width: 85%;
+}
+
+div.react-carousel__navigation-button--previous {
+	background-image: url("../static-photos/caret-lft.png");
+}
+
+div.react-carousel__navigation-button--next {
+	background-image: url("../static-photos/caret-rt.png");
+}
+
+div.react-carousel__navigation-button--previous, div.react-carousel__navigation-button--next {
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: contain;
+	transition: background-color 1s ease-out;
+	border-radius: 15px;
+}
+
+div.react-carousel__navigation-button--previous:hover, div.react-carousel__navigation-button--next:hover {
+	background-color: lightgrey;
+	cursor: pointer;
+}

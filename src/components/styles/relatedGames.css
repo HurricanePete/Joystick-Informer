@@ -5,8 +5,8 @@ section.relatedGames-wrapper {
 button.list-adder {
 	vertical-align: text-bottom;
 	display: inline-block;
-	width: 8%;
-	height: 140px;
-	border-top-right-radius: 25px;
-	border-bottom-right-radius: 25px;
+	width: 5rem;
+	height: 5rem;
+	border-radius: 100%;
+	color: lightcoral;
 }

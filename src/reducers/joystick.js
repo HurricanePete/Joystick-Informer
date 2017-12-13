@@ -2,12 +2,13 @@ import * as actions from '../actions/joystick';
 
 const initialState = {
 	banner: true,
-	searching: false,
-	searchResults: null,
 	watchlistWarning: {
 		warning: false,
 		gameId: null
-	}
+	},
+	searchResults: null,
+	newsResults: null
+
 };
 
 export const joystickReducer = (state=initialState, action) => {
@@ -15,11 +16,6 @@ export const joystickReducer = (state=initialState, action) => {
 		return Object.assign({}, state, {
 			banner: false
 		});
-	}
-	else if (action.type === actions.SET_SEARCH_RESULTS) {
-		return Object.assign({}, state, {
-			searchResults: action.searchResults
-		})
 	}
 	else if (action.type === actions.SET_WATCHLIST_WARNING) {
 		return Object.assign({}, state, {
@@ -35,6 +31,16 @@ export const joystickReducer = (state=initialState, action) => {
 				warning: false,
 				gameId: null
 			}
+		})
+	}
+	else if (action.type === actions.SET_SEARCH_RESULTS) {
+		return Object.assign({}, state, {
+			searchResults: action.searchResults
+		})
+	}
+	else if (action.type === actions.SET_NEWS_RESULTS) {
+		return Object.assign({}, state, {
+			newsResults: action.newsResults
 		})
 	}
 

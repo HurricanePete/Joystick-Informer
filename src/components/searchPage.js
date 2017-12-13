@@ -9,6 +9,12 @@ import FeaturedGames from './featuredGames';
 import {bannerToggle, searchAllGames} from '../actions/joystick';
 
 export class SearchPage extends React.Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			error: null
+		}
+	}
 	hideBanner() {
 		this.props.dispatch(bannerToggle());
 	}
@@ -25,7 +31,7 @@ export class SearchPage extends React.Component {
 		const {loggedIn, joystick} = this.props;
 		if (!joystick.banner || loggedIn) {
 			return(
-				<main>
+				<main >
 					<SearchBar searchSubmit={(values) => this.handleSearch(values)}  />
 					<ResultsDisplay displayValues={joystick.searchResults} />
 					<FeaturedGames />

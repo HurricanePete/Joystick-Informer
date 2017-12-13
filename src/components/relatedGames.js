@@ -3,7 +3,6 @@ import {connect} from 'react-redux';
 
 import Tile from './tile';
 
-import {setWatchlistWarning} from '../actions/joystick';
 import {addToWatchlist, sendUpdatedWatchlist} from '../actions/auth';
 
 import './styles/relatedGames.css';
@@ -16,7 +15,7 @@ export class RelatedGames extends React.Component {
 	}
 
 	render() {
-		const {loggedIn, loading, currentWatchlist} = this.props;
+		const {loggedIn, loading} = this.props;
 		if(!loggedIn) {
 			return null
 		}

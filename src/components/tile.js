@@ -7,7 +7,7 @@ import demo from './static-photos/demo.png';
 
 export class Tile extends React.Component {
 		render() {
-		const {id, name, rating, cover, price} = this.props;
+		const {id, name, rating, cover} = this.props;
 
 		return (
 			<Link to={`/gameview/${id}`}>
@@ -19,8 +19,6 @@ export class Tile extends React.Component {
 							<dd>{name}</dd>
 							<dt className="hidden">Rating</dt>
 							<dd>Avg. Rating: <span className="props">{rating === undefined ? 'Unavailable' : parseInt(rating, 10) + ' /100'}</span></dd>
-							<dt className="hidden">Price</dt>
-							<dd>Low Price: <span className="props">{price}</span></dd>
 						</dl>
 					</div>
 				</div>
