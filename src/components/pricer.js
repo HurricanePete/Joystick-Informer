@@ -49,6 +49,41 @@ export default class Pricer extends React.Component {
 		})
 	}
 
+	componentWillReceiveProps(nextProps) {
+		if(nextProps.platforms !== this.props.platforms) {
+			const platform = nextProps;
+			this.setState({
+				loading: true
+			});
+			return fetch(`${API_BASE_URL}/pricing`, {
+				headers: {
+					'Accept': 'application/json',
+					'Content-Type': 'application/json'
+				},
+				method: 'POST',
+				body: JSON.stringify({
+					search: this.props.name,
+					console: platform,
+					releaseDate: this.props.releaseDate
+				})
+			})
+			.then(res => res.json())
+			.then(res => {
+				console.log(res);
+				this.setState({
+					loading: false,
+					price: res
+				});
+				console.log(this.state);
+			})
+			.catch(err => {
+				this.setState({
+					error: err
+				})
+			})
+		}
+	}
+
 	render() {
 		console.log(this.state)
 		if(this.state.price === null) {
