@@ -1,5 +1,10 @@
 div.react-carousel {	
-	background: '#eee';
-    height: 100;
-    max-width: 1000;
+	background: #eee;
+    height: 350px;
+    max-width: 85%;
+}
+
+div.react-carousel__navigation-button {
+	color: red;
+	background-color: red;
 }

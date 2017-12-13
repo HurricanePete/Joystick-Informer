@@ -21,7 +21,7 @@ export class FeaturedGames extends React.Component{
 		this.props.dispatch(searchNews())
 	}
 
-	handleScrollToIndex(index) {
+	handleScrollToIndex = (index) => {
 		this.setState({
 			visibleIndex: index
 		});
@@ -53,7 +53,7 @@ export class FeaturedGames extends React.Component{
 						<h3>Recent News</h3>
 					</header>
 					<hr/>
-					<Carousel controlWidth={50} firstVisibleIndex={this.state.visibleIndex} itemMargin={10} itemWidth={350} onItemScroll={this.handleScrollToIndex} scrollStepDistance={this.state.scrollStepDistance} >
+					<Carousel controlWidth={50} firstVisibleIndex={this.state.visibleIndex} itemMargin={5} itemWidth={300} onItemScroll={this.handleScrollToIndex} scrollStepDistance={this.state.scrollStepDistance} >
 						{tiles}
 					</Carousel>
 				</section>
