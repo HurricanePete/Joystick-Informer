@@ -7,7 +7,7 @@ import demo from './static-photos/demo.png';
 
 export class Tile extends React.Component {
 		render() {
-		const {id, name, rating, cover, price} = this.props;
+		const {id, name, rating, cover} = this.props;
 
 		return (
 			<Link to={`/gameview/${id}`}>

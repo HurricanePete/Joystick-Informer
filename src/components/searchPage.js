@@ -6,9 +6,6 @@ import SearchBar from './searchBar';
 import ResultsDisplay from './resultsDisplay';
 import FeaturedGames from './featuredGames';
 
-import {API_BASE_URL} from '../config';
-import {normalizeResponseErrors} from '../actions/utils';
-
 import {bannerToggle, searchAllGames} from '../actions/joystick';
 
 export class SearchPage extends React.Component {

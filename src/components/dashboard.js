@@ -9,7 +9,6 @@ import WarningDisplay from './warningDisplay';
 import {setWatchlistWarning, resetWatchlistWarning} from '../actions/joystick';
 import {loadingToggle, removeFromWatchlist, sendUpdatedWatchlist, signOut} from '../actions/auth';
 
-import {normalizeResponseErrors} from '../actions/utils';
 import {API_BASE_URL} from '../config';
 
 import avatar from './static-photos/avatar.jpeg';
@@ -122,7 +121,7 @@ export class Dashboard extends React.Component {
 
 	render() {
 		const {auth, loggedIn} = this.props;
-		const {watchlistGames, relatedGames, error} = this.state;
+		const {watchlistGames, relatedGames} = this.state;
 		if(!loggedIn) {
 			return <Redirect to="/" />;
 		}
