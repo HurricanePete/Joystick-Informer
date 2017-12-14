@@ -1,19 +1,21 @@
 div.tile {
-	display: inline-block;
-	width: 75%;
+	/*display: inline-block;*/
+	/*width: 75%;
 	background-color: #ffe6b3;
 	border: 0px solid white;
-	border-radius: 25px;
-	margin: 15px;
+	border-radius: 25px;*/
+	text-align: center;
 	padding: 10px;
 	color: #09359B;
-	border: 1px solid white;
+	border-bottom: 2px solid #09359B;
 	transition-property: color background-color;
 	transition-duration: .5s;
+	margin: 0 auto;
+	float: none;
 }
 
 div.tile:hover {
-	background-color: slategrey;
+	background-color: #ffe6b3;
 	color: white;
 }
 
@@ -22,7 +24,7 @@ dd {
 }
 
 dd:first-of-type {
-	font-size: 18px;
+	font-size: 22px;
 	font-weight: bold;
 }
 
@@ -33,7 +35,7 @@ dl {
 }
 
 span.props {
-	font-size: 20px;
+	font-size: 22px;
 	vertical-align: top;
 }
 

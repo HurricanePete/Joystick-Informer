@@ -97,10 +97,10 @@ export default class Pricer extends React.Component {
 			);
 		}
 		return(
-			<div className="price-wrapper">
+			<div className="price-wrapper col-12 clear-float">
 				<h3>Prices</h3>
 				<hr/>
-				<ul className="">
+				<ul className="pricer-list col-9 clear-float">
 					<AmazonPriceCell {...this.state.price.amazon} />
 					<EbayPriceCell {...this.state.price.ebay} />	
 				</ul>

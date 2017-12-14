@@ -11,7 +11,7 @@ export class NavigationBar extends React.Component {
 		const {loggedIn, currentUser} = this.props;
 		if(loggedIn) {
 			return(
-				<nav className="">
+				<nav className="col-12">
 					<div className="link home" title="Home"><Link to="/">Home</Link></div>
 					<div className="link avatar" title={currentUser.username}>
 						<Link to={'/dashboard'}>
@@ -23,7 +23,7 @@ export class NavigationBar extends React.Component {
 		}
 
 		return (
-				<nav className="">
+				<nav className="col-12">
 					<div className="link home" title="Home"><Link to="/">Home</Link></div>
 					<div className="link login" title="Sign in"><Link to="/login">Sign in</Link></div>
 				</nav>

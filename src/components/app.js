@@ -13,6 +13,7 @@ import SignUpPage from './signUpPage';
 import {refreshAuthToken} from '../actions/auth';
 
 import './styles/app.css';
+import './styles/response-grid.css';
 
 export class App extends React.Component{
 	componentWillReceiveProps(nextProps) {

@@ -11,7 +11,7 @@ export class Tile extends React.Component {
 
 		return (
 			<Link to={`/gameview/${id}`}>
-				<div className="tile">
+				<div className="tile col-8 center">
 					<div className="" title={name}>
 						<img className="cover-photo" alt={name} src={cover === undefined ? demo : `https://images.igdb.com/igdb/image/upload/t_cover_small/${cover.cloudinary_id}.jpg`} />
 						<dl>

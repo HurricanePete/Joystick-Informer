@@ -1,10 +1,11 @@
 section.gameView-wrapper {
+	margin-top: 46px;
 	padding: 1rem 0 1rem 0;
 }
 
 div.game-view {
 	padding-top: 4rem;
-	width: 75%;
+	text-align: center;
 }
 
 p.summary {
@@ -12,16 +13,23 @@ p.summary {
 	padding: 0;
 }
 
-dl.game-details {
-	background-color: #ffe6b3;
-	border-radius: 25px;
+div.description-wrapper {
 	display: inline-block;
-	width: 65%;
-	padding: 1%;
+}
+
+dl.game-details {
+	text-align: center;
+	background-color: #ffe6b3;
+	padding: 2rem;
+	line-height: 1.5rem;
+	width: 100%;
+}
+
+div.photo-wrapper {
+	display: inline-block;
 }
 
 img.game-photo {
-	display: inline-block;
 	height: 320px;
 	width: 227px;
 	margin: 2rem;
@@ -31,4 +39,9 @@ button.watchlist-add {
 	border-radius: 5px;
 	padding: 5px;
 	font-weight: bold;
+}
+
+ul.platforms {
+	float: none;
+	text-align: center;
 }

@@ -31,7 +31,7 @@ export class SearchPage extends React.Component {
 		const {loggedIn, joystick} = this.props;
 		if (!joystick.banner || loggedIn) {
 			return(
-				<main >
+				<main className="">
 					<SearchBar searchSubmit={(values) => this.handleSearch(values)}  />
 					<ResultsDisplay displayValues={joystick.searchResults} />
 					<FeaturedGames />
@@ -40,7 +40,7 @@ export class SearchPage extends React.Component {
 		}
 		
 		return(
-			<main>
+			<main className="">
 				<Banner toggleBanner={() => this.hideBanner()} sendToDashboard={() => this.sendToDashboard()} />
 			</main>
 			)

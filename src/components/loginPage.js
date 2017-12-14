@@ -11,12 +11,14 @@ export class LoginPage extends React.Component {
 		}
 		return(
 			<section className="login-wrapper">
-				<header>
-					<h2>Log in to Joystick Informer</h2>
-				</header>
-				<LoginForm />
-				<div>
-					<p>Want an account? <Link to="/signup">Create one here.</Link></p>
+				<div className="row">
+					<header>
+						<h2>Log in to Joystick Informer</h2>
+					</header>
+					<LoginForm />
+					<div className="login-signup col-6 clear-float">
+						<p>Want an account? <Link to="/signup">Create one here.</Link></p>
+					</div>
 				</div>
 			</section>
 		)

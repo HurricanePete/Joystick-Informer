@@ -3,11 +3,10 @@
 	font-family: 'Quattrocento Sans', sans-serif;
 }
 
-main {
-	background-image: url("../static-photos/background-edit.jpg");
-	background-size: cover;
-	background-repeat: no-repeat;
-	opacity: 0.9;
+main{
+	background: linear-gradient(to top, #023960, white);
+	background-position: bottom;
+	margin-top: 56px;
 }
 
 ul {
@@ -21,6 +20,7 @@ a {
 header {
 	margin: 0 auto;
 	padding: 4rem 1rem 1rem 1rem;
+	text-align: center;
 }
 
 label {
@@ -39,6 +39,31 @@ button:hover {
 label > input {
 	margin: 6px;
 	display: block;
+}
+
+div.form-wrapper {
+	text-align: center;
+	margin: 0 auto;
+}
+
+div.login-signup {
+	text-align: center;
+	margin: 0 auto;
+}
+
+.js-button {
+	padding: .5rem 3rem;
+	background-color: white;
+	border: 3px solid #023960;
+	color: #023960;
+	font-weight: 600;
+	transition-property: background-color, color;
+	transition-duration: .5s;
+}
+
+.js-button:hover {
+	background-color: #023960;
+	color: white;
 }
 
 .hidden {
