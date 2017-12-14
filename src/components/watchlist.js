@@ -2,6 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 
 import Tile from './tile';
+import Loading from './loading';
 
 import './styles/watchlist.css';
 
@@ -19,7 +20,7 @@ export class Watchlist extends React.Component {
 			return null
 		}
 		else if(loading) {
-			return <h2>Loading...</h2>
+			return <Loading />
 		}
 		else if(this.props.watchlistGames === null || this.props.watchlistGames.length === 0) {
 			return(

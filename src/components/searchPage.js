@@ -40,7 +40,9 @@ export class SearchPage extends React.Component {
 		}
 		
 		return(
-			<Banner toggleBanner={() => this.hideBanner()} sendToDashboard={() => this.sendToDashboard()} />
+			<main>
+				<Banner toggleBanner={() => this.hideBanner()} sendToDashboard={() => this.sendToDashboard()} />
+			</main>
 			)
 	}
 }

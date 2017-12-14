@@ -4,6 +4,7 @@ div {
 }
 
 input.search {
+	background-color: #00EA8C;
 	width: 33%;
 	min-width: 12rem;
 	height: 50px;
@@ -14,6 +15,7 @@ input.search {
 }
 
 button.submit {
+	background-color: #00EA8C;
 	margin-left: 5px;
 	height: 50px;
 	width: 5%;

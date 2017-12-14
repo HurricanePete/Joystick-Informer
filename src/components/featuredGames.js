@@ -5,6 +5,7 @@ import {searchNews} from '../actions/joystick';
 
 import Carousel from 'react-carousel';
 import NewsTile from './newsTile';
+import Loading from './loading';
 
 import './styles/featuredGames.css';
 
@@ -32,14 +33,12 @@ export class FeaturedGames extends React.Component{
 		let tiles;
 		if(!news) {
 			return(
-				<section className="bg-light-gray">
+				<section className="">
 					<header>
 						<h3>Recent News</h3>
 					</header>
 					<hr/>
-					<div>
-						<h2>Loading...</h2>
-					</div>
+					<Loading />
 				</section>
 			)
 		}
@@ -48,12 +47,12 @@ export class FeaturedGames extends React.Component{
 			console.log(tiles.length)
 
 			return(
-				<section className="featured-games">
+				<section className="featured-games pb5">
 					<header>
 						<h3>Recent News</h3>
 					</header>
 					<hr/>
-					<Carousel controlWidth={80} firstVisibleIndex={this.state.visibleIndex} itemMargin={5} itemWidth={300} onItemScroll={this.handleScrollToIndex} scrollStepDistance={this.state.scrollStepDistance} >
+					<Carousel controlWidth={80} firstVisibleIndex={this.state.visibleIndex} itemMargin={10} itemWidth={300} onItemScroll={this.handleScrollToIndex} scrollStepDistance={this.state.scrollStepDistance} >
 						{tiles}
 					</Carousel>
 				</section>

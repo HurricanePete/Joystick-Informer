@@ -2,6 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 
 import Tile from './tile';
+import Loading from './loading';
 
 import {addToWatchlist, sendUpdatedWatchlist} from '../actions/auth';
 
@@ -20,7 +21,7 @@ export class RelatedGames extends React.Component {
 			return null
 		}
 		else if(loading) {
-			return <h2>Loading...</h2>
+			return <Loading />
 		}
 		else if(this.props.relatedGames === null || this.props.relatedGames.length === 0) {
 			return(

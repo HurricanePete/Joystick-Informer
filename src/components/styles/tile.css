@@ -1,12 +1,12 @@
 div.tile {
 	display: inline-block;
 	width: 75%;
-	background-color: white;
+	background-color: #ffe6b3;
 	border: 0px solid white;
 	border-radius: 25px;
 	margin: 15px;
 	padding: 10px;
-	color: black;
+	color: #09359B;
 	border: 1px solid white;
 	transition-property: color background-color;
 	transition-duration: .5s;

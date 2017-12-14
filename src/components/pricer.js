@@ -1,6 +1,7 @@
 import React from 'react';
 import AmazonPriceCell from './amazonPriceCell';
 import EbayPriceCell from './ebayPriceCell';
+import Loading from './loading';
 
 import {API_BASE_URL} from '../config';
 
@@ -29,7 +30,7 @@ export default class Pricer extends React.Component {
 			method: 'POST',
 			body: JSON.stringify({
 				search: this.props.name,
-				console: this.props.platforms[0],
+				console: this.props.platforms,
 				releaseDate: this.props.releaseDate
 			})
 		})
@@ -51,7 +52,7 @@ export default class Pricer extends React.Component {
 
 	componentWillReceiveProps(nextProps) {
 		if(nextProps.platforms !== this.props.platforms) {
-			const platform = nextProps;
+			const platform = nextProps.platforms;
 			this.setState({
 				loading: true
 			});
@@ -91,7 +92,7 @@ export default class Pricer extends React.Component {
 			<div className="price-wrapper">
 				<h3>Prices</h3>
 				<hr/>
-				<h2>Loading...</h2>
+				<Loading />
 			</div>
 			);
 		}

@@ -32,7 +32,7 @@ export class GameView extends React.Component {
 		})
 		.then(res => res.json())
 		.then(gameData => {
-			console.log(gameData)
+			console.log(gameData.platforms[0])
 			this.setState({
 				loading: false,
 				game: gameData.game,
@@ -69,7 +69,7 @@ export class GameView extends React.Component {
 		const current = this.state.current;
 		const platformTabs = platforms.map((platform, index) => 
 			<li className="dib" key={index}>
-				<button index={index} className="list-remover" title="Remove from Watchlist" onClick={e => this.setCurrentConsole(e, platform)}>{platform}</button>
+				<button index={index} onClick={e => this.setCurrentConsole(e, platform)}>{platform}</button>
 			</li>
 		);
 		console.log(platforms);

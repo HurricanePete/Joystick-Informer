@@ -44,7 +44,7 @@ export class AddWatchlistButton extends React.Component {
 
 const mapStateToProps = state => {
 	return{
-		loggedIn: state.auth.currentUser !== null,
+		loggedIn: state.auth.currentWatchlist !== null,
 		currentWatchlist: state.auth.currentWatchlist
 	}
 }
