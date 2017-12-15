@@ -17,7 +17,7 @@ export class SearchBar extends React.Component {
 	render(){
 		return(
 			<div className="o-90">
-				<header>
+				<header className="tc">
 					<h1>Joystick Informer</h1>
 				</header>
 				<form className="search-bar" onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>

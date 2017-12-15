@@ -1,6 +1,10 @@
+div.carousel-wrapper {
+	float: none;
+}
+
 div.react-carousel {	
     height: 350px;
-    max-width: 85%;
+    width: 100%;
 }
 
 div.react-carousel__navigation-button--previous {
@@ -22,4 +26,12 @@ div.react-carousel__navigation-button--previous, div.react-carousel__navigation-
 div.react-carousel__navigation-button--previous:hover, div.react-carousel__navigation-button--next:hover {
 	background-color: lightgrey;
 	cursor: pointer;
+}
+
+div.react-carousel li {
+	background-color: #ffe6b3;
+}
+
+div.react-carousel dd {
+	color: #09359B;
 }

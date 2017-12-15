@@ -8,6 +8,7 @@ import WarningDisplay from './warningDisplay';
 
 import {setWatchlistWarning, resetWatchlistWarning} from '../actions/joystick';
 import {loadingToggle, removeFromWatchlist, sendUpdatedWatchlist, signOut} from '../actions/auth';
+import {clearAuthToken} from '../local-storage';
 
 import {API_BASE_URL} from '../config';
 
@@ -63,7 +64,10 @@ export class Dashboard extends React.Component {
 	}
 
 	componentWillReceiveProps(nextProps) {
-		if(nextProps.currentWatchlist !== this.props.currentWatchlist) {
+		if(nextProps.currentWatchlist === null) {
+			return;
+		}
+		else if(nextProps.currentWatchlist !== this.props.currentWatchlist) {
 			if(nextProps.currentWatchlist.gameIds.length === 0) {
 				this.setState({
 					watchlistGames: [],
@@ -102,7 +106,7 @@ export class Dashboard extends React.Component {
 
 	signOut(event) {
 		this.props.dispatch(signOut());
-		this.props.history.push("/");
+		clearAuthToken();
 	}
 
 	watchlistWarning(gameId) {
@@ -127,22 +131,20 @@ export class Dashboard extends React.Component {
 		}
 		return(
 			<main>
-				<section className="dashboard-wrapper 0-90">
-					<header className="dashboard-header">
-						<div className="profile">
-							<img className="profile-pic" src={avatar} alt={auth.currentUser.username} />
-							<h2 className="">Hello, {auth.currentUser.username}</h2>
-						</div>
-						<button className="sign-out" onClick={e => this.signOut(e)}>Sign out</button>
-					</header>
-					<h3>Your Watchlist</h3>
-					<hr/>
-					<WarningDisplay confirm={() => this.confirmWatchlistRemove()} cancel={() => this.cancelWatchlistWarning()} />
-					<Watchlist watchlistGames={watchlistGames} watchlistWarning={(gameId) => this.watchlistWarning(gameId)} />
-					<h3>Recommended for You</h3>
-					<hr/>
-					<RelatedGames relatedGames={relatedGames} />
-				</section>
+				<header className="dashboard-header row">
+					<div className="profile">
+						<img className="profile-pic" src={avatar} alt={auth.currentUser.username} />
+						<h2 className="">Hello, {auth.currentUser.username}</h2>
+					</div>
+					<button className="sign-out" onClick={e => this.signOut(e)}>Sign out</button>
+				</header>
+				<h3>Your Watchlist</h3>
+				<hr/>
+				<WarningDisplay confirm={() => this.confirmWatchlistRemove()} cancel={() => this.cancelWatchlistWarning()} />
+				<Watchlist watchlistGames={watchlistGames} watchlistWarning={(gameId) => this.watchlistWarning(gameId)} />
+				<h3>Recommended for You</h3>
+				<hr/>
+				<RelatedGames relatedGames={relatedGames} />
 			</main>
 		)
 	}

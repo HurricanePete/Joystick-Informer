@@ -1,11 +1,16 @@
 div.price-wrapper {
-	width: 100%;
+	/*width: 100%;*/
 	margin: 0 auto;
+	text-align: center;
+}
+
+ul.pricer-list {
+	text-align: center;
 }
 
 table {
 	margin: 1rem auto;
-	width: 75%;
+	/*width: 75%;*/
 }
 
 td {
@@ -13,11 +18,11 @@ td {
 }
 
 h3 {
-	width: 50%;
+	/*width: 50%;*/
 	margin: 0 auto;
 	text-align: left;
 }
 
 hr {
-	width: 50%;
+	/*width: 50%;*/
 }

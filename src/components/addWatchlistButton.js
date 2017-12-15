@@ -28,14 +28,14 @@ export class AddWatchlistButton extends React.Component {
 			if(loggedIn && containsGame) {
 				return(
 					<span>
-						<p className="dib green ba br3 measure">Already in watchlist</p>
-						<button className="dib red br3 bg-light-red pa3" onClick={e =>this.watchlistRemove(e)}>X</button>
+						<p className="dib green ba pv2 ph4 measure">Already in watchlist</p>
+						<button className="dib red bg-light-red pa3" onClick={e =>this.watchlistRemove(e)}>X</button>
 					</span>
 				)
 			}
 			else {
 				return(
-					<button className="ba br3 bg-green" onClick={e => this.watchlistAdd(e)}>Add to watchlist</button>
+					<button className="ba bg-green pv2 ph4" onClick={e => this.watchlistAdd(e)}>Add to watchlist</button>
 				)
 			}
 		}
@@ -44,7 +44,7 @@ export class AddWatchlistButton extends React.Component {
 
 const mapStateToProps = state => {
 	return{
-		loggedIn: state.auth.currentUser !== null,
+		loggedIn: state.auth.currentWatchlist !== null,
 		currentWatchlist: state.auth.currentWatchlist
 	}
 }

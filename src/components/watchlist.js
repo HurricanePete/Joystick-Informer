@@ -2,6 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 
 import Tile from './tile';
+import Loading from './loading';
 
 import './styles/watchlist.css';
 
@@ -19,26 +20,24 @@ export class Watchlist extends React.Component {
 			return null
 		}
 		else if(loading) {
-			return <h2>Loading...</h2>
+			return <Loading />
 		}
 		else if(this.props.watchlistGames === null || this.props.watchlistGames.length === 0) {
 			return(
-				<section className="watchlist-wrapper">
+				<section className="watchlist-wrapper row">
 					<p>Your watchlist is empty. Start adding games to view them here.</p>
 				</section>
 			)
 		}
 		const tiles = this.props.watchlistGames.map((tile, index) => 
-			<li className="game-row" key={index}>
+			<div key={index}>
 				<Tile index={index} {...tile} />
 				<button className="list-remover" title="Remove from Watchlist" onClick={e => this.watchlistRemove(e, {index})}> - </button>
-			</li>
+			</div>
 		);
 		return(
-			<section className="watchlist-wrapper">
-				<ul>
+			<section className="watchlist-wrapper row">
 					{tiles}
-				</ul>
 			</section>
 		)
 	}

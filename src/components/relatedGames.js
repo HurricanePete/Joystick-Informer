@@ -2,6 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 
 import Tile from './tile';
+import Loading from './loading';
 
 import {addToWatchlist, sendUpdatedWatchlist} from '../actions/auth';
 
@@ -20,27 +21,25 @@ export class RelatedGames extends React.Component {
 			return null
 		}
 		else if(loading) {
-			return <h2>Loading...</h2>
+			return <Loading />
 		}
 		else if(this.props.relatedGames === null || this.props.relatedGames.length === 0) {
 			return(
-				<section className="relatedGames-wrapper">
+				<section className="relatedGames-wrapper row">
 					<p>Add games to your watchlist to start viewing recommended games.</p>
 				</section>
 			)
 		}
 
 		const tiles = this.props.relatedGames.map((tile, index) =>
-			<li key={index}> 
+			<div key={index}> 
 				<Tile index={index} {...tile} />
 				<button className="list-adder" title="Add to Watchlist" onClick={e => this.watchlistAdd(e, tile.id)}> + </button>
-			</li>
+			</div>
 		);
 		return(
-			<section className="relatedGames-wrapper">
-				<ul>
+			<section className="relatedGames-wrapper row">
 					{tiles}
-				</ul>
 			</section>
 		)
 	}

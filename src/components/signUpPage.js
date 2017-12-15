@@ -12,12 +12,14 @@ export class SignUpPage extends React.Component {
 		}
 		return(
 			<section className="login-wrapper">
-				<header>
-					<h2>Create a Joystick Informer account</h2>
-				</header>
-				<SignUpForm />
-				<div>
-					<p>Already have an account? <Link to="/login">Log in here.</Link></p>
+				<div className="row">
+					<header>
+						<h2>Create a Joystick Informer account</h2>
+					</header>
+					<SignUpForm />
+					<div className="login-signup col-6 clear-float">
+						<p>Already have an account? <Link to="/login">Log in here.</Link></p>
+					</div>
 				</div>
 			</section>
 		)
