@@ -104,6 +104,18 @@ export default class Pricer extends React.Component {
 				</header>
 				<hr/>
 				<ul className="pricer-list col-4 fr clear-float">
+					<li>
+						<div>
+							<table className="b-border w-two-thirds tl pv3">
+								<thead>
+									<tr>
+										<th className="w-50 tc">Merchant</th>
+										<th className="w-50 tc">Pricing</th>
+									</tr>
+								</thead>
+							</table>
+						</div>
+					</li>
 					<AmazonPriceCell {...this.state.price.amazon} />
 					<EbayPriceCell {...this.state.price.ebay} />	
 				</ul>

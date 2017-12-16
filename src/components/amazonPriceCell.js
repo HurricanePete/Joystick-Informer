@@ -12,7 +12,7 @@ export default class amazonPriceCell extends React.Component {
 			return(
 				<li>
 					<div className="gray">
-						<table>
+						<table className="w-100">
 							<tbody>
 								<tr>
 									<td><a href="{this.props.url}"><img className="amazon-logo logo" src={AmazonLogo} alt="Amazon logo" /></a></td>
@@ -28,12 +28,12 @@ export default class amazonPriceCell extends React.Component {
 			return(
 				<li>
 					<div>
-						<table>
+						<table className="w-100">
 							<tbody>
 								<tr>
-									<td><a href={this.props.url} target="_blank"><img className="amazon-logo logo" src={AmazonLogo} alt="Amazon logo" /></a></td>
-									<td><p>{this.props.pricing.LowestNewPrice.FormattedPrice}</p></td>
-									<td></td>
+									<td className="w-third"><a href={this.props.url} target="_blank"><img className="amazon-logo logo" src={AmazonLogo} alt="Amazon logo" /></a></td>
+									<td className="w-third"><p className="pricing">{this.props.pricing.LowestNewPrice.FormattedPrice}</p></td>
+									<td className="w-third"><a href={this.props.url} target="_blank"><button className="show-me">Show me</button></a></td>
 								</tr>
 							</tbody>
 						</table>
@@ -44,12 +44,12 @@ export default class amazonPriceCell extends React.Component {
 		return(
 			<li>
 				<div>
-					<table>
+					<table className="w-100">
 						<tbody>
 							<tr>
-								<td><a href={this.props.url} target="_blank"><img className="amazon-logo logo" src={AmazonLogo} alt="Amazon logo" /></a></td>
-								<td><p>{this.props.pricing.LowestNewPrice.FormattedPrice} - {this.props.pricing.LowestUsedPrice.FormattedPrice}</p></td>
-								<td></td>
+								<td className="w-third"><a href={this.props.url} target="_blank"><img className="amazon-logo logo" src={AmazonLogo} alt="Amazon logo" /></a></td>
+								<td className="w-third"><p className="pricing">{this.props.pricing.LowestNewPrice.FormattedPrice} - {this.props.pricing.LowestUsedPrice.FormattedPrice}</p></td>
+								<td className="w-third"><a href={this.props.url} target="_blank"><button className="show-me">Show me</button></a></td>
 							</tr>
 						</tbody>
 					</table>

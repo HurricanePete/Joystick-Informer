@@ -44,7 +44,7 @@ export class FeaturedGames extends React.Component{
 
 			return(
 				<section className="featured-games pb5 row">
-					<header className="w-50">
+					<header className="w-50 tl">
 						<h3>Recent News</h3>
 					</header>
 					<hr/>

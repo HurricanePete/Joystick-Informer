@@ -40,6 +40,12 @@ img.cover-photo {
 	height: 128px;
 }
 
+div.dashboard-list {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
 .hidden {
 	display: none;
 }

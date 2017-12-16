@@ -7,6 +7,13 @@ import Loading from './loading';
 import './styles/watchlist.css';
 
 export class Watchlist extends React.Component {
+	constructor(props) {
+		super(props);
+	}
+
+	watchlistWarning(gameId) {
+		this.props.watchlistWarning(gameId);
+	}
 
 
 	render() {
@@ -26,7 +33,7 @@ export class Watchlist extends React.Component {
 		}
 		const tiles = this.props.watchlistGames.map((tile, index) => 
 			<div key={index}>
-				<Tile index={index} location={"watchlist"} {...tile} />
+				<Tile index={index} location={"watchlist"} watchlistWarning={(gameId) => this.watchlistWarning(gameId)} {...tile} />
 			</div>
 		);
 		return(

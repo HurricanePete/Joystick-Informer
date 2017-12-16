@@ -111,6 +111,7 @@ export class Dashboard extends React.Component {
 	}
 
 	watchlistWarning(gameId) {
+		console.log(gameId)
 		this.props.dispatch(setWatchlistWarning(gameId));
 	}
 

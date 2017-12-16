@@ -10,7 +10,6 @@ ul.pricer-list {
 }
 
 ul.pricer-list td {
-	width: 50%;
 }
 
 img.logo {
@@ -19,4 +18,28 @@ img.logo {
 
 img.amazon-logo {
 	margin-bottom: -1rem;
+}
+
+button.show-me {
+	padding: 0.5rem 0.5rem;
+	background-color: white;
+	border: 3px solid #023960;
+	color: #023960;
+	font-weight: 600;
+	transition-property: background-color, color;
+	transition-duration: .5s;
+}
+
+button.show-me:hover {
+	background-color: #023960;
+	color: white;
+}
+
+p.pricing {
+	font-weight: 600;
+	font-size: 18px;
+}
+
+table.b-border {
+	border-bottom: 2px solid #023960;
 }

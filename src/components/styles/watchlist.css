@@ -14,10 +14,15 @@ div.watchlist-tile {
 }
 
 button.list-remover {
-	vertical-align: text-bottom;
+	/*vertical-align: text-bottom;
 	display: inline-block;
 	width: 5rem;
 	height: 5rem;
-	border-radius: 100%;
-	background: lightgreen;
+	background-color: green;
+	color: white;*/
+}
+
+div.warning-box {
+	background-color: #023960;
+	border: 2px solid white;
 }

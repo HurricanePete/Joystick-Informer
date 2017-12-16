@@ -12,7 +12,7 @@ export default class ebayPriceCell extends React.Component {
 			return(
 				<li>
 					<div className="gray">
-						<table>
+						<table className="w-100">
 							<tbody>
 								<tr>
 									<td><a href="{this.props.url}"><img className="logo" src={EbayLogo} alt="Ebay logo" /></a></td>
@@ -27,11 +27,12 @@ export default class ebayPriceCell extends React.Component {
 		return(
 			<li>
 				<div>
-					<table>
+					<table className="w-100">
 						<tbody>
 							<tr>
-								<td><a href={this.props.url} target="_blank"><img className="logo" src={EbayLogo} alt="Ebay logo" /></a></td>
-								<td><p>${this.props.pricing.currentPrice[0].__value__}</p></td>
+								<td className="w-third"><a href={this.props.url} target="_blank"><img className="logo" src={EbayLogo} alt="Ebay logo" /></a></td>
+								<td className="w-third"><p className="pricing">${this.props.pricing.currentPrice[0].__value__}</p></td>
+								<td className="w-third"><a href={this.props.url} target="_blank"><button className="show-me">Show me</button></a></td>
 							</tr>
 						</tbody>	
 					</table>

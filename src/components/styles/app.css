@@ -7,11 +7,11 @@ main{
 	background-color: white;
 	background-position: bottom;
 	margin-top: 56px;
-	padding: 2rem;
+	padding: 2rem 0rem;
 }
 
 hr {
-	width: 50%;
+	width: 66.666%;
 }
 
 ul {
@@ -55,7 +55,7 @@ div.login-signup {
 	margin: 0 auto;
 }
 
-.js-button {
+button.js-button {
 	padding: .5rem 3rem;
 	background-color: white;
 	border: 3px solid #023960;
@@ -65,7 +65,7 @@ div.login-signup {
 	transition-duration: .5s;
 }
 
-.js-button:hover {
+button.js-button:hover {
 	background-color: #023960;
 	color: white;
 }
@@ -90,4 +90,10 @@ div.login-signup {
 	right: 10rem;
 	z-index: 10;
 	padding: 6rem 2rem;
+}
+
+@media only screen and (min-width: 640px) {
+	main {
+		padding: 2rem;
+	}
 }
