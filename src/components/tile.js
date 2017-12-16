@@ -26,12 +26,12 @@ export class Tile extends React.Component {
 	}
 
 	render() {
-		const {id, name, rating, cover, index} = this.props;
-		if(this.props.location === "watchlist") {
+		const {id, name, rating, cover, index, location} = this.props;
+		if(location === "watchlist") {
 			return (
 				<Link to={`/gameview/${id}`}>
 					<div className="tile col-8 center">
-						<div className="" title={name}>
+						<div className="dib" title={name}>
 							<img className="cover-photo" alt={name} src={cover === undefined ? demo : `https://images.igdb.com/igdb/image/upload/t_cover_small/${cover.cloudinary_id}.jpg`} />
 							<dl>
 								<dt className="hidden">Title</dt>
@@ -45,11 +45,11 @@ export class Tile extends React.Component {
 				</Link>
 			);	
 		}
-		else if(this.props.location === "related") {
+		else if(location === "related") {
 			return (
 				<Link to={`/gameview/${id}`}>
 					<div className="tile col-8 center">
-						<div className="" title={name}>
+						<div className="dib" title={name}>
 							<img className="cover-photo" alt={name} src={cover === undefined ? demo : `https://images.igdb.com/igdb/image/upload/t_cover_small/${cover.cloudinary_id}.jpg`} />
 							<dl>
 								<dt className="hidden">Title</dt>

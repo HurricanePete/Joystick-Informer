@@ -1,6 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {Redirect} from 'react-router-dom';
+import Identicon from 'identicon.js';
 
 import Watchlist from './watchlist';
 import RelatedGames from './relatedGames';
@@ -129,11 +130,20 @@ export class Dashboard extends React.Component {
 		if(!loggedIn) {
 			return <Redirect to="/" />;
 		}
+		const string = currentUser.username;
+		let hex = [];
+		for(let i=0; i<string.length; i++) {
+			let hexy = string[i].charCodeAt(0);
+			hexy = parseInt(hexy, 16);
+			hex.push(hexy);
+		}
+		hex = hex.join("");
+		const data = new Identicon(hex, 100).toString();
 		return(
 			<main>
 				<header className="dashboard-header row">
 					<div className="profile col-3 clear-float white">
-						<canvas width="100" height="100" data-jdenticon-value={currentUser.username}>{currentUser.username}</canvas>
+						<img width={100} height={100} src={`data:image/png;base64, ${data}`}  />
 						<h2 className="">Hello, {auth.currentUser.username}</h2>
 						<button className="sign-out js-button" onClick={e => this.signOut(e)}>Sign out</button>
 					</div>

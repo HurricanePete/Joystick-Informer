@@ -31,10 +31,7 @@ export default class ebayPriceCell extends React.Component {
 						<tbody>
 							<tr>
 								<td><a href={this.props.url} target="_blank"><img className="logo" src={EbayLogo} alt="Ebay logo" /></a></td>
-								<td><span>${this.props.pricing.currentPrice[0].__value__}</span></td>
-								<td><span>{this.props.condition}</span></td>
-								<td><span>{this.props.pricing.timeLeft[0]}</span></td>
-								<td><span className={this.props.buyItNow === true ? "green ba b--washed-green" : "gray ba b--light-gray"}>Buy It Now</span></td>
+								<td><p>${this.props.pricing.currentPrice[0].__value__}</p></td>
 							</tr>
 						</tbody>	
 					</table>

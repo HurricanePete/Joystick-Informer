@@ -32,6 +32,12 @@ div.react-carousel li {
 	background-color: #ffe6b3;
 }
 
+div.react-carousel li > a img {
+	max-width: 246px;
+	max-height: 135px;
+	margin: 0 auto;
+}
+
 div.react-carousel dd {
 	color: #09359B;
 }

@@ -86,23 +86,24 @@ export default class Pricer extends React.Component {
 	}
 
 	render() {
-		console.log(this.state)
 		if(this.state.price === null) {
 			return(
 			<div className="price-wrapper">
-				<h3>Prices</h3>
+				<header className="w-50 tl">
+					<h3>Prices</h3>
+				</header>
 				<hr/>
 				<Loading />
 			</div>
 			);
 		}
 		return(
-			<div className="price-wrapper col-12 clear-float">
+			<div className="price-wrapper col-12">
 				<header className="w-50 tl">
 					<h3>Prices</h3>
 				</header>
 				<hr/>
-				<ul className="pricer-list col-9 fr">
+				<ul className="pricer-list col-4 fr clear-float">
 					<AmazonPriceCell {...this.state.price.amazon} />
 					<EbayPriceCell {...this.state.price.ebay} />	
 				</ul>

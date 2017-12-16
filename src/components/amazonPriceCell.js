@@ -15,7 +15,7 @@ export default class amazonPriceCell extends React.Component {
 						<table>
 							<tbody>
 								<tr>
-									<td><a href="{this.props.url}"><img className="logo" src={AmazonLogo} alt="Amazon logo" /></a></td>
+									<td><a href="{this.props.url}"><img className="amazon-logo logo" src={AmazonLogo} alt="Amazon logo" /></a></td>
 									<td><p>Pricing unavailable from this seller</p></td>
 								</tr>
 							</tbody>
@@ -31,8 +31,9 @@ export default class amazonPriceCell extends React.Component {
 						<table>
 							<tbody>
 								<tr>
-									<td><a href={this.props.url} target="_blank"><img className="logo" src={AmazonLogo} alt="Amazon logo" /></a></td>
-									<td><span>{this.props.pricing.LowestNewPrice.FormattedPrice}</span></td>
+									<td><a href={this.props.url} target="_blank"><img className="amazon-logo logo" src={AmazonLogo} alt="Amazon logo" /></a></td>
+									<td><p>{this.props.pricing.LowestNewPrice.FormattedPrice}</p></td>
+									<td></td>
 								</tr>
 							</tbody>
 						</table>
@@ -46,8 +47,9 @@ export default class amazonPriceCell extends React.Component {
 					<table>
 						<tbody>
 							<tr>
-								<td><a href={this.props.url} target="_blank"><img className="logo" src={AmazonLogo} alt="Amazon logo" /></a></td>
-								<td><span>{this.props.pricing.LowestNewPrice.FormattedPrice} - {this.props.pricing.LowestUsedPrice.FormattedPrice}</span></td>
+								<td><a href={this.props.url} target="_blank"><img className="amazon-logo logo" src={AmazonLogo} alt="Amazon logo" /></a></td>
+								<td><p>{this.props.pricing.LowestNewPrice.FormattedPrice} - {this.props.pricing.LowestUsedPrice.FormattedPrice}</p></td>
+								<td></td>
 							</tr>
 						</tbody>
 					</table>
