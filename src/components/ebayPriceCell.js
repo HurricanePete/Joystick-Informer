@@ -12,11 +12,14 @@ export default class ebayPriceCell extends React.Component {
 			return(
 				<li>
 					<div className="gray">
-						<a href="{this.props.url}"><img src={EbayLogo} alt="Ebay logo" /></a>
-						<span>--</span>
-						<span>--</span>
-						<span>--</span>
-						<span>--</span>
+						<table>
+							<tbody>
+								<tr>
+									<td><a href="{this.props.url}"><img className="logo" src={EbayLogo} alt="Ebay logo" /></a></td>
+									<td><p>Pricing Unavailable from this seller</p></td>
+								</tr>
+							</tbody>
+						</table>
 					</div>
 				</li>
 			);
@@ -24,11 +27,17 @@ export default class ebayPriceCell extends React.Component {
 		return(
 			<li>
 				<div>
-					<a href={this.props.url} target="_blank"><img src={EbayLogo} alt="Ebay logo" /></a>
-					<span>${this.props.pricing.currentPrice[0].__value__}</span>
-					<span>{this.props.condition}</span>
-					<span>{this.props.pricing.timeLeft[0]}</span>
-					<span className={this.props.buyItNow === true ? "green ba b--washed-green" : "gray ba b--light-gray"}>Buy It Now</span>
+					<table>
+						<tbody>
+							<tr>
+								<td><a href={this.props.url} target="_blank"><img className="logo" src={EbayLogo} alt="Ebay logo" /></a></td>
+								<td><span>${this.props.pricing.currentPrice[0].__value__}</span></td>
+								<td><span>{this.props.condition}</span></td>
+								<td><span>{this.props.pricing.timeLeft[0]}</span></td>
+								<td><span className={this.props.buyItNow === true ? "green ba b--washed-green" : "gray ba b--light-gray"}>Buy It Now</span></td>
+							</tr>
+						</tbody>	
+					</table>
 				</div>
 			</li>
 		);

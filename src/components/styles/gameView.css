@@ -1,10 +1,9 @@
 section.gameView-wrapper {
-	margin-top: 46px;
 	padding: 1rem 0 1rem 0;
 }
 
 div.game-view {
-	padding-top: 4rem;
+	padding-top: 1rem;
 	text-align: center;
 }
 
@@ -32,7 +31,7 @@ div.photo-wrapper {
 img.game-photo {
 	height: 320px;
 	width: 227px;
-	margin: 2rem;
+	margin-top: 1em;
 }
 
 button.watchlist-add {
@@ -44,4 +43,14 @@ button.watchlist-add {
 ul.platforms {
 	float: none;
 	text-align: center;
+	margin: 0 auto;
+}
+
+
+@media only screen and (min-width: 620px) {
+	div.game-view {
+		display: flex;
+		align-items: flex-start;
+		justify-content: center;
+	}
 }

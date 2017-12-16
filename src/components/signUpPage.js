@@ -16,9 +16,9 @@ export class SignUpPage extends React.Component {
 					<header>
 						<h2>Create a Joystick Informer account</h2>
 					</header>
-					<SignUpForm />
+					<SignUpForm banner={false} />
 					<div className="login-signup col-6 clear-float">
-						<p>Already have an account? <Link to="/login">Log in here.</Link></p>
+						<p className="f4">Already have an account? <Link to="/login">Log in here.</Link></p>
 					</div>
 				</div>
 			</section>

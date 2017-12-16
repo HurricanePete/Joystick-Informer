@@ -2,13 +2,16 @@ section.results-wrapper {
 }
 
 div.results-display {
-	/*width: 75%;*/
 	padding: 1rem;
 }
 
-button.return {
+span.bread-crumbs {
 	vertical-align: top;
-	border-radius: 5px;
 	padding: 5px;
-	font-size: 16px;
+	font-size: 20px;
+	font-weight: 600;
+}
+
+span.bread-crumbs:hover {
+	cursor: pointer;
 }

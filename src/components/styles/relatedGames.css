@@ -1,5 +1,10 @@
 section.relatedGames-wrapper {
 	padding: 1rem;
+	margin: 0 auto;
+}
+
+section.relatedGames-wrapper > p {
+	font-size: 18px;
 }
 
 button.list-adder {

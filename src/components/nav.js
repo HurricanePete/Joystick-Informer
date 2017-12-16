@@ -13,9 +13,9 @@ export class NavigationBar extends React.Component {
 			return(
 				<nav className="col-12">
 					<div className="link home" title="Home"><Link to="/">Home</Link></div>
-					<div className="link avatar" title={currentUser.username}>
+					<div className="avatar" title={currentUser.username}>
 						<Link to={'/dashboard'}>
-							<img className="avatar" src={avatar} alt="avatar" />
+							<canvas width="32" height="32" data-jdenticon-value={currentUser.username}>{currentUser.username}</canvas>
 						</Link>
 					</div>
 				</nav>

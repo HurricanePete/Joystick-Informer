@@ -1,11 +1,6 @@
 div.tile {
-	/*display: inline-block;*/
-	/*width: 75%;
-	background-color: #ffe6b3;
-	border: 0px solid white;
-	border-radius: 25px;*/
 	text-align: center;
-	padding: 10px;
+	padding: 1.5rem;
 	color: #09359B;
 	border-bottom: 2px solid #09359B;
 	transition-property: color background-color;

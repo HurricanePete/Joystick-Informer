@@ -4,6 +4,7 @@ import {connect} from 'react-redux';
 import ReturnButton from './returnButton';
 import Pricer from './pricer';
 import AddToWatchListButton from './addWatchlistButton';
+import Loading from './loading';
 
 import {API_BASE_URL} from '../config';
 
@@ -59,10 +60,10 @@ export class GameView extends React.Component {
 
 	render() {
 		if(this.state.game === null) {
-			return <h2>Loading...</h2>
+			return <Loading />
 		}
 		if(this.state.loading === true) {
-			return <h2>Loading...</h2>
+			return <Loading />
 		}
 		const {id, name, rating, summary, cover, first_release_date} = this.state.game;
 		const platforms = this.state.platforms;
@@ -75,8 +76,8 @@ export class GameView extends React.Component {
 		console.log(platforms);
 		return (
 			<main>
+				<ReturnButton goBack={() => this.returnButtonPress()}  />
 				<section className="gameView-wrapper row">
-					<ReturnButton goBack={() => this.returnButtonPress()}  />
 					<div className="game-view row" title={name}>
 						<div className="photo-wrapper col-3 clear-float">
 							<img className="game-photo" alt={name} src={cover !== undefined ? `https://images.igdb.com/igdb/image/upload/t_cover_big/${cover.cloudinary_id}.jpg` : demo} />
@@ -92,12 +93,10 @@ export class GameView extends React.Component {
 								<dt className="hidden">Summary</dt>
 								<dd><p className="summary">{!summary ? 'Apologies, no summary available.' : summary}</p></dd>
 							</dl>
+							<ul className="platforms col-8">
+								{platformTabs}
+							</ul>
 						</div>
-					</div>
-					<div className="col-12 clear-float">
-						<ul className="platforms col-8">
-							{platformTabs}
-						</ul>
 					</div>
 					<Pricer name={name} releaseDate={first_release_date} platforms={current} />
 				</section>

@@ -98,9 +98,11 @@ export default class Pricer extends React.Component {
 		}
 		return(
 			<div className="price-wrapper col-12 clear-float">
-				<h3>Prices</h3>
+				<header className="w-50 tl">
+					<h3>Prices</h3>
+				</header>
 				<hr/>
-				<ul className="pricer-list col-9 clear-float">
+				<ul className="pricer-list col-9 fr">
 					<AmazonPriceCell {...this.state.price.amazon} />
 					<EbayPriceCell {...this.state.price.ebay} />	
 				</ul>

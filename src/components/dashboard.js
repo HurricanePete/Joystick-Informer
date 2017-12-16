@@ -124,7 +124,7 @@ export class Dashboard extends React.Component {
 	}
 
 	render() {
-		const {auth, loggedIn} = this.props;
+		const {auth, loggedIn, currentUser} = this.props;
 		const {watchlistGames, relatedGames} = this.state;
 		if(!loggedIn) {
 			return <Redirect to="/" />;
@@ -132,17 +132,21 @@ export class Dashboard extends React.Component {
 		return(
 			<main>
 				<header className="dashboard-header row">
-					<div className="profile">
-						<img className="profile-pic" src={avatar} alt={auth.currentUser.username} />
+					<div className="profile col-3 clear-float white">
+						<canvas width="100" height="100" data-jdenticon-value={currentUser.username}>{currentUser.username}</canvas>
 						<h2 className="">Hello, {auth.currentUser.username}</h2>
+						<button className="sign-out js-button" onClick={e => this.signOut(e)}>Sign out</button>
 					</div>
-					<button className="sign-out" onClick={e => this.signOut(e)}>Sign out</button>
 				</header>
-				<h3>Your Watchlist</h3>
-				<hr/>
+				<header className="w-50 tl">
+					<h3>Your Watchlist</h3>
+				</header>
+				<hr />
 				<WarningDisplay confirm={() => this.confirmWatchlistRemove()} cancel={() => this.cancelWatchlistWarning()} />
 				<Watchlist watchlistGames={watchlistGames} watchlistWarning={(gameId) => this.watchlistWarning(gameId)} />
-				<h3>Recommended for You</h3>
+				<header className="w-50 tl">
+					<h3>Recommended for You</h3>
+				</header>
 				<hr/>
 				<RelatedGames relatedGames={relatedGames} />
 			</main>
@@ -154,6 +158,7 @@ const mapStateToProps = state => {
 	return{
 		auth: state.auth,
 		loggedIn: state.auth.currentUser !== null,
+		currentUser: state.auth.currentUser,
 		warning: state.joystick.watchlistWarning,
 		currentWatchlist: state.auth.currentWatchlist
 	}

@@ -33,11 +33,7 @@ export class FeaturedGames extends React.Component{
 		let tiles;
 		if(!news) {
 			return(
-				<section className="row">
-					<header>
-						<h3>Recent News</h3>
-					</header>
-					<hr/>
+				<section className="featured-games pb5 row">
 					<Loading />
 				</section>
 			)
@@ -48,7 +44,7 @@ export class FeaturedGames extends React.Component{
 
 			return(
 				<section className="featured-games pb5 row">
-					<header>
+					<header className="w-50">
 						<h3>Recent News</h3>
 					</header>
 					<hr/>

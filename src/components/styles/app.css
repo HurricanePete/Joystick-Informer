@@ -4,9 +4,14 @@
 }
 
 main{
-	background: linear-gradient(to top, #023960, white);
+	background-color: white;
 	background-position: bottom;
 	margin-top: 56px;
+	padding: 2rem;
+}
+
+hr {
+	width: 50%;
 }
 
 ul {
@@ -19,7 +24,6 @@ a {
 
 header {
 	margin: 0 auto;
-	padding: 4rem 1rem 1rem 1rem;
 	text-align: center;
 }
 

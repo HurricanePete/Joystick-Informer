@@ -29,7 +29,7 @@ export class SignupForm extends React.Component {
 		const {error} = this.state
 		if(error) {
 			return(
-				<div className="form-wrapper mb4 col-6 clear-float">
+				<div className={"form-wrapper mb4 col-6 clear-float " + (this.props.banner === true ? "col-8" : "col-6")}>
 					<div className="bg-washed-red ma2"><p className="dark-red">{error}</p></div>
 					<form className="signup-form" onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
 						<Field name="email" label="Email" type="email" placeholder="you@example.com" component={formInput} validate={[required, nonEmpty, email]}/>
@@ -41,7 +41,7 @@ export class SignupForm extends React.Component {
 			)
 		}
 		return(
-			<div className="form-wrapper mb4 col-6 clear-float">
+			<div className={"form-wrapper mb4 col-6 clear-float " + (this.props.banner === true ? "col-8" : "col-6")}>
 				<form className="signup-form" onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
 					<Field name="email" label="Email" type="email" placeholder="you@example.com" component={formInput} validate={[required, nonEmpty, email]}/>
 					<Field name="username" label="Username" type="text" placeholder="Pick a username" component={formInput} validate={[required, nonEmpty, noSpaces]} />

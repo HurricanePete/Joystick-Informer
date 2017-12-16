@@ -4,6 +4,8 @@ import {Link} from 'react-router-dom';
 
 import {addToWatchlist, removeFromWatchlist, sendUpdatedWatchlist} from '../actions/auth';
 
+import './styles/addWatchlistButton.css';
+
 export class AddWatchlistButton extends React.Component {
 	watchlistAdd(event) {
 		event.preventDefault();
@@ -19,7 +21,9 @@ export class AddWatchlistButton extends React.Component {
 		const {loggedIn, currentWatchlist} = this.props;
 		if(!loggedIn) {
 			return(
-				<Link to="/login" className="blue underline">Sign in to add to watchlist</Link>
+				<div className="sign-in mv4">
+					<Link to="/login" className="blue underline mv4">Sign in to add to watchlist</Link>
+				</div>
 			)
 		}
 		else {
@@ -27,15 +31,17 @@ export class AddWatchlistButton extends React.Component {
 			console.log(containsGame);
 			if(loggedIn && containsGame) {
 				return(
-					<span>
-						<p className="dib green ba pv2 ph4 measure">Already in watchlist</p>
-						<button className="dib red bg-light-red pa3" onClick={e =>this.watchlistRemove(e)}>X</button>
-					</span>
+					<div className="mv4">
+						<p className="already">Already in watchlist</p>
+						<button className="watchlist-delete" onClick={e =>this.watchlistRemove(e)}><i className="fas fa-minus-circle"></i></button>
+					</div>
 				)
 			}
 			else {
 				return(
-					<button className="ba bg-green pv2 ph4" onClick={e => this.watchlistAdd(e)}>Add to watchlist</button>
+					<div className="mv4">
+						<button className="game-add" onClick={e => this.watchlistAdd(e)}>Add to watchlist</button>
+					</div>
 				)
 			}
 		}

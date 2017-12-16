@@ -17,7 +17,7 @@ class ResultsDisplay extends Component {
 		if(resultCount === 0) {
 			return(
 				<section className="results-wrapper">
-					<div className="results-display row">
+					<div className="results-display row pb5">
 						<h4 className="tl pl6">Sorry, no results matched your search</h4>
 					</div>
 				</section>
@@ -26,7 +26,7 @@ class ResultsDisplay extends Component {
 		else if(resultCount === 1) {
 			return(
 				<section className="results-wrapper">
-					<div className="results-display row">
+					<div className="results-display row pb5">
 						<h4 className="tl pl6">Only {resultCount} result found</h4>
 						{tiles}
 					</div>
@@ -36,7 +36,7 @@ class ResultsDisplay extends Component {
 		else {
 			return(
 				<section className="results-wrapper">
-					<div className="results-display row">
+					<div className="results-display row pb5">
 						<h4 className="tl pl6">{resultCount} results found</h4>
 						{tiles}
 					</div>
