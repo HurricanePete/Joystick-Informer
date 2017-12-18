@@ -7,9 +7,6 @@ import Loading from './loading';
 import './styles/watchlist.css';
 
 export class Watchlist extends React.Component {
-	constructor(props) {
-		super(props);
-	}
 
 	watchlistWarning(gameId) {
 		this.props.watchlistWarning(gameId);
@@ -22,14 +19,18 @@ export class Watchlist extends React.Component {
 			return null
 		}
 		else if(loading) {
-			return <Loading />
+			return(
+				<section className="watchlist-wrapper row">
+					<Loading />
+				</section>
+			);
 		}
 		else if(this.props.watchlistGames === null || this.props.watchlistGames.length === 0) {
 			return(
 				<section className="watchlist-wrapper row">
 					<p className="tc b">Your watchlist is empty. Start adding games to view them here.</p>
 				</section>
-			)
+			);
 		}
 		const tiles = this.props.watchlistGames.map((tile, index) => 
 			<div key={index}>
@@ -40,7 +41,7 @@ export class Watchlist extends React.Component {
 			<section className="watchlist-wrapper row">
 					{tiles}
 			</section>
-		)
+		);
 	}
 }
 

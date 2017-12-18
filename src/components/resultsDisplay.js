@@ -21,7 +21,7 @@ class ResultsDisplay extends Component {
 						<h4 className="tl pl6">Sorry, no results matched your search</h4>
 					</div>
 				</section>
-			)
+			);
 		}
 		else if(resultCount === 1) {
 			return(
@@ -31,7 +31,7 @@ class ResultsDisplay extends Component {
 						{tiles}
 					</div>
 				</section>
-			)
+			);
 		}
 		else {
 			return(
@@ -41,7 +41,7 @@ class ResultsDisplay extends Component {
 						{tiles}
 					</div>
 				</section>
-			)
+			);
 		}
 	}
 }

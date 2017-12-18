@@ -46,6 +46,14 @@ div.dashboard-list {
 	justify-content: center;
 }
 
+i.fa-minus-circle, i.fa-plus-circle {
+	transition: color 0.5s;
+}
+
+i.fa-minus-circle:hover, i.fa-plus-circle:hover {
+	color: #09359B;
+}
+
 .hidden {
 	display: none;
 }

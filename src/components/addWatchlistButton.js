@@ -28,7 +28,6 @@ export class AddWatchlistButton extends React.Component {
 		}
 		else {
 			const containsGame = currentWatchlist.gameIds.includes(this.props.item);
-			console.log(containsGame);
 			if(loggedIn && containsGame) {
 				return(
 					<div className="mv4">

@@ -24,7 +24,7 @@ export class LoginForm extends React.Component {
 		const {error} = this.state;
 		if(error) {
 			return(
-				<div className="form-wrapper col-6 clear-float">
+				<div className="form-wrapper col-6 mw7 ph3 ph5-ns tc pv4 clear-float">
 					<div className="bg-washed-red ma2"><p className="dark-red">{error}</p></div>
 					<form className="login-form" onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
 						<Field name="username" label="Username" id="username" type="text" component={formInput} />
@@ -36,7 +36,7 @@ export class LoginForm extends React.Component {
 		}
 
 		return(
-			<div className="form-wrapper col-6 clear-float">
+			<div className="form-wrapper col-6 ph3 ph5-ns tc pv4 clear-float">
 				<form className="login-form" onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
 					<Field name="username" label="Username" id="username" type="text" component={formInput} />
 					<Field name="password" label="Password" id="password" type="password" component={formInput} />

@@ -5,8 +5,6 @@ import Identicon from 'identicon.js';
 
 import './styles/nav.css';
 
-import avatar from './static-photos/avatar.jpeg';
-
 export class NavigationBar extends React.Component {
 
 
@@ -27,18 +25,18 @@ export class NavigationBar extends React.Component {
 					<div className="link home" title="Home"><Link to="/">Home</Link></div>
 					<div className="avatar" title={currentUser.username}>
 						<Link to={'/dashboard'}>
-							<img width={32} height={32} src={`data:image/png;base64, ${data}`}  />
+							<img width={32} height={32} src={`data:image/png;base64, ${data}`} alt={currentUser.username} />
 						</Link>
 					</div>
 				</nav>
-			)
+			);
 		}
 
 		return (
-				<nav className="col-12">
-					<div className="link home" title="Home"><Link to="/">Home</Link></div>
-					<div className="link login" title="Sign in"><Link to="/login">Sign in</Link></div>
-				</nav>
+			<nav className="col-12">
+				<div className="link home" title="Home"><Link to="/">Home</Link></div>
+				<div className="link login" title="Sign in"><Link to="/login">Sign in</Link></div>
+			</nav>
 		);
 	}
 }
@@ -48,6 +46,6 @@ const mapStateToProps = state => {
 		loggedIn: state.auth.currentUser !== null,
 		currentUser: state.auth.currentUser
 	}
-}
+};
 
-export default connect(mapStateToProps)(NavigationBar)
+export default connect(mapStateToProps)(NavigationBar);

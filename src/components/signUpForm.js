@@ -38,7 +38,7 @@ export class SignupForm extends React.Component {
 						<button className="submit-button js-button" type="submit" disabled={this.props.pristine || this.props.submitting}>Sign Up</button>
 					</form>
 				</div>
-			)
+			);
 		}
 		return(
 			<div className={"form-wrapper mb4 col-6 clear-float " + (this.props.banner === true ? "col-8" : "col-6")}>
@@ -49,7 +49,7 @@ export class SignupForm extends React.Component {
 					<button className="submit-button js-button" type="submit" disabled={this.props.pristine || this.props.submitting}>Sign Up</button>
 				</form>
 			</div>
-		)
+		);
 	}
 }
 

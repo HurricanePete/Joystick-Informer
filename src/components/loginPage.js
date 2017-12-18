@@ -10,17 +10,19 @@ export class LoginPage extends React.Component {
 			return <Redirect to="/dashboard" />
 		}
 		return(
-			<section className="login-wrapper">
-				<div className="row">
-					<header>
-						<h2>Log in to Joystick Informer</h2>
-					</header>
-					<LoginForm />
-					<div className="login-signup col-6 clear-float">
-						<p className="f4">Want an account? <Link to="/signup">Create one here.</Link></p>
-					</div>
-				</div>
-			</section>
+			<main>
+				<section className="login-wrapper">
+						<article className="form-article col-6 clear-float">	
+								<header>
+									<h2 className="white">Log in to Joystick Informer</h2>
+								</header>
+								<LoginForm />
+								<div className="login-signup col-6 clear-float">
+									<p className="f4 bg-white">Want an account? <Link to="/signup">Create one here.</Link></p>
+								</div>
+						</article>
+				</section>
+			</main>
 		)
 	}
 }

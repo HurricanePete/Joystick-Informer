@@ -15,7 +15,7 @@ export default class amazonPriceCell extends React.Component {
 						<table className="w-100">
 							<tbody>
 								<tr>
-									<td><a href="{this.props.url}"><img className="amazon-logo logo" src={AmazonLogo} alt="Amazon logo" /></a></td>
+									<td className="w-third"><a href="{this.props.url}"><img className="amazon-logo logo" src={AmazonLogo} alt="Amazon logo" /></a></td>
 									<td><p>Pricing unavailable from this seller</p></td>
 								</tr>
 							</tbody>

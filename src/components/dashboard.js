@@ -13,7 +13,6 @@ import {clearAuthToken} from '../local-storage';
 
 import {API_BASE_URL} from '../config';
 
-import avatar from './static-photos/avatar.jpeg';
 import './styles/dashboard.css';
 
 export class Dashboard extends React.Component {
@@ -34,10 +33,7 @@ export class Dashboard extends React.Component {
 			if(this.props.currentWatchlist.gameIds.length === 0) {
 				return;
 			}
-			//const {currentWatchlist} = this.props.currentWatchlist;
-			console.log(this.props.currentWatchlist)
 			const concatIds = this.props.currentWatchlist.gameIds.concat(this.props.currentWatchlist.relatedIds);
-			console.log(concatIds)
 			this.props.dispatch(loadingToggle());
 			return fetch(`${API_BASE_URL}/games/ids/${concatIds}`, {
 				method: 'GET'
@@ -45,9 +41,7 @@ export class Dashboard extends React.Component {
 			.then(res => res.json())
 			.then(res => {
 				const watchlistObject = res.body;
-				console.log(watchlistObject)
 				const relatedArray = watchlistObject.splice((watchlistObject.length-5), 5);
-				console.log(relatedArray);
 				this.setState({
 					watchlistGames: watchlistObject,
 					relatedGames: relatedArray
@@ -78,7 +72,6 @@ export class Dashboard extends React.Component {
 			}
 			const {currentWatchlist} = nextProps;
 			const concatIds = currentWatchlist.gameIds.concat(currentWatchlist.relatedIds);
-			console.log(concatIds)
 			this.props.dispatch(loadingToggle());
 			return fetch(`${API_BASE_URL}/games/ids/${concatIds}`, {
 				method: 'GET'
@@ -86,9 +79,7 @@ export class Dashboard extends React.Component {
 			.then(res => res.json())
 			.then(res => {
 				const watchlistObject = res.body;
-				console.log(watchlistObject)
 				const relatedArray = watchlistObject.splice((watchlistObject.length-5), 5);
-				console.log(relatedArray);
 				this.setState({
 					watchlistGames: watchlistObject,
 					relatedGames: relatedArray
@@ -111,7 +102,6 @@ export class Dashboard extends React.Component {
 	}
 
 	watchlistWarning(gameId) {
-		console.log(gameId)
 		this.props.dispatch(setWatchlistWarning(gameId));
 	}
 
@@ -144,7 +134,7 @@ export class Dashboard extends React.Component {
 			<main>
 				<header className="dashboard-header row">
 					<div className="profile col-3 clear-float white">
-						<img width={100} height={100} src={`data:image/png;base64, ${data}`}  />
+						<img width={100} height={100} src={`data:image/png;base64, ${data}`} alt={currentUser.username} />
 						<h2 className="">Hello, {auth.currentUser.username}</h2>
 						<button className="sign-out js-button" onClick={e => this.signOut(e)}>Sign out</button>
 					</div>

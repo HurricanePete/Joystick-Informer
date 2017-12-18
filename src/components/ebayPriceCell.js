@@ -6,7 +6,11 @@ export default class ebayPriceCell extends React.Component {
 	render() {
 		console.log(this.props)
 		if(!this.props) {
-			return <h2>Loading...</h2>
+			return(
+				<main> 
+					<h2>Loading...</h2>
+				</main>
+			)
 		}
 		else if(Object.keys(this.props).length === 0) {
 			return(
@@ -15,7 +19,7 @@ export default class ebayPriceCell extends React.Component {
 						<table className="w-100">
 							<tbody>
 								<tr>
-									<td><a href="{this.props.url}"><img className="logo" src={EbayLogo} alt="Ebay logo" /></a></td>
+									<td className="w-third"><a href="{this.props.url}"><img className="logo" src={EbayLogo} alt="Ebay logo" /></a></td>
 									<td><p>Pricing Unavailable from this seller</p></td>
 								</tr>
 							</tbody>

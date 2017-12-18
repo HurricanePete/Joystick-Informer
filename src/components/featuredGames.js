@@ -40,8 +40,6 @@ export class FeaturedGames extends React.Component{
 		}
 		else {
 			tiles = news.map((tile, index) => <NewsTile key={index} index={index} {...tile} />)
-			console.log(tiles.length)
-
 			return(
 				<section className="featured-games pb5 row">
 					<header className="w-50 tl">
@@ -49,7 +47,7 @@ export class FeaturedGames extends React.Component{
 					</header>
 					<hr/>
 					<div className="carousel-wrapper col-9 center">
-						<Carousel controlWidth={80} firstVisibleIndex={this.state.visibleIndex} itemMargin={10} itemWidth={275} onItemScroll={this.handleScrollToIndex} scrollStepDistance={this.state.scrollStepDistance} >
+						<Carousel controlWidth={20} firstVisibleIndex={this.state.visibleIndex} itemMargin={10} itemWidth={250} onItemScroll={this.handleScrollToIndex} scrollStepDistance={this.state.scrollStepDistance} >
 							{tiles}
 						</Carousel>
 					</div>

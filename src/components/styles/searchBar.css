@@ -1,10 +1,9 @@
 input.search {
 	background-color: white;
 	color: black;
-	width: 33%;
 	min-width: 12rem;
 	height: 50px;
-	padding-left: 1%;
+	padding-left: 1rem;
 	font-size: 18px;
 	border: none;
 	border: 3px solid #023960;
@@ -16,9 +15,10 @@ input.search::placeholder {
 
 button.submit {
 	background-color: #023960;
-	margin-left: 5px;
+	margin-left: 0px;
+	margin-top: 1rem;
+	padding: 0.5rem 3rem;
 	height: 50px;
-	width: 5%;
 	min-width: 4rem;
 	vertical-align: bottom;
 	font-weight: bold;
@@ -37,4 +37,19 @@ form.search-bar {
 	margin: 0 auto;
 	text-align: center;
 	padding: 1%;
+}
+
+div.search-row {
+	margin-top: 2rem;
+}
+
+@media only screen and (min-width: 1000px) {
+	button.submit {
+		margin-top: 0px;
+		margin-left: 5px;
+	}
+
+	div.search-row {
+		margin-top: 0rem;
+	}
 }

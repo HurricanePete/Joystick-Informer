@@ -13,16 +13,18 @@ div.watchlist-tile {
 	border-bottom-right-radius: 0;
 }
 
-button.list-remover {
-	/*vertical-align: text-bottom;
-	display: inline-block;
-	width: 5rem;
-	height: 5rem;
-	background-color: green;
-	color: white;*/
-}
-
 div.warning-box {
 	background-color: #023960;
 	border: 2px solid white;
+}
+
+div.warning-box p {
+	text-align: center;
+	color: white;
+	font-size: 19px;
+}
+
+div.warning-box button {
+	color:  #023960;
+	padding: 0.5rem 3rem;
 }

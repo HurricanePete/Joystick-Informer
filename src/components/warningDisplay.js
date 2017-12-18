@@ -2,9 +2,6 @@ import React from 'react';
 import {connect} from 'react-redux';
 
 export class WarningDisplay extends React.Component {
-	constructor(props) {
-		super(props);
-	}
 
 	confirmWarning(event) {
 		event.preventDefault();
@@ -19,19 +16,18 @@ export class WarningDisplay extends React.Component {
 	}
 
 	render() {
-		const {watchlistWarning} = this.props.watchlistWarning;
 		if(this.props.watchlistWarning.warning) {
 			return(
 				<section className="z-10 center-overlay">
-					<div className="warning-box bg-gray center pa1">
+					<div className="col-8 warning-box bg-gray center pa3 clear-float">
 						<p>Are you sure you want to remove this title from your watchlist?</p>
 						<div className="tc">
-							<button className="bg-light-green green" onClick={e => this.confirmWarning(e)}>Confirm</button>
-							<button className="bg-light-red red" onClick={e => this.cancelWarning(e)}>Cancel</button>
+							<button className="bg-light-green" onClick={e => this.confirmWarning(e)}>Confirm</button>
+							<button className="bg-light-red" onClick={e => this.cancelWarning(e)}>Cancel</button>
 						</div>
 					</div>
 				</section>
-			)
+			);
 		}
 		else {
 			return null
@@ -44,6 +40,6 @@ const mapStateToProps = state => {
 	return {
 		watchlistWarning: state.joystick.watchlistWarning
 	}
-}
+};
 
-export default connect(mapStateToProps)(WarningDisplay)
+export default connect(mapStateToProps)(WarningDisplay);

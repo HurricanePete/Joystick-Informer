@@ -26,14 +26,12 @@ export class GameView extends React.Component {
 
 	componentDidMount() {
 		const id = parseInt(this.props.match.params.id, 10);
-		console.log(id)
 		this.setState({loading: true});
 		return fetch(`${API_BASE_URL}/games/single/${id}`, {
 			method: 'GET'
 		})
 		.then(res => res.json())
 		.then(gameData => {
-			console.log(gameData.platforms[0])
 			this.setState({
 				loading: false,
 				game: gameData.game,
@@ -60,10 +58,18 @@ export class GameView extends React.Component {
 
 	render() {
 		if(this.state.game === null) {
-			return <Loading />
+			return (
+				<main>
+					<Loading />
+				</main>
+			)
 		}
 		if(this.state.loading === true) {
-			return <Loading />
+			return (
+				<main>
+					<Loading />
+				</main>
+			)
 		}
 		const {id, name, rating, summary, cover, first_release_date} = this.state.game;
 		const platforms = this.state.platforms;
@@ -73,7 +79,6 @@ export class GameView extends React.Component {
 				<button className="js-button" index={index} onClick={e => this.setCurrentConsole(e, platform)}>{platform}</button>
 			</li>
 		);
-		console.log(platforms);
 		return (
 			<main>
 				<ReturnButton goBack={() => this.returnButtonPress()}  />

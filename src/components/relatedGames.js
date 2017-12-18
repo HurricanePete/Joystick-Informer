@@ -15,7 +15,11 @@ export class RelatedGames extends React.Component {
 			return null
 		}
 		else if(loading) {
-			return <Loading />
+			return(
+				<section className="relatedGames-wrapper row">
+					<Loading />
+				</section>
+			);
 		}
 		else if(this.props.relatedGames === null || this.props.relatedGames.length === 0) {
 			return(

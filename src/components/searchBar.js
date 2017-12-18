@@ -16,12 +16,12 @@ export class SearchBar extends React.Component {
 
 	render(){
 		return(
-			<div className="row pb4">
+			<div className="search-row row pb4">
 				<header className="tc">
 					<h1>Joystick Informer</h1>
 				</header>
 				<form className="search-bar" onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
-					<Field className="search" name="search" type="search" placeholder="Search for games" component="input" />
+					<Field className="search col-4 clear-float" name="search" type="search" placeholder="Search for games" component="input" />
 					<button className="submit" type="submit">Search</button>
 				</form>
 			</div>

@@ -8,9 +8,6 @@ import './styles/tile.css';
 import demo from './static-photos/demo.png';
 
 export class Tile extends React.Component {
-	constructor(props) {
-		super(props);
-	}
 
 	watchlistAdd(event, gameId) {
 		event.preventDefault();
@@ -36,7 +33,7 @@ export class Tile extends React.Component {
 								<dt className="hidden">Title</dt>
 								<dd>{name}</dd>
 								<dt className="hidden">Rating</dt>
-								<dd>Avg. Rating: <span className="props">{rating === undefined ? 'Unavailable' : parseInt(rating, 10) + ' /100'}</span></dd>
+								<dd>Avg. Rating: <span className="props db">{rating === undefined ? 'Unavailable' : parseInt(rating, 10) + ' /100'}</span></dd>
 							</dl>
 						</div>
 						<i className="fas fa-minus-circle red fa-3x" title="Remove from Watchlist" onClick={e => this.watchlistRemove(e, index)}></i>
@@ -54,7 +51,7 @@ export class Tile extends React.Component {
 								<dt className="hidden">Title</dt>
 								<dd>{name}</dd>
 								<dt className="hidden">Rating</dt>
-								<dd>Avg. Rating: <span className="props">{rating === undefined ? 'Unavailable' : parseInt(rating, 10) + ' /100'}</span></dd>
+								<dd>Avg. Rating: <span className="props db">{rating === undefined ? 'Unavailable' : parseInt(rating, 10) + ' /100'}</span></dd>
 							</dl>
 						</div>
 						<i className="fas fa-plus-circle green fa-3x" title="Add to Watchlist" onClick={e => this.watchlistAdd(e, id)}></i>
@@ -71,7 +68,7 @@ export class Tile extends React.Component {
 							<dt className="hidden">Title</dt>
 							<dd>{name}</dd>
 							<dt className="hidden">Rating</dt>
-							<dd>Avg. Rating: <span className="props">{rating === undefined ? 'Unavailable' : parseInt(rating, 10) + ' /100'}</span></dd>
+							<dd>Avg. Rating: <span className="props db">{rating === undefined ? 'Unavailable' : parseInt(rating, 10) + ' /100'}</span></dd>
 						</dl>
 					</div>
 				</div>

@@ -18,7 +18,6 @@ export default class Pricer extends React.Component {
 	}
 
 	componentDidMount() {
-		console.log('Firing')
 		this.setState({
 			loading: true
 		});
@@ -36,12 +35,10 @@ export default class Pricer extends React.Component {
 		})
 		.then(res => res.json())
 		.then(res => {
-			console.log(res);
 			this.setState({
 				loading: false,
 				price: res
 			});
-			console.log(this.state);
 		})
 		.catch(err => {
 			this.setState({
@@ -70,12 +67,10 @@ export default class Pricer extends React.Component {
 			})
 			.then(res => res.json())
 			.then(res => {
-				console.log(res);
 				this.setState({
 					loading: false,
 					price: res
 				});
-				console.log(this.state);
 			})
 			.catch(err => {
 				this.setState({
@@ -88,13 +83,13 @@ export default class Pricer extends React.Component {
 	render() {
 		if(this.state.price === null) {
 			return(
-			<div className="price-wrapper">
-				<header className="w-50 tl">
-					<h3>Prices</h3>
-				</header>
-				<hr/>
-				<Loading />
-			</div>
+				<div className="price-wrapper">
+					<header className="w-50 tl">
+						<h3>Prices</h3>
+					</header>
+					<hr/>
+					<Loading />
+				</div>
 			);
 		}
 		return(

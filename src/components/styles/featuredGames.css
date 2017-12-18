@@ -5,6 +5,7 @@ div.carousel-wrapper {
 div.react-carousel {	
     height: 350px;
     width: 100%;
+    justify-content: center;
 }
 
 div.react-carousel__navigation-button--previous {
