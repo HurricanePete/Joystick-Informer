@@ -1,10 +1,17 @@
 article.banner {
+	background-color: #023960;
 	margin-top: 46px;
 	border: 2px solid #023960;
-	color: #023960;
+	color: white;
 	line-height: 1.5rem;
 }
 
 div.skip {
 	margin-top: 2rem;
+}
+
+@media only screen and (max-width: 1000px) {
+	article.banner {
+		padding: 2rem 1rem;
+	}
 }

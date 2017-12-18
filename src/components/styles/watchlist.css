@@ -3,22 +3,28 @@ section.watchlist-wrapper {
 	margin: 0 auto;
 }
 
+section.watchlist-wrapper > p {
+	font-size: 18px;
+}
+
 div.watchlist-tile {
 	display: inline-block;
 	border-top-right-radius: 0;
 	border-bottom-right-radius: 0;
 }
 
-button.list-remover {
-	vertical-align: text-bottom;
-	display: inline-block;
-	width: 5rem;
-	height: 5rem;
-	border-radius: 100%;
-	background: lightgreen;
+div.warning-box {
+	background-color: #023960;
+	border: 2px solid white;
 }
 
-/*li.game-row {
-	margin: 0 auto;
-	width: 66.666%;
-}*/
+div.warning-box p {
+	text-align: center;
+	color: white;
+	font-size: 19px;
+}
+
+div.warning-box button {
+	color:  #023960;
+	padding: 0.5rem 3rem;
+}

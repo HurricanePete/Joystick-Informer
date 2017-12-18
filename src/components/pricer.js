@@ -18,7 +18,6 @@ export default class Pricer extends React.Component {
 	}
 
 	componentDidMount() {
-		console.log('Firing')
 		this.setState({
 			loading: true
 		});
@@ -36,12 +35,10 @@ export default class Pricer extends React.Component {
 		})
 		.then(res => res.json())
 		.then(res => {
-			console.log(res);
 			this.setState({
 				loading: false,
 				price: res
 			});
-			console.log(this.state);
 		})
 		.catch(err => {
 			this.setState({
@@ -70,12 +67,10 @@ export default class Pricer extends React.Component {
 			})
 			.then(res => res.json())
 			.then(res => {
-				console.log(res);
 				this.setState({
 					loading: false,
 					price: res
 				});
-				console.log(this.state);
 			})
 			.catch(err => {
 				this.setState({
@@ -86,21 +81,36 @@ export default class Pricer extends React.Component {
 	}
 
 	render() {
-		console.log(this.state)
 		if(this.state.price === null) {
 			return(
-			<div className="price-wrapper">
-				<h3>Prices</h3>
-				<hr/>
-				<Loading />
-			</div>
+				<div className="price-wrapper">
+					<header className="w-50 tl">
+						<h3>Prices</h3>
+					</header>
+					<hr/>
+					<Loading />
+				</div>
 			);
 		}
 		return(
-			<div className="price-wrapper col-12 clear-float">
-				<h3>Prices</h3>
+			<div className="price-wrapper col-12">
+				<header className="w-50 tl">
+					<h3>Prices</h3>
+				</header>
 				<hr/>
-				<ul className="pricer-list col-9 clear-float">
+				<ul className="pricer-list col-4 fr clear-float">
+					<li>
+						<div>
+							<table className="b-border w-two-thirds tl pv3">
+								<thead>
+									<tr>
+										<th className="w-50 tc">Merchant</th>
+										<th className="w-50 tc">Pricing</th>
+									</tr>
+								</thead>
+							</table>
+						</div>
+					</li>
 					<AmazonPriceCell {...this.state.price.amazon} />
 					<EbayPriceCell {...this.state.price.ebay} />	
 				</ul>

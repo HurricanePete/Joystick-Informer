@@ -12,7 +12,7 @@ export class ReturnButton extends React.Component {
 
 	render() {
 		return(
-			<button className="return" onClick={e => this.goBack(e)}>Return</button>
+			<span className="bread-crumbs db b f4" onClick={e => this.goBack(e)}><i className="fas fa-caret-left"></i> <i className="fas fa-caret-left"></i> Return</span>
 		)
 	}
 }

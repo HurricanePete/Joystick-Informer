@@ -1,10 +1,9 @@
 section.gameView-wrapper {
-	margin-top: 46px;
 	padding: 1rem 0 1rem 0;
 }
 
 div.game-view {
-	padding-top: 4rem;
+	padding-top: 1rem;
 	text-align: center;
 }
 
@@ -15,6 +14,19 @@ p.summary {
 
 div.description-wrapper {
 	display: inline-block;
+}
+
+span.bread-crumbs {
+	vertical-align: top;
+	padding: 5px;
+	margin-top: 1rem;
+	margin-left: 1rem;
+	font-size: 20px;
+	font-weight: 600;
+}
+
+span.bread-crumbs:hover {
+	cursor: pointer;
 }
 
 dl.game-details {
@@ -32,7 +44,7 @@ div.photo-wrapper {
 img.game-photo {
 	height: 320px;
 	width: 227px;
-	margin: 2rem;
+	margin-top: 1em;
 }
 
 button.watchlist-add {
@@ -44,4 +56,19 @@ button.watchlist-add {
 ul.platforms {
 	float: none;
 	text-align: center;
+	margin: 0 auto;
+}
+
+
+@media only screen and (min-width: 1000px) {
+	div.game-view {
+		display: flex;
+		align-items: flex-start;
+		justify-content: center;
+	}
+
+	span.bread-crumbs {
+		margin-top: 0rem;
+		margin-left: 0rem;
+	}
 }

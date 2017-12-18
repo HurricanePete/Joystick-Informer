@@ -4,10 +4,12 @@ section.dashboard-wrapper {
 
 button.sign-out {
 	vertical-align: top;
+
 }
 
-img.profile-pic {
-	height: 5rem;
-	width: 7rem;
-	border-radius: 10px;
+div.profile {
+	background-color: #023960;
+	margin: 2rem auto;
+	text-align: center;
+	padding: 2rem;
 }

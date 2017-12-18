@@ -3,10 +3,23 @@
 	font-family: 'Quattrocento Sans', sans-serif;
 }
 
+html {
+	height: 100vh;
+}
+
+body {
+	min-height: 100vh;
+}
+
 main{
-	background: linear-gradient(to top, #023960, white);
+	background-color: white;
 	background-position: bottom;
+	padding: 2rem 0rem;
 	margin-top: 56px;
+}
+
+hr {
+	width: 66.666%;
 }
 
 ul {
@@ -19,7 +32,6 @@ a {
 
 header {
 	margin: 0 auto;
-	padding: 4rem 1rem 1rem 1rem;
 	text-align: center;
 }
 
@@ -51,7 +63,7 @@ div.login-signup {
 	margin: 0 auto;
 }
 
-.js-button {
+button.js-button {
 	padding: .5rem 3rem;
 	background-color: white;
 	border: 3px solid #023960;
@@ -61,9 +73,32 @@ div.login-signup {
 	transition-duration: .5s;
 }
 
-.js-button:hover {
+button.js-button:hover {
 	background-color: #023960;
 	color: white;
+}
+
+article.form-article {
+	margin: 0 auto;
+	background-color: #023960;
+	padding: 2rem 0rem;
+}
+
+article.form-article h2 {
+	font-size: 1.75rem;
+}
+
+div.form-wrapper {
+	background-color:  #023960; 
+	margin: 4rem auto;
+}
+
+div.login-signup {
+	margin: 2rem auto;
+}
+
+div.login-signup a {
+	display: block;
 }
 
 .hidden {
@@ -86,4 +121,10 @@ div.login-signup {
 	right: 10rem;
 	z-index: 10;
 	padding: 6rem 2rem;
+}
+
+@media only screen and (min-width: 1000px) {
+	main {
+		padding: 2rem;
+	}
 }

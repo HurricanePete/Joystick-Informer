@@ -12,11 +12,14 @@ export default class amazonPriceCell extends React.Component {
 			return(
 				<li>
 					<div className="gray">
-						<a href="{this.props.url}"><img src={AmazonLogo} alt="Amazon logo" /></a>
-						<span>--</span>
-						<span>--</span>
-						<span>--</span>
-						<span>--</span>
+						<table className="w-100">
+							<tbody>
+								<tr>
+									<td className="w-third"><a href="{this.props.url}"><img className="amazon-logo logo" src={AmazonLogo} alt="Amazon logo" /></a></td>
+									<td><p>Pricing unavailable from this seller</p></td>
+								</tr>
+							</tbody>
+						</table>
 					</div>
 				</li>
 			);
@@ -25,8 +28,15 @@ export default class amazonPriceCell extends React.Component {
 			return(
 				<li>
 					<div>
-						<a href={this.props.url} target="_blank"><img src={AmazonLogo} alt="Amazon logo" /></a>
-						<span>{this.props.pricing.LowestNewPrice.FormattedPrice}</span>
+						<table className="w-100">
+							<tbody>
+								<tr>
+									<td className="w-third"><a href={this.props.url} target="_blank"><img className="amazon-logo logo" src={AmazonLogo} alt="Amazon logo" /></a></td>
+									<td className="w-third"><p className="pricing">{this.props.pricing.LowestNewPrice.FormattedPrice}</p></td>
+									<td className="w-third"><a href={this.props.url} target="_blank"><button className="show-me">Show me</button></a></td>
+								</tr>
+							</tbody>
+						</table>
 					</div>
 				</li>
 			);
@@ -34,8 +44,15 @@ export default class amazonPriceCell extends React.Component {
 		return(
 			<li>
 				<div>
-					<a href={this.props.url} target="_blank"><img src={AmazonLogo} alt="Amazon logo" /></a>
-					<span>{this.props.pricing.LowestNewPrice.FormattedPrice} - {this.props.pricing.LowestUsedPrice.FormattedPrice}</span>
+					<table className="w-100">
+						<tbody>
+							<tr>
+								<td className="w-third"><a href={this.props.url} target="_blank"><img className="amazon-logo logo" src={AmazonLogo} alt="Amazon logo" /></a></td>
+								<td className="w-third"><p className="pricing">{this.props.pricing.LowestNewPrice.FormattedPrice} - {this.props.pricing.LowestUsedPrice.FormattedPrice}</p></td>
+								<td className="w-third"><a href={this.props.url} target="_blank"><button className="show-me">Show me</button></a></td>
+							</tr>
+						</tbody>
+					</table>
 				</div>
 			</li>
 		);

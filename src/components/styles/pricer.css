@@ -1,28 +1,51 @@
 div.price-wrapper {
-	/*width: 100%;*/
 	margin: 0 auto;
 	text-align: center;
 }
 
 ul.pricer-list {
 	text-align: center;
-}
-
-table {
-	margin: 1rem auto;
-	/*width: 75%;*/
-}
-
-td {
-	padding: 10px;
-}
-
-h3 {
-	/*width: 50%;*/
+	border: 4px solid #023960;
 	margin: 0 auto;
-	text-align: left;
 }
 
-hr {
-	/*width: 50%;*/
+ul.pricer-list td {
+}
+
+img.logo {
+	height: 75px;
+}
+
+img.amazon-logo {
+	margin-bottom: -1rem;
+}
+
+button.show-me {
+	padding: 0.5rem 0.5rem;
+	background-color: white;
+	border: 3px solid #023960;
+	color: #023960;
+	font-weight: 600;
+	transition-property: background-color, color;
+	transition-duration: .5s;
+}
+
+button.show-me:hover {
+	background-color: #023960;
+	color: white;
+}
+
+p.pricing {
+	font-weight: 600;
+	font-size: 16px;
+}
+
+table.b-border {
+	border-bottom: 2px solid #023960;
+}
+
+@media only screen and (min-width: 1000px) {
+	p.pricing {
+		font-size: 18px;
+	}
 }

@@ -1,11 +1,6 @@
 div.tile {
-	/*display: inline-block;*/
-	/*width: 75%;
-	background-color: #ffe6b3;
-	border: 0px solid white;
-	border-radius: 25px;*/
 	text-align: center;
-	padding: 10px;
+	padding: 1.5rem;
 	color: #09359B;
 	border-bottom: 2px solid #09359B;
 	transition-property: color background-color;
@@ -43,6 +38,20 @@ img.cover-photo {
 	display: inline-block;
 	width: 90px;
 	height: 128px;
+}
+
+div.dashboard-list {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+i.fa-minus-circle, i.fa-plus-circle {
+	transition: color 0.5s;
+}
+
+i.fa-minus-circle:hover, i.fa-plus-circle:hover {
+	color: #09359B;
 }
 
 .hidden {
