@@ -1,0 +1,40 @@
+button.watchlist-delete {
+	display: inline-block;
+	background-color: white;
+	padding: 0.69rem;
+	color: red;
+	transition-property: background-color, color, border-color;
+	transition-duration: .5s;
+}
+
+button.watchlist-delete:hover {
+	background-color: red;
+	color: white;
+	background-color: 2px solid red;
+}
+
+button.game-add {
+	background-color: lightgreen;
+	border: 2px solid green;
+	padding: 0.5rem 3rem;
+	font-weight: 600;
+	transition-property: background-color, color, border-color;
+	transition-duration: .5s;
+}
+
+button.game-add:hover {
+	background-color: green;
+	color: white;
+}
+
+p.already {
+	display: inline-block;
+	color: green;
+	border: 2px solid green;
+	padding: 0.5rem 3rem;
+	font-weight: 600;
+}
+
+div.sign-in {
+	font-weight: 600;
+}

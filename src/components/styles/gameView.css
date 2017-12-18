@@ -3,8 +3,8 @@ section.gameView-wrapper {
 }
 
 div.game-view {
-	padding-top: 4rem;
-	width: 75%;
+	padding-top: 1rem;
+	text-align: center;
 }
 
 p.summary {
@@ -12,21 +12,63 @@ p.summary {
 	padding: 0;
 }
 
-dl.game-details {
+div.description-wrapper {
 	display: inline-block;
-	width: 65%;
-	padding: 1%;
+}
+
+span.bread-crumbs {
+	vertical-align: top;
+	padding: 5px;
+	margin-top: 1rem;
+	margin-left: 1rem;
+	font-size: 20px;
+	font-weight: 600;
+}
+
+span.bread-crumbs:hover {
+	cursor: pointer;
+}
+
+dl.game-details {
+	text-align: center;
+	background-color: #ffe6b3;
+	padding: 2rem;
+	line-height: 1.5rem;
+	width: 100%;
+}
+
+div.photo-wrapper {
+	display: inline-block;
 }
 
 img.game-photo {
-	display: inline-block;
 	height: 320px;
 	width: 227px;
-	margin: 2rem;
+	margin-top: 1em;
 }
 
 button.watchlist-add {
 	border-radius: 5px;
 	padding: 5px;
 	font-weight: bold;
+}
+
+ul.platforms {
+	float: none;
+	text-align: center;
+	margin: 0 auto;
+}
+
+
+@media only screen and (min-width: 1000px) {
+	div.game-view {
+		display: flex;
+		align-items: flex-start;
+		justify-content: center;
+	}
+
+	span.bread-crumbs {
+		margin-top: 0rem;
+		margin-left: 0rem;
+	}
 }

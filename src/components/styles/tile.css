@@ -1,19 +1,16 @@
 div.tile {
-	display: inline-block;
-	width: 75%;
-	background-color: white;
-	border: 0px solid white;
-	border-radius: 25px;
-	margin: 15px;
-	padding: 10px;
-	color: black;
-	border: 1px solid white;
+	text-align: center;
+	padding: 1.5rem;
+	color: #09359B;
+	border-bottom: 2px solid #09359B;
 	transition-property: color background-color;
 	transition-duration: .5s;
+	margin: 0 auto;
+	float: none;
 }
 
 div.tile:hover {
-	background-color: slategrey;
+	background-color: #ffe6b3;
 	color: white;
 }
 
@@ -22,7 +19,7 @@ dd {
 }
 
 dd:first-of-type {
-	font-size: 18px;
+	font-size: 22px;
 	font-weight: bold;
 }
 
@@ -33,7 +30,7 @@ dl {
 }
 
 span.props {
-	font-size: 20px;
+	font-size: 22px;
 	vertical-align: top;
 }
 
@@ -41,6 +38,20 @@ img.cover-photo {
 	display: inline-block;
 	width: 90px;
 	height: 128px;
+}
+
+div.dashboard-list {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+i.fa-minus-circle, i.fa-plus-circle {
+	transition: color 0.5s;
+}
+
+i.fa-minus-circle:hover, i.fa-plus-circle:hover {
+	color: #09359B;
 }
 
 .hidden {

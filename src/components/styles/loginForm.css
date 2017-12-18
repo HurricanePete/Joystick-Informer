@@ -1,14 +1,16 @@
 form.login-form {
-	border: 1px solid grey;
-	border-radius: 10px;
+	background-color: white;
+	border: 2px solid #023960;
 	margin: 0 auto;
 	padding: 1rem;
 	text-align: center;
-	width: 50%;
-	max-width: 15rem;
+	line-height: 1.5rem;
+	font-weight: 600;
 }
 
-form.login-form > input {
-	padding: 5px;
-	border-radius: 5px;
+form.login-form input {
+	border: 2px solid #023960; 
+	padding: .5rem 1rem;
+	line-height: 1.5rem;
+	font-size: 18px;
 }

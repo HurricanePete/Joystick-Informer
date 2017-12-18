@@ -1,6 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {Redirect} from 'react-router-dom';
+import Identicon from 'identicon.js';
 
 import Watchlist from './watchlist';
 import RelatedGames from './relatedGames';
@@ -8,10 +9,10 @@ import WarningDisplay from './warningDisplay';
 
 import {setWatchlistWarning, resetWatchlistWarning} from '../actions/joystick';
 import {loadingToggle, removeFromWatchlist, sendUpdatedWatchlist, signOut} from '../actions/auth';
+import {clearAuthToken} from '../local-storage';
 
 import {API_BASE_URL} from '../config';
 
-import avatar from './static-photos/avatar.jpeg';
 import './styles/dashboard.css';
 
 export class Dashboard extends React.Component {
@@ -32,10 +33,7 @@ export class Dashboard extends React.Component {
 			if(this.props.currentWatchlist.gameIds.length === 0) {
 				return;
 			}
-			//const {currentWatchlist} = this.props.currentWatchlist;
-			console.log(this.props.currentWatchlist)
 			const concatIds = this.props.currentWatchlist.gameIds.concat(this.props.currentWatchlist.relatedIds);
-			console.log(concatIds)
 			this.props.dispatch(loadingToggle());
 			return fetch(`${API_BASE_URL}/games/ids/${concatIds}`, {
 				method: 'GET'
@@ -43,9 +41,7 @@ export class Dashboard extends React.Component {
 			.then(res => res.json())
 			.then(res => {
 				const watchlistObject = res.body;
-				console.log(watchlistObject)
 				const relatedArray = watchlistObject.splice((watchlistObject.length-5), 5);
-				console.log(relatedArray);
 				this.setState({
 					watchlistGames: watchlistObject,
 					relatedGames: relatedArray
@@ -63,7 +59,10 @@ export class Dashboard extends React.Component {
 	}
 
 	componentWillReceiveProps(nextProps) {
-		if(nextProps.currentWatchlist !== this.props.currentWatchlist) {
+		if(nextProps.currentWatchlist === null) {
+			return;
+		}
+		else if(nextProps.currentWatchlist !== this.props.currentWatchlist) {
 			if(nextProps.currentWatchlist.gameIds.length === 0) {
 				this.setState({
 					watchlistGames: [],
@@ -73,7 +72,6 @@ export class Dashboard extends React.Component {
 			}
 			const {currentWatchlist} = nextProps;
 			const concatIds = currentWatchlist.gameIds.concat(currentWatchlist.relatedIds);
-			console.log(concatIds)
 			this.props.dispatch(loadingToggle());
 			return fetch(`${API_BASE_URL}/games/ids/${concatIds}`, {
 				method: 'GET'
@@ -81,9 +79,7 @@ export class Dashboard extends React.Component {
 			.then(res => res.json())
 			.then(res => {
 				const watchlistObject = res.body;
-				console.log(watchlistObject)
 				const relatedArray = watchlistObject.splice((watchlistObject.length-5), 5);
-				console.log(relatedArray);
 				this.setState({
 					watchlistGames: watchlistObject,
 					relatedGames: relatedArray
@@ -102,7 +98,7 @@ export class Dashboard extends React.Component {
 
 	signOut(event) {
 		this.props.dispatch(signOut());
-		this.props.history.push("/");
+		clearAuthToken();
 	}
 
 	watchlistWarning(gameId) {
@@ -120,29 +116,40 @@ export class Dashboard extends React.Component {
 	}
 
 	render() {
-		const {auth, loggedIn} = this.props;
+		const {auth, loggedIn, currentUser} = this.props;
 		const {watchlistGames, relatedGames} = this.state;
 		if(!loggedIn) {
 			return <Redirect to="/" />;
 		}
+		const string = currentUser.username;
+		let hex = [];
+		for(let i=0; i<string.length; i++) {
+			let hexy = string[i].charCodeAt(0);
+			hexy = parseInt(hexy, 16);
+			hex.push(hexy);
+		}
+		hex = hex.join("");
+		const data = new Identicon(hex, 100).toString();
 		return(
 			<main>
-				<section className="dashboard-wrapper 0-90">
-					<header className="dashboard-header">
-						<div className="profile">
-							<img className="profile-pic" src={avatar} alt={auth.currentUser.username} />
-							<h2 className="">Hello, {auth.currentUser.username}</h2>
-						</div>
-						<button className="sign-out" onClick={e => this.signOut(e)}>Sign out</button>
-					</header>
+				<header className="dashboard-header row">
+					<div className="profile col-3 clear-float white">
+						<img width={100} height={100} src={`data:image/png;base64, ${data}`} alt={currentUser.username} />
+						<h2 className="">Hello, {auth.currentUser.username}</h2>
+						<button className="sign-out js-button" onClick={e => this.signOut(e)}>Sign out</button>
+					</div>
+				</header>
+				<header className="w-50 tl">
 					<h3>Your Watchlist</h3>
-					<hr/>
-					<WarningDisplay confirm={() => this.confirmWatchlistRemove()} cancel={() => this.cancelWatchlistWarning()} />
-					<Watchlist watchlistGames={watchlistGames} watchlistWarning={(gameId) => this.watchlistWarning(gameId)} />
+				</header>
+				<hr />
+				<WarningDisplay confirm={() => this.confirmWatchlistRemove()} cancel={() => this.cancelWatchlistWarning()} />
+				<Watchlist watchlistGames={watchlistGames} watchlistWarning={(gameId) => this.watchlistWarning(gameId)} />
+				<header className="w-50 tl">
 					<h3>Recommended for You</h3>
-					<hr/>
-					<RelatedGames relatedGames={relatedGames} />
-				</section>
+				</header>
+				<hr/>
+				<RelatedGames relatedGames={relatedGames} />
 			</main>
 		)
 	}
@@ -152,6 +159,7 @@ const mapStateToProps = state => {
 	return{
 		auth: state.auth,
 		loggedIn: state.auth.currentUser !== null,
+		currentUser: state.auth.currentUser,
 		warning: state.joystick.watchlistWarning,
 		currentWatchlist: state.auth.currentWatchlist
 	}

@@ -2,16 +2,16 @@ import React from 'react';
 import {connect} from 'react-redux';
 
 import Tile from './tile';
+import Loading from './loading';
 
 import './styles/watchlist.css';
 
 export class Watchlist extends React.Component {
-	watchlistRemove(event, index) {
-		event.preventDefault();
-		const listGameId = this.props.currentWatchlist.gameIds[index.index];
-		console.log(listGameId);
-		this.props.watchlistWarning(listGameId);
+
+	watchlistWarning(gameId) {
+		this.props.watchlistWarning(gameId);
 	}
+
 
 	render() {
 		const {loggedIn, loading} = this.props;
@@ -19,28 +19,29 @@ export class Watchlist extends React.Component {
 			return null
 		}
 		else if(loading) {
-			return <h2>Loading...</h2>
+			return(
+				<section className="watchlist-wrapper row">
+					<Loading />
+				</section>
+			);
 		}
 		else if(this.props.watchlistGames === null || this.props.watchlistGames.length === 0) {
 			return(
-				<section className="watchlist-wrapper">
-					<p>Your watchlist is empty. Start adding games to view them here.</p>
+				<section className="watchlist-wrapper row">
+					<p className="tc b">Your watchlist is empty. Start adding games to view them here.</p>
 				</section>
-			)
+			);
 		}
 		const tiles = this.props.watchlistGames.map((tile, index) => 
-			<li className="game-row" key={index}>
-				<Tile index={index} {...tile} />
-				<button className="list-remover" title="Remove from Watchlist" onClick={e => this.watchlistRemove(e, {index})}> - </button>
-			</li>
+			<div key={index}>
+				<Tile index={index} location={"watchlist"} watchlistWarning={(gameId) => this.watchlistWarning(gameId)} {...tile} />
+			</div>
 		);
 		return(
-			<section className="watchlist-wrapper">
-				<ul>
+			<section className="watchlist-wrapper row">
 					{tiles}
-				</ul>
 			</section>
-		)
+		);
 	}
 }
 

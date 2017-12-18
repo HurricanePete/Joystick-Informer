@@ -5,6 +5,7 @@ import {searchNews} from '../actions/joystick';
 
 import Carousel from 'react-carousel';
 import NewsTile from './newsTile';
+import Loading from './loading';
 
 import './styles/featuredGames.css';
 
@@ -32,30 +33,24 @@ export class FeaturedGames extends React.Component{
 		let tiles;
 		if(!news) {
 			return(
-				<section className="bg-light-gray">
-					<header>
-						<h3>Recent News</h3>
-					</header>
-					<hr/>
-					<div>
-						<h2>Loading...</h2>
-					</div>
+				<section className="featured-games pb5 row">
+					<Loading />
 				</section>
 			)
 		}
 		else {
 			tiles = news.map((tile, index) => <NewsTile key={index} index={index} {...tile} />)
-			console.log(tiles.length)
-
 			return(
-				<section className="featured-games">
-					<header>
+				<section className="featured-games pb5 row">
+					<header className="w-50 tl">
 						<h3>Recent News</h3>
 					</header>
 					<hr/>
-					<Carousel controlWidth={80} firstVisibleIndex={this.state.visibleIndex} itemMargin={5} itemWidth={300} onItemScroll={this.handleScrollToIndex} scrollStepDistance={this.state.scrollStepDistance} >
-						{tiles}
-					</Carousel>
+					<div className="carousel-wrapper col-9 center">
+						<Carousel controlWidth={20} firstVisibleIndex={this.state.visibleIndex} itemMargin={10} itemWidth={250} onItemScroll={this.handleScrollToIndex} scrollStepDistance={this.state.scrollStepDistance} >
+							{tiles}
+						</Carousel>
+					</div>
 				</section>
 			)
 		}	

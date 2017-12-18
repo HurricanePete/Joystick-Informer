@@ -6,17 +6,24 @@ export default class ebayPriceCell extends React.Component {
 	render() {
 		console.log(this.props)
 		if(!this.props) {
-			return <h2>Loading...</h2>
+			return(
+				<main> 
+					<h2>Loading...</h2>
+				</main>
+			)
 		}
 		else if(Object.keys(this.props).length === 0) {
 			return(
 				<li>
 					<div className="gray">
-						<a href="{this.props.url}"><img src={EbayLogo} alt="Ebay logo" /></a>
-						<span>--</span>
-						<span>--</span>
-						<span>--</span>
-						<span>--</span>
+						<table className="w-100">
+							<tbody>
+								<tr>
+									<td className="w-third"><a href="{this.props.url}"><img className="logo" src={EbayLogo} alt="Ebay logo" /></a></td>
+									<td><p>Pricing Unavailable from this seller</p></td>
+								</tr>
+							</tbody>
+						</table>
 					</div>
 				</li>
 			);
@@ -24,11 +31,15 @@ export default class ebayPriceCell extends React.Component {
 		return(
 			<li>
 				<div>
-					<a href={this.props.url} target="_blank"><img src={EbayLogo} alt="Ebay logo" /></a>
-					<span>${this.props.pricing.currentPrice[0].__value__}</span>
-					<span>{this.props.condition}</span>
-					<span>{this.props.pricing.timeLeft[0]}</span>
-					<span className={this.props.buyItNow === true ? "green ba b--washed-green" : "gray ba b--light-gray"}>Buy It Now</span>
+					<table className="w-100">
+						<tbody>
+							<tr>
+								<td className="w-third"><a href={this.props.url} target="_blank"><img className="logo" src={EbayLogo} alt="Ebay logo" /></a></td>
+								<td className="w-third"><p className="pricing">${this.props.pricing.currentPrice[0].__value__}</p></td>
+								<td className="w-third"><a href={this.props.url} target="_blank"><button className="show-me">Show me</button></a></td>
+							</tr>
+						</tbody>	
+					</table>
 				</div>
 			</li>
 		);

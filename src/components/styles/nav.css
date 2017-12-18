@@ -1,7 +1,7 @@
 nav {
 	font-weight: 600;
 	padding: 1rem;
-	background-color: grey;
+	background-color: #023960;
 	position: fixed;
 	top: 0;
 	left: 0;
@@ -9,15 +9,13 @@ nav {
 	z-index: 10;
 }
 
-img.avatar {
-	height: 1.5rem;
-	width: 1.5rem;
-	display: inline-block;
-	margin-right: 1rem;
-	border-radius: 5px;
+div.avatar {
+	background-color: white;
 }
 
 div.link > a {
+	display: block;
+	font-size: 24px;
 	text-decoration: none;
 	color: white;
 	transition-property: color; 
@@ -26,8 +24,7 @@ div.link > a {
 
 div.home, div.login, div.avatar {
 	display: inline-block;
-	height: 1.5rem;
-	width: 20%;
+	height: 2rem;
 	margin: 0 2rem;
 }
 
@@ -35,18 +32,12 @@ div.avatar {
 	vertical-align: text-top;
 }
 
-div.home {
-	position: relative;
-	right: 25%;
-}
-
 div.login, div.avatar {
-	position: relative;
-	left: 25%;
+	float: right;
 }
 
 div.link > a:hover {
-	color: blue;
+	color: lightgrey;
 }
 
 div.avatar > h3 {

@@ -1,6 +1,7 @@
 import React from 'react';
 import AmazonPriceCell from './amazonPriceCell';
 import EbayPriceCell from './ebayPriceCell';
+import Loading from './loading';
 
 import {API_BASE_URL} from '../config';
 
@@ -17,7 +18,6 @@ export default class Pricer extends React.Component {
 	}
 
 	componentDidMount() {
-		console.log('Firing')
 		this.setState({
 			loading: true
 		});
@@ -29,18 +29,16 @@ export default class Pricer extends React.Component {
 			method: 'POST',
 			body: JSON.stringify({
 				search: this.props.name,
-				console: this.props.platforms[0],
+				console: this.props.platforms,
 				releaseDate: this.props.releaseDate
 			})
 		})
 		.then(res => res.json())
 		.then(res => {
-			console.log(res);
 			this.setState({
 				loading: false,
 				price: res
 			});
-			console.log(this.state);
 		})
 		.catch(err => {
 			this.setState({
@@ -51,7 +49,7 @@ export default class Pricer extends React.Component {
 
 	componentWillReceiveProps(nextProps) {
 		if(nextProps.platforms !== this.props.platforms) {
-			const platform = nextProps;
+			const platform = nextProps.platforms;
 			this.setState({
 				loading: true
 			});
@@ -69,12 +67,10 @@ export default class Pricer extends React.Component {
 			})
 			.then(res => res.json())
 			.then(res => {
-				console.log(res);
 				this.setState({
 					loading: false,
 					price: res
 				});
-				console.log(this.state);
 			})
 			.catch(err => {
 				this.setState({
@@ -85,21 +81,36 @@ export default class Pricer extends React.Component {
 	}
 
 	render() {
-		console.log(this.state)
 		if(this.state.price === null) {
 			return(
-			<div className="price-wrapper">
-				<h3>Prices</h3>
-				<hr/>
-				<h2>Loading...</h2>
-			</div>
+				<div className="price-wrapper">
+					<header className="w-50 tl">
+						<h3>Prices</h3>
+					</header>
+					<hr/>
+					<Loading />
+				</div>
 			);
 		}
 		return(
-			<div className="price-wrapper">
-				<h3>Prices</h3>
+			<div className="price-wrapper col-12">
+				<header className="w-50 tl">
+					<h3>Prices</h3>
+				</header>
 				<hr/>
-				<ul className="">
+				<ul className="pricer-list col-4 fr clear-float">
+					<li>
+						<div>
+							<table className="b-border w-two-thirds tl pv3">
+								<thead>
+									<tr>
+										<th className="w-50 tc">Merchant</th>
+										<th className="w-50 tc">Pricing</th>
+									</tr>
+								</thead>
+							</table>
+						</div>
+					</li>
 					<AmazonPriceCell {...this.state.price.amazon} />
 					<EbayPriceCell {...this.state.price.ebay} />	
 				</ul>

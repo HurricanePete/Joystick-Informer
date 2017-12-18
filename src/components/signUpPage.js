@@ -11,15 +11,19 @@ export class SignUpPage extends React.Component {
 			return <Redirect to="/dashboard" />
 		}
 		return(
-			<section className="login-wrapper">
-				<header>
-					<h2>Create a Joystick Informer account</h2>
-				</header>
-				<SignUpForm />
-				<div>
-					<p>Already have an account? <Link to="/login">Log in here.</Link></p>
-				</div>
-			</section>
+			<main>
+				<section className="login-wrapper">
+						<article className="form-article col-6 clear-float">
+							<header>
+								<h2 className="white">Create a Joystick Informer account</h2>
+							</header>
+							<SignUpForm banner={false} />
+							<div className="login-signup col-6 clear-float">
+								<p className="f4 bg-white">Already have an account? <Link to="/login">Log in here.</Link></p>
+							</div>
+						</article>
+				</section>
+			</main>
 		)
 	}
 }
@@ -28,6 +32,6 @@ const mapStateToProps = state => {
 	return {
 		loggedIn: state.auth.currentUser !== null
 	}
-}
+};
 
-export default connect(mapStateToProps)(SignUpPage)
+export default connect(mapStateToProps)(SignUpPage);

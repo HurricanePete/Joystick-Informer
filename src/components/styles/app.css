@@ -1,12 +1,25 @@
 * {
 	box-sizing: border-box;
+	font-family: 'Quattrocento Sans', sans-serif;
 }
 
-main {
-	background-image: url("../static-photos/background-edit.jpg");
-	background-size: cover;
-	background-repeat: no-repeat;
-	opacity: 0.9;
+html {
+	height: 100vh;
+}
+
+body {
+	min-height: 100vh;
+}
+
+main{
+	background-color: white;
+	background-position: bottom;
+	padding: 2rem 0rem;
+	margin-top: 56px;
+}
+
+hr {
+	width: 66.666%;
 }
 
 ul {
@@ -19,12 +32,16 @@ a {
 
 header {
 	margin: 0 auto;
-	padding: 4rem 1rem 1rem 1rem;
+	text-align: center;
 }
 
 label {
 	display: block;
 	margin: 6px;
+}
+
+h1 {
+	font-family: 'Merriweather Sans', sans-serif;
 }
 
 button:hover {
@@ -33,6 +50,54 @@ button:hover {
 
 label > input {
 	margin: 6px;
+	display: block;
+}
+
+div.form-wrapper {
+	text-align: center;
+	margin: 0 auto;
+}
+
+div.login-signup {
+	text-align: center;
+	margin: 0 auto;
+}
+
+button.js-button {
+	padding: .5rem 3rem;
+	background-color: white;
+	border: 3px solid #023960;
+	color: #023960;
+	font-weight: 600;
+	transition-property: background-color, color;
+	transition-duration: .5s;
+}
+
+button.js-button:hover {
+	background-color: #023960;
+	color: white;
+}
+
+article.form-article {
+	margin: 0 auto;
+	background-color: #023960;
+	padding: 2rem 0rem;
+}
+
+article.form-article h2 {
+	font-size: 1.75rem;
+}
+
+div.form-wrapper {
+	background-color:  #023960; 
+	margin: 4rem auto;
+}
+
+div.login-signup {
+	margin: 2rem auto;
+}
+
+div.login-signup a {
 	display: block;
 }
 
@@ -56,4 +121,10 @@ label > input {
 	right: 10rem;
 	z-index: 10;
 	padding: 6rem 2rem;
+}
+
+@media only screen and (min-width: 1000px) {
+	main {
+		padding: 2rem;
+	}
 }
