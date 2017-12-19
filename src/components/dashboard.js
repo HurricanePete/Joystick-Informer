@@ -135,7 +135,7 @@ export class Dashboard extends React.Component {
 				<header className="dashboard-header row">
 					<div className="profile col-3 clear-float white">
 						<img width={100} height={100} src={`data:image/png;base64, ${data}`} alt={currentUser.username} />
-						<h2 className="">Hello, {auth.currentUser.username}</h2>
+						<h2 className="">Hello, {currentUser.username}</h2>
 						<button className="sign-out js-button" onClick={e => this.signOut(e)}>Sign out</button>
 					</div>
 				</header>

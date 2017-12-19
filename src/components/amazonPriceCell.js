@@ -4,11 +4,7 @@ import AmazonLogo from './static-photos/amazon-logo-icon.png';
 
 export default class amazonPriceCell extends React.Component {
 	render() {
-		console.log(this.props)
-		if(!this.props) {
-			return <h2>Loading...</h2>
-		}
-		else if(Object.keys(this.props).length === 0) {
+		if(Object.keys(this.props).length === 0) {
 			return(
 				<li>
 					<div className="gray">

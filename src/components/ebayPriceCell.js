@@ -4,15 +4,7 @@ import EbayLogo from './static-photos/ebay-icon.png';
 
 export default class ebayPriceCell extends React.Component {
 	render() {
-		console.log(this.props)
-		if(!this.props) {
-			return(
-				<main> 
-					<h2>Loading...</h2>
-				</main>
-			)
-		}
-		else if(Object.keys(this.props).length === 0) {
+		if(Object.keys(this.props).length === 0) {
 			return(
 				<li>
 					<div className="gray">
@@ -20,7 +12,7 @@ export default class ebayPriceCell extends React.Component {
 							<tbody>
 								<tr>
 									<td className="w-third"><a href="{this.props.url}"><img className="logo" src={EbayLogo} alt="Ebay logo" /></a></td>
-									<td><p>Pricing Unavailable from this seller</p></td>
+									<td><p>Pricing unavailable from this seller</p></td>
 								</tr>
 							</tbody>
 						</table>

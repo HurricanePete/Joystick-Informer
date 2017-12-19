@@ -9,8 +9,8 @@ import './styles/addWatchlistButton.css';
 export class AddWatchlistButton extends React.Component {
 	watchlistAdd(event) {
 		event.preventDefault();
-			this.props.dispatch(addToWatchlist(this.props.item));
-			this.props.dispatch(sendUpdatedWatchlist());	
+		this.props.dispatch(addToWatchlist(this.props.item));
+		this.props.dispatch(sendUpdatedWatchlist());	
 	}
 	watchlistRemove(event) {
 		event.preventDefault();
