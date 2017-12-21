@@ -1,5 +1,6 @@
 import React from 'react';
-import {Field, reduxForm} from 'redux-form';
+import {connect} from 'react-redux';
+import {Field, reduxForm, focus} from 'redux-form';
 
 import formInput from './formInput';
 
@@ -22,21 +23,9 @@ export class LoginForm extends React.Component {
 
 	render() {
 		const {error} = this.state;
-		if(error) {
-			return(
-				<div className="form-wrapper col-6 mw7 ph3 ph5-ns tc pv4 clear-float">
-					<div className="bg-washed-red ma2"><p className="dark-red">{error}</p></div>
-					<form className="login-form" onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
-						<Field name="username" label="Username" id="username" type="text" component={formInput} />
-						<Field name="password" label="Password" id="password" type="password" component={formInput} />
-						<button className="submit-button js-button" type="submit" disabled={this.props.submitting}>Log in</button>
-					</form>
-				</div>
-			)
-		}
-
 		return(
 			<div className="form-wrapper col-6 ph3 ph5-ns tc pv4 clear-float">
+				{error !== null ? <div className="bg-washed-red ma2"><p className="dark-red">{error}</p></div> : null}
 				<form className="login-form" onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
 					<Field name="username" label="Username" id="username" type="text" component={formInput} />
 					<Field name="password" label="Password" id="password" type="password" component={formInput} />
@@ -48,7 +37,9 @@ export class LoginForm extends React.Component {
 }
 
 LoginForm = reduxForm({
-	form: 'login'
+	form: 'login',
+	onSubmitFail: (errors, dispatch) =>
+		dispatch(focus('login', Object.keys(errors)[0]))
 })(LoginForm)
 
 export default LoginForm

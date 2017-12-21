@@ -42,6 +42,7 @@ export class Dashboard extends React.Component {
 			.then(res => {
 				const watchlistObject = res.body;
 				const relatedArray = watchlistObject.splice((watchlistObject.length-5), 5);
+				console.log('line 45')
 				this.setState({
 					watchlistGames: watchlistObject,
 					relatedGames: relatedArray
@@ -64,6 +65,7 @@ export class Dashboard extends React.Component {
 		}
 		else if(nextProps.currentWatchlist !== this.props.currentWatchlist) {
 			if(nextProps.currentWatchlist.gameIds.length === 0) {
+				console.log('line 67')
 				this.setState({
 					watchlistGames: [],
 					relatedGames: []
@@ -80,6 +82,7 @@ export class Dashboard extends React.Component {
 			.then(res => {
 				const watchlistObject = res.body;
 				const relatedArray = watchlistObject.splice((watchlistObject.length-5), 5);
+				console.log('lin3 84')
 				this.setState({
 					watchlistGames: watchlistObject,
 					relatedGames: relatedArray

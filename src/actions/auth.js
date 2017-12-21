@@ -48,7 +48,7 @@ export const removeFromWatchlist = (gameId) => ({
 
 // Stores the auth token in state and localStorage, and decodes and stores
 // the user data stored in the token
-const storeAuthInfo = (authToken, dispatch) => {
+export const storeAuthInfo = (authToken, dispatch) => {
 	const decodedToken = jwtDecode(authToken);
 	dispatch(setAuthToken(authToken));
 	dispatch(setCurrentUser(decodedToken.user));
@@ -65,31 +65,29 @@ const storeAuthInfo = (authToken, dispatch) => {
 }
 
 export const login = (username, password) => dispatch => {
-	return (
-		fetch(`${API_BASE_URL}/auth/login`, {
-			method: 'POST',
-			headers: {
-				'Content-Type': 'application/json'
-			},
-			body: JSON.stringify({
-				username,
-				password
-			})
+	return fetch(`${API_BASE_URL}/auth/login`, {
+		method: 'POST',
+		headers: {
+			'Content-Type': 'application/json'
+		},
+		body: JSON.stringify({
+			username,
+			password
 		})
-			.then(res => normalizeResponseErrors(res))
-			.then(res => res.json())
-			.then(({authToken}) => storeAuthInfo(authToken, dispatch))
-			.catch(err => {
-				const {code} = err;
-				if(code === 401) {
-					return Promise.reject(
-						new SubmissionError({
-							_error: 'Incorrect username or password'
-						})
-					);
-				}
-			})
-	);
+	})
+		.then(res => normalizeResponseErrors(res))
+		.then(res => res.json())
+		.then(({authToken}) => storeAuthInfo(authToken, dispatch))
+		.catch(err => {
+			const {code} = err;
+			if(code === 401) {
+				return Promise.reject(
+					new SubmissionError({
+						_error: 'Incorrect username or password'
+					})
+				);
+			}
+		})
 };
 
 export const sendUpdatedWatchlist = () => (dispatch, getState) => {
@@ -108,7 +106,6 @@ export const sendUpdatedWatchlist = () => (dispatch, getState) => {
 		.then(res => normalizeResponseErrors(res))
 		.then(res => res.json())
 		.then(res => {
-			console.log(res)
 			dispatch(setCurrentWatchlist(res))
 		})
 		.catch(err => console.log(err))

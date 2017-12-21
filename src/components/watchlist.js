@@ -12,7 +12,6 @@ export class Watchlist extends React.Component {
 		this.props.watchlistWarning(gameId);
 	}
 
-
 	render() {
 		const {loggedIn, loading} = this.props;
 		if(!loggedIn) {

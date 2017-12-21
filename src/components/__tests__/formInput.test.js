@@ -19,5 +19,9 @@ describe('<FormInput />', () => {
 	}
 	it('Renders without crashing', () => {
 		shallow(<FormInput {...props} />);
-	})
+	});
+	it('Renders the formInput component correctly', () => {
+		const wrapper = shallow(<FormInput {...props} />);
+		expect(wrapper).toBeDefined();
+	});
 })

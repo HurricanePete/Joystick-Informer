@@ -3,6 +3,8 @@ import {shallow, mount} from 'enzyme';
 
 import {AddWatchlistButton} from '../addWatchlistButton';
 
+import {addToWatchlist, removeFromWatchlist, sendUpdatedWatchlist} from '../../actions/auth';
+
 describe('<AddWatchlistButton />', () => {
 	it('Renders without crashing', () => {
 		shallow(<AddWatchlistButton item={4} />);
@@ -25,17 +27,30 @@ describe('<AddWatchlistButton />', () => {
 		const button = wrapper.find('p');
 		expect(button.text()).toEqual('Already in watchlist');
 	})
-	//it('Should update the currentWatchlist and send for updates', () => {
-	// 	const props = {
-	// 		loggedIn: true,
-	// 		currentWatchlist: {
-	// 			gameIds: [3,4]
-	// 		}
-	// 	}; 
-	// 	const dispatch = jest.fn();
-	// 	const index = 45;
-	// 	const wrapper = mount(<AddWatchlistButton item={index} dispatch={dispatch} {...props} />);
-	// 	wrapper.find('button.game-add').simulate('click', {target: this});
-	// 	expect(dispatch).toHaveBeenCalledWith(addToWatchlist(index));
-	// })
+	it('Should update the currentWatchlist and send for updates on add', () => {
+		const props = {
+			loggedIn: true,
+			currentWatchlist: {
+				gameIds: [3,4]
+			}
+		}; 
+		const dispatch = jest.fn();
+		const index = 45;
+		const wrapper = shallow(<AddWatchlistButton item={index} dispatch={dispatch} {...props} />);
+		wrapper.find('button.game-add').simulate('click', {preventDefault: () => {}});
+		expect(dispatch.mock.calls.length).toEqual(2);
+	});
+	it('Should update the currentWatchlist and send for updates on remove', () => {
+		const props = {
+			loggedIn: true,
+			currentWatchlist: {
+				gameIds: [3,4]
+			}
+		}; 
+		const dispatch = jest.fn();
+		const index = 4;
+		const wrapper = shallow(<AddWatchlistButton item={index} dispatch={dispatch} {...props} />);
+		wrapper.find('button.watchlist-delete').simulate('click', {preventDefault: () => {}});
+		expect(dispatch.mock.calls.length).toEqual(2);
+	})
 })

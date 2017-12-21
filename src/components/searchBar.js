@@ -1,4 +1,5 @@
 import React from 'react';
+import {connect} from 'react-redux';
 import {Field, reduxForm} from 'redux-form';
 
 import './styles/searchBar.css';
@@ -33,4 +34,4 @@ SearchBar = reduxForm({
 	form: 'search'
 })(SearchBar)
 
-export default SearchBar
+export default connect()(SearchBar);

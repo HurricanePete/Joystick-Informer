@@ -57,14 +57,7 @@ export class GameView extends React.Component {
 	}
 
 	render() {
-		if(this.state.game === null) {
-			return (
-				<main>
-					<Loading />
-				</main>
-			)
-		}
-		if(this.state.loading === true) {
+		if(this.state.loading === true || this.state.game === null) {
 			return (
 				<main>
 					<Loading />
