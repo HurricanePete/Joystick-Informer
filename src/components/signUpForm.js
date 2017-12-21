@@ -41,10 +41,10 @@ export class SignupForm extends React.Component {
 	}
 }
 
-SignupForm = reduxForm({
+const SignupFormConnected = reduxForm({
 	form: 'signup',
 	onSubmitFail: (errors, dispatch) => 
 		dispatch(focus('signup', Object.keys(errors)[0]))
 })(SignupForm)
 
-export default SignupForm
+export default SignupFormConnected

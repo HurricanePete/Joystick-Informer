@@ -1,20 +1,26 @@
 import React from 'react';
 import {shallow, mount} from 'enzyme';
-import configureMockStore from 'redux-mock-store';
-import {Provider} from 'react-redux';
-import thunk from 'redux-thunk';
-import {Field, reduxForm} from 'redux-form';
 
 import SignupFormConnected, {SignupForm} from '../signUpForm';
 
-import {registerUser} from '../../actions/users';
-
-const mockStore = configureMockStore();
-
-const store = mockStore();
-
 describe('<SignupForm />', () => {
+
+	const handleSubmit = jest.fn();
+
 	it('Renders without crashing', () => {
-		shallow(<SignupForm />);
+		shallow(<SignupForm handleSubmit={handleSubmit} />);
+	});
+	it('Should not render an error initially', () => {
+		// const handleSubmit = jest.fn();
+		const wrapper = shallow(<SignupForm handleSubmit={handleSubmit} />);
+		const errorWrap = wrapper.find('p');
+		expect(errorWrap.length).toEqual(0);
+	});
+	it('Should render an error message correctly', () => {
+		// const handleSubmit = jest.fn();
+		const wrapper = shallow(<SignupForm handleSubmit={handleSubmit} />);
+		wrapper.setState({error: 'mymessage'});
+		const errorWrap = wrapper.find('p');
+		expect(errorWrap.length).toEqual(1);
 	});
 })
