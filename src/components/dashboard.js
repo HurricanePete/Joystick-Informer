@@ -119,7 +119,7 @@ export class Dashboard extends React.Component {
 	}
 
 	render() {
-		const {auth, loggedIn, currentUser} = this.props;
+		const {loggedIn, currentUser} = this.props;
 		const {watchlistGames, relatedGames} = this.state;
 		if(!loggedIn) {
 			return <Redirect to="/" />;

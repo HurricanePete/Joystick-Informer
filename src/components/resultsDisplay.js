@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 import {connect} from 'react-redux';
 
 import Tile from './tile';
@@ -36,4 +36,4 @@ export class ResultsDisplay extends React.Component {
 	}
 }
 
-export default connect()(ResultsDisplay);
+export default (ResultsDisplay);
