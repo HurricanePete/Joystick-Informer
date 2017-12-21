@@ -1,12 +1,10 @@
 import React from 'react';
-import {connect} from 'react-redux';
 
 import Tile from './tile';
 
 import './styles/resultsDisplay.css';
 
-export class ResultsDisplay extends React.Component {
-
+export default class ResultsDisplay extends React.Component {
 	render() {
 		if(!this.props.displayValues) {
 			return null
@@ -34,6 +32,4 @@ export class ResultsDisplay extends React.Component {
 			);
 		}
 	}
-}
-
-export default (ResultsDisplay);
+};

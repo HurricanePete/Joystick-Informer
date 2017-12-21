@@ -2,7 +2,7 @@ import React from 'react';
 import {Field, reduxForm, focus} from 'redux-form';
 
 import formInput from './formInput';
-import {required, nonEmpty, email, noSpaces} from '../validators';
+import {required, nonEmpty, email, noSpaces, lengthy} from '../validators';
 
 import {registerUser} from '../actions/users';
 import {login} from '../actions/auth';
@@ -32,8 +32,8 @@ export class SignupForm extends React.Component {
 				{error !== null ? <div className="error-wrapper bg-washed-red ma2"><p className="dark-red">{error}</p></div> : null}
 				<form className="signup-form" onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
 					<Field name="email" label="Email" type="email" placeholder="you@example.com" component={formInput} validate={[required, nonEmpty, email]}/>
-					<Field name="username" label="Username" type="text" placeholder="Pick a username" component={formInput} validate={[required, nonEmpty, noSpaces]} />
-					<Field name="password" label="Password" type="password" placeholder="Create a password" component={formInput} validate={[required, nonEmpty]} />
+					<Field name="username" label="Username" type="text" placeholder="Pick a username" component={formInput} validate={[required, nonEmpty, noSpaces, lengthy({max: 72})]} />
+					<Field name="password" label="Password" type="password" placeholder="Create a password" component={formInput} validate={[required, nonEmpty, lengthy({min: 6}), lengthy({max: 72})]} />
 					<button className="submit-button js-button" type="submit" disabled={this.props.pristine || this.props.submitting}>Sign Up</button>
 				</form>
 			</div>

@@ -3,7 +3,7 @@ import {shallow, mount} from 'enzyme';
 
 import {Provider} from 'react-redux';
 
-import {ResultsDisplay} from '../resultsDisplay';
+import ResultsDisplay from '../resultsDisplay';
 import {Tile} from '../tile';
 
 describe('<ResultsDisplay />', () => {
