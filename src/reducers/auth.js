@@ -37,7 +37,6 @@ export const authReducer = (state=initialState, action) => {
 		})
 	}
 	else if(action.type === actions.ADD_TO_WATCHLIST) {
-		console.log(action.gameId);
 		return Object.assign({}, state, {
 			currentWatchlist: {...state.currentWatchlist,
 				gameIds: [...state.currentWatchlist.gameIds, action.gameId]

@@ -5,7 +5,7 @@ import Tile from './tile';
 
 import './styles/resultsDisplay.css';
 
-class ResultsDisplay extends Component {
+export class ResultsDisplay extends React.Component {
 
 	render() {
 		if(!this.props.displayValues) {
@@ -23,21 +23,11 @@ class ResultsDisplay extends Component {
 				</section>
 			);
 		}
-		else if(resultCount === 1) {
-			return(
-				<section className="results-wrapper">
-					<div className="results-display row pb5">
-						<h4 className="tl pl6">Only {resultCount} result found</h4>
-						{tiles}
-					</div>
-				</section>
-			);
-		}
 		else {
 			return(
 				<section className="results-wrapper">
 					<div className="results-display row pb5">
-						<h4 className="tl pl6">{resultCount} results found</h4>
+						<h4 className="tl pl6">{resultCount === 1 ? `Only ${resultCount} result found` : `${resultCount} results found`}</h4>
 						{tiles}
 					</div>
 				</section>
