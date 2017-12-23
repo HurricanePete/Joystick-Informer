@@ -22,7 +22,8 @@ export class Tile extends React.Component {
 	}
 
 	render() {
-		const {id, name, rating, cover, index, location} = this.props;
+		const {id, name, first_release_date, rating, cover, index, location} = this.props;
+		const release = new Date(first_release_date);
 		if(location === "watchlist") {
 			return (
 				<Link to={`/gameview/${id}`}>
@@ -68,7 +69,7 @@ export class Tile extends React.Component {
 							<dt className="hidden">Title</dt>
 							<dd>{name}</dd>
 							<dt className="hidden">Rating</dt>
-							<dd>Avg. Rating: <span className="props db">{rating === undefined ? 'Unavailable' : parseInt(rating, 10) + ' /100'}</span></dd>
+							<dd>Released: <span className="props db">{first_release_date === undefined ? 'Unavailable' : release.getFullYear()}</span></dd>
 						</dl>
 					</div>
 				</div>

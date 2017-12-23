@@ -9,10 +9,10 @@ describe('<AmazonPriceCell />', () => {
 			url: 'www.testing.com',
 			pricing: {
 				LowestNewPrice: {
-					FormattedPrice: '15000.00'
+					FormattedPrice: '15000.00',
 				},
 				LowestUsedPrice : {
-					FormattedPrice: '$14.00'
+					FormattedPrice: '$14.00',
 				}
 			}
 		}
@@ -24,12 +24,12 @@ describe('<AmazonPriceCell />', () => {
 		const paragraph = wrapper.find('p');
 		expect(paragraph.text()).toEqual('Pricing unavailable from this seller');
 	});
-	it('Should render the LowestNewPrice when no LowestUsedPrice is undefined', () => {
+	it('Should render the LowestNewPrice when no LowestUsedPrice is defined', () => {
 		const props = {
 			url: 'www.testing.com',
 			pricing: {
 				LowestNewPrice: {
-					FormattedPrice: '15000.00'
+					FormattedPrice: '$15000.00'
 				}
 			}
 		};
@@ -42,15 +42,17 @@ describe('<AmazonPriceCell />', () => {
 			url: 'www.testing.com',
 			pricing: {
 				LowestNewPrice: {
-					FormattedPrice: '15000.00'
+					FormattedPrice: '$15000.00',
+					amount: '15000'
 				},
 				LowestUsedPrice : {
-					FormattedPrice: '$14.00'
+					FormattedPrice: '$14.00',
+					amount: '14'
 				}
 			}
 		}
 		const wrapper = shallow(<AmazonPriceCell {...props} />);
 		const paragraph = wrapper.find('p');
-		expect(paragraph.text()).toEqual(`${props.pricing.LowestNewPrice.FormattedPrice} - ${props.pricing.LowestUsedPrice.FormattedPrice}`);
+		expect(paragraph.text()).toEqual(`${props.pricing.LowestUsedPrice.FormattedPrice}`);
 	})
 }) 

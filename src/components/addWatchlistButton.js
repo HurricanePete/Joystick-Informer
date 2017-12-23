@@ -27,7 +27,8 @@ export class AddWatchlistButton extends React.Component {
 			)
 		}
 		else {
-			const containsGame = currentWatchlist.gameIds.includes(this.props.item);
+			let containsGame = false;
+			containsGame = currentWatchlist !== null ? currentWatchlist.gameIds.includes(this.props.item) : false;
 			if(loggedIn && containsGame) {
 				return(
 					<div className="mv4">
@@ -49,7 +50,7 @@ export class AddWatchlistButton extends React.Component {
 
 const mapStateToProps = state => {
 	return{
-		loggedIn: state.auth.currentWatchlist !== null,
+		loggedIn: state.auth.currentUser !== null,
 		currentWatchlist: state.auth.currentWatchlist
 	}
 }

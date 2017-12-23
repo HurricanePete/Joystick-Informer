@@ -7,7 +7,7 @@ import {joystickReducer} from './reducers/joystick';
 import {authReducer} from './reducers/auth';
 
 import {loadAuthToken} from './local-storage';
-import {setAuthToken, refreshAuthToken} from './actions/auth';
+import {setAuthToken, refreshAuthToken, storeFromTokenLoad} from './actions/auth';
 
 const combinedReducer = combineReducers({
 	joystick: joystickReducer,
@@ -21,6 +21,7 @@ const authToken = loadAuthToken();
 if (authToken) {
     const token = authToken;
     store.dispatch(setAuthToken(token));
+    store.dispatch(storeFromTokenLoad(token));
     store.dispatch(refreshAuthToken());
 }
 

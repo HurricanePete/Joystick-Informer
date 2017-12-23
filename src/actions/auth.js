@@ -48,7 +48,7 @@ export const removeFromWatchlist = (gameId) => ({
 
 // Stores the auth token in state and localStorage, and decodes and stores
 // the user data stored in the token
-export const storeAuthInfo = (authToken, dispatch) => {
+export const storeAuthInfo = (authToken,dispatch) => {
 	const decodedToken = jwtDecode(authToken);
 	dispatch(setAuthToken(authToken));
 	dispatch(setCurrentUser(decodedToken.user));
@@ -62,6 +62,10 @@ export const storeAuthInfo = (authToken, dispatch) => {
 		.then(res => normalizeResponseErrors(res))
 		.then(res => res.json())
 		.then(watchlist => dispatch(setCurrentWatchlist(watchlist)))
+}
+
+export const storeFromTokenLoad = (authToken) => dispatch => {
+	storeAuthInfo(authToken, dispatch);
 }
 
 export const login = (username, password) => dispatch => {
