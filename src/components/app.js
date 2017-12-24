@@ -18,10 +18,10 @@ import './styles/response-grid.css';
 export class App extends React.Component{
 	componentWillReceiveProps(nextProps) {
         if (nextProps.loggedIn && !this.props.loggedIn) {
-            // When we are logged in, refresh the auth token periodically
+// refreshes the auth token periodically
             this.startPeriodicRefresh();
         } else if (!nextProps.loggedIn && this.props.loggedIn) {
-            // Stop refreshing when we log out
+// stop refreshing on log out
             this.stopPeriodicRefresh();
         }
     }

@@ -67,6 +67,7 @@ export class GameView extends React.Component {
 		const {id, name, rating, summary, cover, first_release_date} = this.state.game;
 		const platforms = this.state.platforms;
 		const current = this.state.current;
+//creates platform buttons
 		const platformTabs = platforms.map((platform, index) => 
 			<li className="dib" key={index}>
 				<button className="js-button" index={index} onClick={e => this.setCurrentConsole(e, platform)}>{platform}</button>

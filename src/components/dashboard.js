@@ -42,7 +42,6 @@ export class Dashboard extends React.Component {
 			.then(res => {
 				const watchlistObject = res.body;
 				const relatedArray = watchlistObject.splice((watchlistObject.length-5), 5);
-				console.log('line 45')
 				this.setState({
 					watchlistGames: watchlistObject,
 					relatedGames: relatedArray
@@ -65,7 +64,6 @@ export class Dashboard extends React.Component {
 		}
 		else if(nextProps.currentWatchlist !== this.props.currentWatchlist) {
 			if(nextProps.currentWatchlist.gameIds.length === 0) {
-				console.log('line 67')
 				this.setState({
 					watchlistGames: [],
 					relatedGames: []
@@ -82,7 +80,6 @@ export class Dashboard extends React.Component {
 			.then(res => {
 				const watchlistObject = res.body;
 				const relatedArray = watchlistObject.splice((watchlistObject.length-5), 5);
-				console.log('lin3 84')
 				this.setState({
 					watchlistGames: watchlistObject,
 					relatedGames: relatedArray
@@ -125,6 +122,7 @@ export class Dashboard extends React.Component {
 			return <Redirect to="/" />;
 		}
 		const string = currentUser.username;
+//hashes the username in order to create an Identicon
 		let hex = [];
 		for(let i=0; i<string.length; i++) {
 			let hexy = string[i].charCodeAt(0);

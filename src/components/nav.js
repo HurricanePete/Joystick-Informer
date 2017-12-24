@@ -10,6 +10,7 @@ export class NavigationBar extends React.Component {
 
 	render() {
 		const {loggedIn, currentUser} = this.props;
+//hashes the username in order to create an Identicon
 		if(loggedIn) {
 			const string = currentUser.username;
 			let hex = [];

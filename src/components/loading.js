@@ -2,6 +2,8 @@ import React from 'react';
 
 import './styles/loading.css';
 
+//imported loading animation
+
 export default function Loader(props) {
 	return(
 		<div className="sk-cube-grid">
