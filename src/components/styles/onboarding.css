@@ -1,0 +1,14 @@
+.onboarding img {
+	height: 250px;
+}
+
+.onboarding article {
+	display: flex;
+	justify-content: center;
+	height: 100vh;
+}
+
+.onboarding article > div {
+	width: 50%;
+	margin: 2rem;
+}

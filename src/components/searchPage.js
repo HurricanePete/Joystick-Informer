@@ -5,6 +5,7 @@ import Banner from './banner';
 import SearchBar from './searchBar';
 import ResultsDisplay from './resultsDisplay';
 import FeaturedGames from './featuredGames';
+import Onboarding from './onboarding';
 
 import {bannerToggle, searchAllGames} from '../actions/joystick';
 
@@ -29,21 +30,13 @@ export class SearchPage extends React.Component {
 
 	render() {
 		const {loggedIn, joystick} = this.props;
-		if (!joystick.banner || loggedIn) {
-			return(
-				<main className="">
-					<SearchBar searchSubmit={(values) => this.handleSearch(values)}  />
-					<ResultsDisplay displayValues={joystick.searchResults} />
-					<FeaturedGames />
-				</main>
-			)
-		}
-		
 		return(
 			<main className="">
-				<Banner toggleBanner={() => this.hideBanner()} sendToDashboard={() => this.sendToDashboard()} />
+				<SearchBar searchSubmit={(values) => this.handleSearch(values)}  />
+				<ResultsDisplay displayValues={joystick.searchResults} />
+				<Onboarding />
 			</main>
-			)
+		)
 	}
 }
 
