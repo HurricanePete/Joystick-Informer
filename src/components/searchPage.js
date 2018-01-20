@@ -1,10 +1,8 @@
 import React from 'react';
 import {connect} from 'react-redux';
 
-import Banner from './banner';
 import SearchBar from './searchBar';
 import ResultsDisplay from './resultsDisplay';
-import FeaturedGames from './featuredGames';
 import Onboarding from './onboarding';
 
 import {bannerToggle, searchAllGames} from '../actions/joystick';
@@ -29,7 +27,7 @@ export class SearchPage extends React.Component {
 	}
 
 	render() {
-		const {loggedIn, joystick} = this.props;
+		const {joystick} = this.props;
 		return(
 			<main className="">
 				<SearchBar searchSubmit={(values) => this.handleSearch(values)}  />
@@ -42,7 +40,6 @@ export class SearchPage extends React.Component {
 
 const mapStateToProps = state => {
 	return {
-		loggedIn: state.auth.currentUser !== null,
 		joystick: state.joystick
 	}
 }
