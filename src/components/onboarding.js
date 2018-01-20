@@ -9,30 +9,38 @@ export default function Onboarding(props) {
 		<section className="onboarding">
 			<article>
 				<div>
-					<h1>Find your next great game.</h1>
-					<h1>Personalized recommendations based on your tastes.</h1>
+					<h2>Find your next great game.</h2>
+					<h2>Personalized recommendations based on your tastes.</h2>
 					<p>Joystick Informer is an application for gamers who are looking for their next adventure.</p>
 				</div>
-				<img src={Demo} />
+				<figure>
+					<img src={Demo} />
+				</figure>
 			</article>
 			<article>
-				<img src={Demo} />
+				<figure>
+					<img src={Demo} />
+				</figure>
 				<div>
-					<h1>Search</h1>
+					<h2>Search</h2>
 					<p>Find a game to start the action. Select a game to view details, related games, and pricing.</p>
 				</div>
 			</article>
 			<article>
 				<div>
-					<h1>Add</h1>
+					<h2>Add</h2>
 					<p>Create an account to start adding games to your watchlist. This will create a list of recommended games; which can be viewd in your dashboard.</p>
 				</div>
-				<img src={Demo} />
+				<figure>
+					<img src={Demo} />
+				</figure>
 			</article>
 			<article>
-				<img src={Demo} />
+				<figure>
+					<img src={Demo} />
+				</figure>
 				<div>
-					<h1>Personlize</h1>
+					<h2>Personlize</h2>
 					<p>Add or remove games from your watchlist to further personalize your recommendations and hone in your next great game. Happy hunting!</p>
 				</div>
 			</article>

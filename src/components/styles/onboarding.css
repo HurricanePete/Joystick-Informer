@@ -1,14 +1,27 @@
+section.onboarding {
+	margin: 0 3rem;
+}
+
+.onboarding figure {
+	text-align: center;
+	width: 66.666%;
+}
+
 .onboarding img {
-	height: 250px;
+	height: 100%;
 }
 
 .onboarding article {
 	display: flex;
 	justify-content: center;
-	height: 100vh;
+	padding: 5rem 0;
 }
 
 .onboarding article > div {
-	width: 50%;
+	width: 33.333%;
 	margin: 2rem;
+}
+
+.onboarding p {
+	padding: 0;
 }
