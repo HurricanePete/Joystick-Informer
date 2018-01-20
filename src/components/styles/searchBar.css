@@ -42,7 +42,7 @@ form.search-bar {
 div.search-row {
 	height: 100vh;
 	margin-top: 2rem;
-	padding-top: 10rem;
+	padding-top: 6rem;
 }
 
 @media only screen and (min-width: 1000px) {

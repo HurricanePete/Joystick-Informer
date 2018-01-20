@@ -2,6 +2,8 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {Field, reduxForm} from 'redux-form';
 
+import Logo from './static-photos/joystick.png';
+
 import './styles/searchBar.css';
 
 export class SearchBar extends React.Component {
@@ -19,6 +21,7 @@ export class SearchBar extends React.Component {
 		return(
 			<div className="search-row row">
 				<header className="tc">
+					<img alt="logo" src={Logo} />
 					<h1>Joystick Informer</h1>
 				</header>
 				<form className="search-bar" onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>

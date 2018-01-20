@@ -18,17 +18,17 @@ describe('<SearchPage />', () => {
 		}
 		shallow(<SearchPage {...props} />);
 	});
-	it('Should render the Banner', () => {
-		const props = {
-			joystick: {
-				banner: true
-			},
-			loggedIn: false
-		}
-		const wrapper = shallow(<SearchPage {...props} />);
-		const banner = wrapper.find(Banner);
-		expect(banner.length).toEqual(1);
-	});
+	// it('Should render the Banner', () => {
+	// 	const props = {
+	// 		joystick: {
+	// 			banner: true
+	// 		},
+	// 		loggedIn: false
+	// 	}
+	// 	const wrapper = shallow(<SearchPage {...props} />);
+	// 	const banner = wrapper.find(Banner);
+	// 	expect(banner.length).toEqual(1);
+	// });
 	it('Should render SearchBar, ResultsDisplay, and FeaturedGames', () => {
 		const props = {
 			joystick: {
