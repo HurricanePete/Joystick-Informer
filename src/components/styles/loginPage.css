@@ -1,0 +1,46 @@
+div.form-wrapper {
+	text-align: center;
+	margin: 0 auto;
+}
+
+div.login-signup {
+	text-align: center;
+	margin: 0 auto;
+}
+
+button.js-button {
+	padding: .5rem 3rem;
+	border: 3px solid #023960;
+	background-color: #023960;
+	color: white;
+	font-weight: 600;
+	transition-property: background-color, color;
+	transition-duration: .5s;
+}
+
+button.js-button:hover {
+	background-color: white;
+	color: #023960;
+}
+
+article.form-article {
+	margin: 0 auto;
+	padding: 1rem 2rem;
+	width: 100%;
+}
+
+article.form-article h2 {
+	color: #023960;
+	font-size: 1.75rem;
+}
+
+div.login-signup a {
+	display: block;
+}
+
+@media only screen and (min-width: 1000px) {
+	article.form-article {
+		width: 460px;
+		border: 1px solid #023960;
+	}
+}

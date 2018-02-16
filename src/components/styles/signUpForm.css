@@ -1,19 +1,14 @@
 form.signup-form {
 	background-color: white;
 	color: #023960;
-	border: 2px solid #023960;
 	margin: 0 auto;
-	padding: 1rem 0.5rem;
 	text-align: center;
 	line-height: 1.5rem;
 	font-weight: 600;
 }
 
-button.submit-button {
-	margin: 1rem;
-}
-
 form.signup-form input {
+	width: 100%;
 	border: 2px solid #023960; 
 	padding: .5rem 1rem;
 	line-height: 1.5rem;

@@ -23,11 +23,11 @@ export class LoginForm extends React.Component {
 	render() {
 		const {error} = this.state;
 		return(
-			<div className="form-wrapper col-6 ph3 ph5-ns tc pv4 clear-float">
+			<div className="form-wrapper tc clear-float">
 				{error !== null ? <div className="bg-washed-red ma2"><p className="dark-red">{error}</p></div> : null }
 				<form className="login-form" onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
-					<Field name="username" label="Username" id="username" type="text" component={formInput} />
-					<Field name="password" label="Password" id="password" type="password" component={formInput} />
+					<Field name="username" placeholder="Username" id="username" type="text" component={formInput} />
+					<Field name="password" placeholder="Password" id="password" type="password" component={formInput} />
 					<button className="submit-button js-button" type="submit" disabled={this.props.submitting}>Log in</button>
 				</form>
 			</div>

@@ -27,12 +27,12 @@ export class SignupForm extends React.Component {
 	render() {
 		const {error} = this.state
 		return(
-			<div className={"form-wrapper mb4 col-6 clear-float " + (this.props.banner === true ? "col-8" : "col-6")}>
+			<div className="form-wrapper mb4 clear-float">
 				{error !== null ? <div className="error-wrapper bg-washed-red ma2"><p className="dark-red">{error}</p></div> : null}
 				<form className="signup-form" onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
-					<Field name="email" label="Email" type="email" placeholder="you@example.com" component={formInput} validate={[required, nonEmpty, email]}/>
-					<Field name="username" label="Username" type="text" placeholder="Pick a username" component={formInput} validate={[required, nonEmpty, noSpaces, lengthy({max: 72})]} />
-					<Field name="password" label="Password" type="password" placeholder="Create a password" component={formInput} validate={[required, nonEmpty, lengthy({min: 6}), lengthy({max: 72})]} />
+					<Field name="email" type="email" placeholder="Email" component={formInput} validate={[required, nonEmpty, email]}/>
+					<Field name="username" type="text" placeholder="Pick a username" component={formInput} validate={[required, nonEmpty, noSpaces, lengthy({max: 72})]} />
+					<Field name="password" type="password" placeholder="Create a password" component={formInput} validate={[required, nonEmpty, lengthy({min: 6}), lengthy({max: 72})]} />
 					<button className="submit-button js-button" type="submit" disabled={this.props.pristine || this.props.submitting}>Sign Up</button>
 				</form>
 			</div>
