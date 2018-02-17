@@ -8,7 +8,7 @@ footer {
 	background-position-x: center;
 	background-position-y: top; 
 	background-repeat: no-repeat;
-	min-height: 15rem;
+	min-height: 12rem;
 }
 
 footer div {
@@ -32,16 +32,21 @@ footer a {
 	text-decoration: underline;
 }
 
-footer a:hover {
-	color: #ffe6b3;
-	cursor: pointer;
-	font-size: 125%;
+.footer-link {
+	display: inline-block;
+	margin: 0.5rem;
+	width: auto;
 }
 
-footer a:visited {
+.link-hover {
+	color: white;
+	padding: 1px 5px;
+	transition: all 0.25s ease-in-out 0s;
 }
 
-p {
-	margin: 0 auto;
-	padding: 1rem;
+.link-hover:hover {
+	transform: scale(1.1);
+	background: white;
+	color: #023960;
+	border-radius: 5px;
 }

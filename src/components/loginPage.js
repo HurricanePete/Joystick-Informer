@@ -16,7 +16,7 @@ export class LoginPage extends React.Component {
 				<section className="login-wrapper">
 						<article className="form-article clear-float">	
 								<header>
-									<h2>Log in to Joystick Informer</h2>
+									<h2>Log In</h2>
 								</header>
 								<LoginForm />
 								<hr className="w-100" />
