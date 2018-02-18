@@ -1,17 +1,23 @@
 article.banner {
-	background-color: #023960;
 	margin-top: 46px;
-	border: 2px solid #023960;
-	color: white;
+	color: #023960;
 	line-height: 1.5rem;
+}
+
+section.demo {
+	padding: 1rem;
+}
+
+section.demo div.form-wrapper {
+	max-width: 460px;
 }
 
 div.skip {
 	margin-top: 2rem;
 }
 
-@media only screen and (max-width: 1000px) {
-	article.banner {
-		padding: 2rem 1rem;
+@media only screen and (min-width: 1000px) {
+	section.demo {
+		border: 1px solid #023960;
 	}
 }

@@ -19,9 +19,11 @@ export default class Banner extends React.Component {
 					<h1 className="fw6 f3 f2-ns lh-title mv4">Welcome to Joystick Informer</h1>
 					<h2 className="fw2 f4 lh-copy mt2 mb3">This is a place to find, compare, favorite, and buy console games. Search by title, view tags, and keep up to date with new and old titles.</h2>
 				</header>
-				<p className="f5 mt0 mb3 b">Complete the form below to sign up for a free account, or just jump right in by pressing the <span className="ba b--white pa1 nowrap">Let's Get Started</span> button at the bottom of the page.</p>
-				<p className="f5 mt0 b">Feel free to use a provided demo account as well: <span className="db fw2">Username: JoystickTest</span><span className="db fw2"> Password: JoystickPassword</span></p>
-				<SignUpForm banner={true} />
+				<section className="demo">
+					<p className="f5 mt0 mb3 b">Complete the form below to sign up for a free account, or just jump right in by pressing the <span className="ba b--white pa1 nowrap">Let's Get Started</span> button at the bottom of the page.</p>
+					<p className="f5 mt0 b">Feel free to use a provided demo account as well: <span className="db fw2">Username: JoystickTest</span><span className="db fw2"> Password: JoystickPassword</span></p>
+					<SignUpForm banner={true} />
+				</section>
 				<div className="skip">
 					<button className="f6 js-button ba grow dib" onClick={e => this.toggleBanner(e)}>Let's Get Started</button>
 				</div>
