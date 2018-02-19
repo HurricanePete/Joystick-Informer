@@ -16,7 +16,7 @@ export default class ResultsDisplay extends React.Component {
 			return(
 				<section className="results-wrapper">
 					<div className="results-display row pb5">
-						<h4 className="tl pl6">Sorry, no results matched your search</h4>
+						<h4 className="tl">Sorry, no results matched your search</h4>
 					</div>
 				</section>
 			);
@@ -25,7 +25,6 @@ export default class ResultsDisplay extends React.Component {
 			return(
 				<section className="results-wrapper">
 					<div className="results-display row pb5">
-						<h4 className="tl pl6">{resultCount === 1 ? `Only ${resultCount} result found` : `${resultCount} results found`}</h4>
 						{tiles}
 					</div>
 				</section>

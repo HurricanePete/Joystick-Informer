@@ -16,10 +16,10 @@ input.search::placeholder {
 button.submit {
 	background-color: #023960;
 	margin-left: 0px;
-	margin-top: 1rem;
+	margin-top: 0.25rem;
 	padding: 0.5rem 3rem;
 	height: 50px;
-	min-width: 4rem;
+	width: 100%;
 	vertical-align: bottom;
 	font-weight: bold;
 	color: white;
@@ -33,23 +33,14 @@ button.submit:hover {
 	border: 2px solid #023960;
 }
 
-form.search-bar {
-	margin: 0 auto;
-	text-align: center;
-	padding: 1%;
-}
-
-div.search-row {
-	margin-top: 2rem;
-}
-
 @media only screen and (min-width: 1000px) {
 	button.submit {
 		margin-top: 0px;
 		margin-left: 5px;
+		width: 10rem;
 	}
 
 	div.search-row {
-		margin-top: 0rem;
+		padding-left: 8rem;
 	}
 }

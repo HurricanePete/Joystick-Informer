@@ -1,18 +1,9 @@
 div.tile {
-	text-align: center;
-	padding: 1.5rem;
 	color: #09359B;
-	border-bottom: 2px solid #09359B;
-	transition-property: color background-color;
-	transition-duration: .5s;
-	margin: 0 auto;
+	padding: 1rem 0;
 	float: none;
 }
 
-div.tile:hover {
-	background-color: #ffe6b3;
-	color: white;
-}
 
 dd {
 	margin: 15px auto;
@@ -25,13 +16,13 @@ dd:first-of-type {
 
 dl {
 	display: inline-block;
-	width: 60%;
+	width: 70%;
 	vertical-align: top;
 }
 
 span.props {
+	padding-left: 1rem;
 	font-size: 22px;
-	vertical-align: top;
 }
 
 img.cover-photo {
@@ -56,4 +47,10 @@ i.fa-minus-circle:hover, i.fa-plus-circle:hover {
 
 .hidden {
 	display: none;
+}
+
+@media only screen and (min-width: 1000px) {
+	div.tile {
+		padding: 1rem 0 1rem 8rem;
+	}
 }

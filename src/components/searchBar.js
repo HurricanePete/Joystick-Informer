@@ -16,13 +16,14 @@ export class SearchBar extends React.Component {
 	}
 
 	render(){
+		const {noSearchResults} = this.props;
 		return(
-			<div className="search-row row pb4">
-				<header className="tc">
+			<div className={"search-row row " + (noSearchResults ? "tc" : null)}>
+				<header>
 					<h1>Joystick Informer</h1>
 				</header>
 				<form className="search-bar" onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
-					<Field className="search col-4 clear-float" name="search" type="search" placeholder="Search for games" component="input" />
+					<Field className="search col-6 clear-float" name="search" type="search" placeholder="Search for games" component="input" />
 					<button className="submit" type="submit">Search</button>
 				</form>
 			</div>
@@ -30,8 +31,14 @@ export class SearchBar extends React.Component {
 	}
 }
 
+const mapStateToProps = state => {
+	return {
+		noSearchResults: state.joystick.searchResults === null 
+	}
+}
+
 SearchBar = reduxForm({
 	form: 'search'
 })(SearchBar)
 
-export default connect()(SearchBar);
+export default connect(mapStateToProps)(SearchBar);
