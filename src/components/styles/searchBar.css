@@ -1,12 +1,18 @@
+form.search-bar {
+	width: 100%;
+}
+
 input.search {
 	background-color: white;
 	color: black;
-	min-width: 12rem;
+	margin: 0 auto;
+	width: 85%;
 	height: 50px;
 	padding-left: 1rem;
 	font-size: 18px;
 	border: none;
-	border: 3px solid #023960;
+	border: 1px solid #023960;
+	border-right: none;
 }
 
 input.search::placeholder {
@@ -14,33 +20,29 @@ input.search::placeholder {
 }
 
 button.submit {
-	background-color: #023960;
-	margin-left: 0px;
-	margin-top: 0.25rem;
-	padding: 0.5rem 3rem;
+	background-color: white;
+	border: 1px solid #023960;
+	border-left: none;
 	height: 50px;
-	width: 100%;
+	width: 15%;
+	max-width: 4rem;
 	vertical-align: bottom;
 	font-weight: bold;
-	color: white;
-	transition-property: color, background-color, border;
-	transition-duration: .5s;
+	color: #023960;
+	transition: all 0.25s ease-in-out;
 }
 
 button.submit:hover {
-	background-color: white;
-	color: #023960;
-	border: 2px solid #023960;
+	background-color: #023960;
+	color: white;
 }
 
 @media only screen and (min-width: 1000px) {
-	button.submit {
-		margin-top: 0px;
-		margin-left: 5px;
-		width: 10rem;
+	form.search-bar {
+		width: 50%;
 	}
 
-	div.search-row {
+	div.result-padding {
 		padding-left: 8rem;
 	}
 }

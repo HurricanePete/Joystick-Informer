@@ -18,13 +18,13 @@ export class SearchBar extends React.Component {
 	render(){
 		const {noSearchResults} = this.props;
 		return(
-			<div className={"search-row row " + (noSearchResults ? "tc" : null)}>
+			<div className={"search-row row " + (noSearchResults ? "tc" : "result-padding")}>
 				<header>
 					<h1>Joystick Informer</h1>
 				</header>
-				<form className="search-bar" onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
-					<Field className="search col-6 clear-float" name="search" type="search" placeholder="Search for games" component="input" />
-					<button className="submit" type="submit">Search</button>
+				<form className={"search-bar clear-float pa0 " + (noSearchResults ? "center" : null)} onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
+					<Field className="search" name="search" type="search" placeholder="Search for games" component="input" />
+					<button className="submit" type="submit"><i className="fas fa-search"></i></button>
 				</form>
 			</div>
 		);

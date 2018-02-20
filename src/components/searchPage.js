@@ -4,7 +4,6 @@ import {connect} from 'react-redux';
 import Banner from './banner';
 import SearchBar from './searchBar';
 import ResultsDisplay from './resultsDisplay';
-import FeaturedGames from './featuredGames';
 
 import {bannerToggle, searchAllGames} from '../actions/joystick';
 
@@ -34,7 +33,6 @@ export class SearchPage extends React.Component {
 				<main>
 					<SearchBar searchSubmit={(values) => this.handleSearch(values)}  />
 					<ResultsDisplay displayValues={joystick.searchResults} />
-					<FeaturedGames />
 				</main>
 			)
 		}
