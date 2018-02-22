@@ -1,7 +1,20 @@
 div.tile {
-	color: #09359B;
+	color: black;
 	padding: 1rem 0;
 	float: none;
+}
+
+div.tile:hover {
+	background-color: lightgrey;
+}
+
+div.tile h2 {
+	color: #09359B;
+	transition: all 0s ease-in-out;
+}
+
+div.tile h2:hover {
+	text-decoration: underline;
 }
 
 
@@ -12,6 +25,10 @@ dd {
 dd:first-of-type {
 	font-size: 22px;
 	font-weight: bold;
+}
+
+dd > i {
+	color: #09359B;
 }
 
 dl {
@@ -51,6 +68,7 @@ i.fa-minus-circle:hover, i.fa-plus-circle:hover {
 
 @media only screen and (min-width: 1000px) {
 	div.tile {
-		padding: 1rem 0 1rem 8rem;
+		padding: 1rem 0 1rem 1rem;
+		margin-left: 7rem;
 	}
 }

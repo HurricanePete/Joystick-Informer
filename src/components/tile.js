@@ -29,10 +29,9 @@ export class Tile extends React.Component {
 				<Link to={`/gameview/${id}`}>
 					<div className="tile col-8 center dashboard-list">
 						<div className="dib w-75" title={name}>
-							<img className="cover-photo" alt={name} src={cover === undefined ? demo : `https://images.igdb.com/igdb/image/upload/t_cover_small/${cover.cloudinary_id}.jpg`} />
-							<dl>
-								<dt className="hidden">Title</dt>
-								<dd>{name}</dd>
+							<h2>{name}</h2>
+							<img className="cover-photo dib" alt={name} src={cover === undefined ? demo : `https://images.igdb.com/igdb/image/upload/t_cover_small/${cover.cloudinary_id}.jpg`} />
+							<dl className="dib">
 								<dt className="hidden">Rating</dt>
 								<dd>Avg. Rating: <span className="props db">{rating === undefined ? 'Unavailable' : parseInt(rating, 10) + ' /100'}</span></dd>
 							</dl>
@@ -47,10 +46,9 @@ export class Tile extends React.Component {
 				<Link to={`/gameview/${id}`}>
 					<div className="tile col-8 center dashboard-list">
 						<div className="dib w-75" title={name}>
-							<img className="cover-photo" alt={name} src={cover === undefined ? demo : `https://images.igdb.com/igdb/image/upload/t_cover_small/${cover.cloudinary_id}.jpg`} />
-							<dl>
-								<dt className="hidden">Title</dt>
-								<dd>{name}</dd>
+							<h2>{name}</h2>
+							<img className="cover-photo dib" alt={name} src={cover === undefined ? demo : `https://images.igdb.com/igdb/image/upload/t_cover_small/${cover.cloudinary_id}.jpg`} />
+							<dl className="dib">
 								<dt className="hidden">Rating</dt>
 								<dd>Avg. Rating: <span className="props db">{rating === undefined ? 'Unavailable' : parseInt(rating, 10) + ' /100'}</span></dd>
 							</dl>
@@ -64,12 +62,13 @@ export class Tile extends React.Component {
 			<Link to={`/gameview/${id}`}>
 				<div className="tile col-8">
 					<div className="" title={name}>
-						<img className="cover-photo" alt={name} src={cover === undefined ? demo : `https://images.igdb.com/igdb/image/upload/t_cover_small/${cover.cloudinary_id}.jpg`} />
-						<dl className="pl3 ma0">
-							<dt className="hidden">Title</dt>
-							<dd>{name}</dd>
-							<dt className="hidden">Rating</dt>
+						<h2>{name}</h2>
+						<img className="cover-photo dib" alt={name} src={cover === undefined ? demo : `https://images.igdb.com/igdb/image/upload/t_cover_small/${cover.cloudinary_id}.jpg`} />
+						<dl className="pl3 ma0 dib">
+							<dt className="hidden">Release Date</dt>
 							<dd><i className="fas fa-calendar-alt fa-lg"></i><span className="props">{first_release_date === undefined ? 'Unavailable' : release.getFullYear()}</span></dd>
+							<dt className="hidden">Tags</dt>
+							<dd><i className="fas fa-tags fa-lg"></i></dd>
 						</dl>
 					</div>
 				</div>
