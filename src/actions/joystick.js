@@ -55,6 +55,12 @@ export const searchAllGames = searchTerm => (dispatch) => {
 		    {
 		        "id": 77343,
 		        "name": "Halo 4: King of the Hill Fueled by Mountain Dew",
+		        "genres": [
+		            {
+		                "id": 5,
+		                "name": "Shooter"
+		            }
+		        ],
 		        "cover": {
 		            "url": "//images.igdb.com/igdb/image/upload/t_thumb/edjepyopottardv28dac.jpg",
 		            "cloudinary_id": "edjepyopottardv28dac",
@@ -65,6 +71,16 @@ export const searchAllGames = searchTerm => (dispatch) => {
 		    {
 		        "id": 45149,
 		        "name": "Halo 2: Limited Collector's Edition",
+		        "genres": [
+		            {
+		                "id": 5,
+		                "name": "Shooter"
+		            },
+		            {
+		                "id": 31,
+		                "name": "Adventure"
+		            }
+		        ],
 		        "first_release_date": 1099958400000,
 		        "cover": {
 		            "url": "//images.igdb.com/igdb/image/upload/t_thumb/uhhuqhzf83n2vfvun1im.jpg",
@@ -76,6 +92,12 @@ export const searchAllGames = searchTerm => (dispatch) => {
 		    {
 		        "id": 3122,
 		        "name": "Halo 2: Multiplayer Map Pack",
+		        "genres": [
+		            {
+		                "id": 5,
+		                "name": "Shooter"
+		            }
+		        ],
 		        "first_release_date": 1120521600000,
 		        "cover": {
 		            "url": "//images.igdb.com/igdb/image/upload/t_thumb/w5at3fcni81epyeltrsi.jpg",
@@ -87,6 +109,12 @@ export const searchAllGames = searchTerm => (dispatch) => {
 		    {
 		        "id": 45144,
 		        "name": "Halo 5: Guardians Limited Collector's Edition",
+		        "genres": [
+		            {
+		                "id": 5,
+		                "name": "Shooter"
+		            }
+		        ],
 		        "first_release_date": 1445904000000,
 		        "cover": {
 		            "url": "//images.igdb.com/igdb/image/upload/t_thumb/o4wnorswvjimtcjy3vc8.jpg",
@@ -98,6 +126,12 @@ export const searchAllGames = searchTerm => (dispatch) => {
 		    {
 		        "id": 45145,
 		        "name": "Halo 5: Guardians Limited Edition",
+		        "genres": [
+		            {
+		                "id": 5,
+		                "name": "Shooter"
+		            }
+		        ],
 		        "first_release_date": 1445904000000,
 		        "cover": {
 		            "url": "//images.igdb.com/igdb/image/upload/t_thumb/i0sfkpv9jhwayvjbiwju.jpg",
@@ -109,6 +143,12 @@ export const searchAllGames = searchTerm => (dispatch) => {
 		    {
 		        "id": 45146,
 		        "name": "Halo: Reach Limited Edition",
+		        "genres": [
+		            {
+		                "id": 5,
+		                "name": "Shooter"
+		            }
+		        ],
 		        "first_release_date": 1287014400000,
 		        "cover": {
 		            "url": "//images.igdb.com/igdb/image/upload/t_thumb/ojgz9g1bo9tk1h5k2uod.jpg",
@@ -120,6 +160,28 @@ export const searchAllGames = searchTerm => (dispatch) => {
 		    {
 		        "id": 43954,
 		        "name": "Halo: Reach Legendary Edition",
+		        "genres": [
+		            {
+		                "id": 5,
+		                "name": "Shooter"
+		            },
+		             {
+		                "id": 5,
+		                "name": "Shooter"
+		            },
+		             {
+		                "id": 5,
+		                "name": "Shooter"
+		            },
+		             {
+		                "id": 5,
+		                "name": "Shooter"
+		            },
+		             {
+		                "id": 5,
+		                "name": "Shooter"
+		            }
+		        ],
 		        "first_release_date": 1284422400000,
 		        "cover": {
 		            "url": "//images.igdb.com/igdb/image/upload/t_thumb/rmrjw7mc1ud4qcugqgnc.jpg",
@@ -131,6 +193,12 @@ export const searchAllGames = searchTerm => (dispatch) => {
 		    {
 		        "id": 45148,
 		        "name": "Halo 4: Limited Edition",
+		        "genres": [
+		            {
+		                "id": 5,
+		                "name": "Shooter"
+		            }
+		        ],
 		        "first_release_date": 1352160000000,
 		        "cover": {
 		            "url": "//images.igdb.com/igdb/image/upload/t_thumb/seizoi6iwekcw8b0wlmc.jpg",
@@ -153,6 +221,12 @@ export const searchAllGames = searchTerm => (dispatch) => {
 		    {
 		        "id": 43955,
 		        "name": "Halo 3: Legendary Edition",
+		        "genres": [
+		            {
+		                "id": 5,
+		                "name": "Shooter"
+		            }
+		        ],
 		        "first_release_date": 1190678400000,
 		        "cover": {
 		            "url": "//images.igdb.com/igdb/image/upload/t_thumb/jclndhmhrrdu3b9qpday.jpg",

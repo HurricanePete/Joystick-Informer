@@ -2,6 +2,8 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
 
+import Description from './description';
+
 import {addToWatchlist, sendUpdatedWatchlist} from '../actions/auth';
 
 import './styles/tile.css';
@@ -22,8 +24,7 @@ export class Tile extends React.Component {
 	}
 
 	render() {
-		const {id, name, first_release_date, rating, cover, index, location} = this.props;
-		const release = new Date(first_release_date);
+		const {id, name, first_release_date, rating, cover, genres, index, location} = this.props;
 		if(location === "watchlist") {
 			return (
 				<Link to={`/gameview/${id}`}>
@@ -31,10 +32,7 @@ export class Tile extends React.Component {
 						<div className="dib w-75" title={name}>
 							<h2>{name}</h2>
 							<img className="cover-photo dib" alt={name} src={cover === undefined ? demo : `https://images.igdb.com/igdb/image/upload/t_cover_small/${cover.cloudinary_id}.jpg`} />
-							<dl className="dib">
-								<dt className="hidden">Rating</dt>
-								<dd>Avg. Rating: <span className="props db">{rating === undefined ? 'Unavailable' : parseInt(rating, 10) + ' /100'}</span></dd>
-							</dl>
+							<Description {...this.props}  />
 						</div>
 						<i className="fas fa-minus-circle red fa-3x" title="Remove from Watchlist" onClick={e => this.watchlistRemove(e, index)}></i>
 					</div>
@@ -48,32 +46,26 @@ export class Tile extends React.Component {
 						<div className="dib w-75" title={name}>
 							<h2>{name}</h2>
 							<img className="cover-photo dib" alt={name} src={cover === undefined ? demo : `https://images.igdb.com/igdb/image/upload/t_cover_small/${cover.cloudinary_id}.jpg`} />
-							<dl className="dib">
-								<dt className="hidden">Rating</dt>
-								<dd>Avg. Rating: <span className="props db">{rating === undefined ? 'Unavailable' : parseInt(rating, 10) + ' /100'}</span></dd>
-							</dl>
+							<Description {...this.props}  />
 						</div>
 						<i className="fas fa-plus-circle green fa-3x" title="Add to Watchlist" onClick={e => this.watchlistAdd(e, id)}></i>
 					</div>
 				</Link>
 			);	
 		}
-		return (
-			<Link to={`/gameview/${id}`}>
-				<div className="tile col-8">
-					<div className="" title={name}>
-						<h2>{name}</h2>
-						<img className="cover-photo dib" alt={name} src={cover === undefined ? demo : `https://images.igdb.com/igdb/image/upload/t_cover_small/${cover.cloudinary_id}.jpg`} />
-						<dl className="pl3 ma0 dib">
-							<dt className="hidden">Release Date</dt>
-							<dd><i className="fas fa-calendar-alt fa-lg"></i><span className="props">{first_release_date === undefined ? 'Unavailable' : release.getFullYear()}</span></dd>
-							<dt className="hidden">Tags</dt>
-							<dd><i className="fas fa-tags fa-lg"></i></dd>
-						</dl>
+		else {
+			return (
+				<Link to={`/gameview/${id}`}>
+					<div className="tile col-8">
+						<div className="" title={name}>
+							<h2>{name}</h2>
+							<img className="cover-photo dib" alt={name} src={cover === undefined ? demo : `https://images.igdb.com/igdb/image/upload/t_cover_small/${cover.cloudinary_id}.jpg`} />
+							<Description {...this.props}  />
+						</div>
 					</div>
-				</div>
-			</Link>
-		);
+				</Link>
+			);
+		}
 	}
 }
 
