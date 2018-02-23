@@ -4,7 +4,7 @@ import './styles/footer.css';
 export default function FooterBar(props) {
 	return (
 		<footer className="col-12">
-			<div className="col-3 tc clear-float center pt2 white">
+			<div className="col-3 tc clear-float center pv3 white">
 				<a href="http://zaksavagepete.me/" target="_blank" rel="noopener noreferrer"><p className="link-hover">Created by Zachary Pete</p></a>
 			<ul className="footer-list">
 				<li className="footer-link">

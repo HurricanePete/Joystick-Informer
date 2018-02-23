@@ -6,30 +6,49 @@ footer {
 	background-image: url("../static-photos/background-edits.png");
 	background-color: #023960;
 	background-position-x: center;
-	background-position-y: top; 
+	background-position-y: -65px, top; 
 	background-repeat: no-repeat;
-	min-height: 12rem;
+	min-height: 9rem;
 }
 
 footer div {
 	font-size: 16px;
 }
 
+footer div>a {
+	color: white;
+	font-weight: 600;
+	text-decoration: none;
+	transition: all 0.25s ease-out;
+}
+
+footer div>a:hover{
+	text-decoration: underline;
+	color: #023960;
+}
+
 footer ul {
 	padding: 0;
-	margin-top: 0;
+	margin: 0;
 }
 
 footer li {
 	margin: 0rem 1rem;
 }
 
-footer a {
+footer p>a {
 	color: white;
 	font-weight: 600;
-	transition: color, font-size;
-	transition-duration: 0.5s;
+	transition: all 0.25s ease-in-out 0s;
+}
+
+footer p>a:hover {
 	text-decoration: underline;
+}
+
+footer p {
+	margin: 0.25rem 0;
+	color: white;
 }
 
 .footer-link {
